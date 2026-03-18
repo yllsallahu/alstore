@@ -8,37 +8,45 @@
         <title>Al Store</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><img src="/alstoreeee-removebg-preview.png" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Kryefaqja</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">Rreth Nesh</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Kontakti</a></li>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projektet</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Projektet jashtë vendit</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Bashkpuntorët</a></li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+        <header class="site-header">
+            <div class="top-bar">
+                <div class="section-shell top-bar__inner">
+                    <a class="top-bar__link" href="mailto:everest.kllokot@outlook.com">everest.kllokot@outlook.com</a>
+                    <div class="top-bar__group">
+                        <a class="top-bar__link" href="tel:+38344177351">+383 44 177 351</a>
+                        <span class="top-bar__divider" aria-hidden="true"></span>
+                        <span class="top-bar__text">Magjistralja Gjilan-Ferizaj, Radivojc</span>
                     </div>
                 </div>
-            </nav>
+            </div>
+            <div class="nav-wrap">
+                <div class="section-shell site-nav">
+                    <a class="site-brand" href="index.html" aria-label="Al Store home">
+                        <img class="site-brand__logo" src="images/alstoreeee-removebg-preview.png" alt="Al Store logo" />
+                    </a>
+                    <nav class="site-menu" aria-label="Primary navigation">
+                        <a class="site-menu__link" href="index.html">Kryefaqja</a>
+                        <a class="site-menu__link" href="about.html">Rreth Nesh</a>
+                        <a class="site-menu__link" href="portfolio-item.html">Projektet</a>
+                        <a class="site-menu__link" href="portfolio-overview.html">Bashkëpunëtorët</a>
+                        <a class="site-menu__link" href="contact.html">Kontakti</a>
+                        <a class="site-menu__link site-menu__link--catalog" href="everest.pdf" target="_blank" rel="noopener noreferrer">Katalogu <i class="hgi hgi-stroke hgi-download-01" aria-hidden="true"></i></a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="flex-shrink-0">
             <!-- Page Content-->
             <section class="py-5">
                 <div class="container px-5 my-5">
@@ -51,68 +59,71 @@
                         </div>
                     </div>
                     <div class="row gx-5">
-                        <div class="col-12"><img class="img-fluid rounded-3 mb-5" src="/drila.jpg" alt="..." /></div>
-                        <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5" src="/Blinori.jpg" alt="..." /></div>
-                        <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5" src="/fatoni.jpg" alt="..." /></div>
+                        <div class="col-12"><img class="img-fluid rounded-3 mb-5" src="images/drila.jpg" alt="..." /></div>
+                        <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5" src="images/Blinori.jpg" alt="..." /></div>
+                        <div class="col-lg-6"><img class="img-fluid rounded-3 mb-5" src="images/fatoni.jpg" alt="..." /></div>
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-6">
                             <div class="text-center mb-5">
                                 <p class="lead fw-normal text-muted">Fotografitë tregojnë rrugën e gjatë dhe sfidat që ka përjetuar kompanija jone gjatë udhëtimit të tij nëpër rrugët dhe kufijtë. Në secilën pamje, mund të shihni kontributin dhe ndikimin e tij në mjediset e reja dhe situatat ndërkombëtare. </p>
-                               
-
-                                   
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col">
-                        <h4>Kompania</h4>
-                        <ul>
-                            <li><a href="about.html">Rreth Nesh</a></li>
-                            <li><a href="#">privacy policy</a></li>
-                            <li><a href="portfolio-item.html">Galeria</a></li>
-                        </ul>
+        <footer class="site-footer">
+            <div class="site-footer__cta">
+                <div class="section-shell site-footer__cta-inner">
+                    <div class="site-footer__cta-copy">
+                        <p class="site-footer__eyebrow">Al Store</p>
+                        <h2 class="site-footer__title">Le t'i japim projektit tuaj një zgjidhje të saktë në alumin dhe PVC.</h2>
                     </div>
-                    <div class="footer-col">
-                        <h4>Adresa</h4>
-                        <ul>
-                            
-                            <li><a href="#">Magjistralja Gjilan-Ferizaj, Radivojc</a></li>
-                            <li><a href="#">Rr. Isa Boletini, 61000 </a></li>
-                        
-                           
-                           
-                           
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Kontakti</h4>
-                        <ul>
-                        
-                        <li>everest.kllokot@outlook.com</li>
-                        <li>(+383) 044 177 351</li>
-                        <li>(+383) 049 177 351</li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Rrjetet Sociale</h4>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/people/Al-Store/61555142765971/"><i class="fab fa-facebook-f"></i></a>
-                            
-                            <a href="https://www.instagram.com/alstore_ks/"><i class="fab fa-instagram"></i></a>
-                            
-                        </div>
-                    </div>
+                    <a class="button button--primary site-footer__button" href="contact.html">Kërko ofertë</a>
                 </div>
             </div>
-       </footer>
+            <div class="section-shell site-footer__main">
+                <div class="site-footer__brand">
+                    <a class="site-footer__brand-link" href="index.html" aria-label="Al Store home">
+                        <img class="site-footer__logo" src="images/alstoreeee-removebg-preview.png" alt="Al Store logo" />
+                    </a>
+                    <p class="site-footer__description">Sisteme alumini dhe PVC për fasada, dritare, dyer dhe projekte që kërkojnë estetikë industriale dhe qëndrueshmëri afatgjatë.</p>
+                </div>
+                <div class="site-footer__column">
+                    <p class="site-footer__heading">Navigimi</p>
+                    <a class="site-footer__link" href="index.html">Kryefaqja</a>
+                    <a class="site-footer__link" href="about.html">Rreth Nesh</a>
+                    <a class="site-footer__link" href="portfolio-item.html">Projektet</a>
+                    <a class="site-footer__link" href="portfolio-overview.html">Bashkëpunëtorët</a>
+                </div>
+                <div class="site-footer__column">
+                    <p class="site-footer__heading">Më Shumë</p>
+                    <a class="site-footer__link" href="certificate.html">Certifikatat</a>
+                    <a class="site-footer__link" href="faq.html">FAQ</a>
+                    <a class="site-footer__link" href="blog-home.html">Artikuj</a>
+                    <a class="site-footer__link" href="contact.html">Kontakti</a>
+                </div>
+                <div class="site-footer__column">
+                    <p class="site-footer__heading">Kontakti</p>
+                    <a class="site-footer__contact" href="mailto:everest.kllokot@outlook.com">everest.kllokot@outlook.com</a>
+                    <a class="site-footer__contact" href="tel:+38344177351">+383 44 177 351</a>
+                    <a class="site-footer__contact" href="tel:+38349177351">+383 49 177 351</a>
+                    <p class="site-footer__contact">Magjistralja Gjilan-Ferizaj, Radivojc</p>
+                </div>
+            </div>
+            <div class="section-shell site-footer__bottom">
+                <p class="site-footer__copyright">© 2026 Al Store. Të gjitha të drejtat e rezervuara.</p>
+                <div class="site-footer__socials">
+                    <a class="site-footer__social" href="https://www.facebook.com/people/Al-Store/61555142765971/" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a class="site-footer__social" href="https://www.instagram.com/alstore_ks/" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
 
        <script src="https://kit.fontawesome.com/ed661bfa96.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
