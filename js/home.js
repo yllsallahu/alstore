@@ -21,4 +21,4 @@ document.addEventListener('click', (event) => {
 navigation.addEventListener('click', (event) => {
   if (event.target.closest('a')) closeMenu();
 });
-window.matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+window.matchMedia('(min-width: 1050px)').addEventListener('change', closeMenu);
