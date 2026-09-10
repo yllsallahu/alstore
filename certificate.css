@@ -16,11 +16,27 @@
 }
 
 .certificate-intro__eyebrow {
-    color: var(--secondary);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+}
+
+.certificate-intro__eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.certificate-intro h1 {
+    max-width: 22ch;
+    font-size: clamp(32px, 4vw, 48px);
 }
 
 .certificate-intro__lead {
@@ -71,9 +87,13 @@
     min-height: 48px;
     padding: 0 24px;
     border: 1px solid transparent;
-    border-radius: var(--radius-sharp);
-    background-color: var(--primary);
-    color: var(--text-light);
+    border-radius: var(--radius-sm);
+    background-color: var(--ink);
+    color: var(--white);
+    font-family: var(--font-head);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     cursor: pointer;
     transition:
         background-color 180ms ease,
