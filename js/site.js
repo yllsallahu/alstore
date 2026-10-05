@@ -5,7 +5,7 @@
   var navigation = document.querySelector('#navigation');
   if (!header || !menuButton || !navigation) return;
 
-  var desktop = window.matchMedia('(min-width: 1100px)');
+  var desktop = window.matchMedia('(min-width: 1200px)');
 
   function setOpen(open) {
     menuButton.setAttribute('aria-expanded', String(open));
@@ -40,11 +40,13 @@
   else if (desktop.addListener) desktop.addListener(closeMenu);
 
   // Mark the link that matches the current page.
-  var current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  function normalize(path) {
+    return path.toLowerCase().replace(/index\.html$/, '').replace(/([^/])$/, '$1/');
+  }
+  var current = normalize(window.location.pathname);
   navigation.querySelectorAll('.nav-list a').forEach(function (link) {
-    var href = (link.getAttribute('href') || '').toLowerCase();
-    var isSectionLink = href.indexOf('#') !== -1;
-    if (!isSectionLink && href === current) link.setAttribute('aria-current', 'page');
+    var isSamePage = !link.hash && link.origin === window.location.origin && normalize(link.pathname) === current;
+    if (isSamePage) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
 })();
