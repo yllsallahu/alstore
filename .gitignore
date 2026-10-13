@@ -1,3 +1,23 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Cypress artifacts
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Logs
+npm-debug.log*
+*.log
+
+# OS / editor
 .DS_Store
+Thumbs.db
