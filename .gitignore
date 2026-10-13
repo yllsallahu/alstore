@@ -9,11 +9,6 @@ dist/
 .env.*
 !.env.example
 
-# Cypress artifacts
-cypress/videos/
-cypress/screenshots/
-cypress/downloads/
-
 # Logs
 npm-debug.log*
 *.log
@@ -21,3 +16,27 @@ npm-debug.log*
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# Next.js / build (Phase 01+)
+.next/
+out/
+*.tsbuildinfo
+
+# Test output
+coverage/
+playwright-report/
+test-results/
+blob-report/
+
+# Local PostgreSQL cluster for development and tests
+/.local/
+
+# Supabase CLI local state
+supabase/.temp/
+supabase/.branches/
+
+# Never commit private business data or keys
+/private/
+/imports/
+*.pem
+*.key

@@ -1,0 +1,17 @@
+---
+description: AL STORE V7 governing rules — always apply
+alwaysApply: true
+---
+
+# AL STORE V7 — Cursor project rules
+
+- Governing spec: `AL_STORE_V7_CURSOR_MASTER_PROMPTS.md` (V7 replaces V6). Stack lock: `docs/ARCHITECTURE_LOCK.md` (mirrors `rules.md`), `docs/ADR_001_TECH_STACK.md`.
+- Read the Phase 00 docs in `docs/` and all prior `PHASE_XX.md` / `QA_PHASE_XX.md` before changing code. Inspect existing code first; never duplicate modules, tables, routes or migrations.
+- Execute ONE numbered prompt only, then STOP for independent QA. A phase starts only after the previous phase has QA PASS.
+- Locked stack: Next.js App Router, React, strict TypeScript, Tailwind, shadcn/ui, Zod, Decimal.js, Supabase PostgreSQL + Auth + private Storage, Drizzle ORM + Drizzle Kit (not Prisma), React-PDF, ExcelJS, Vitest, Playwright, Render (Docker), GitHub Actions, Sentry.
+- Business invariants: B2B only, one warehouse, kg / m² / copë, 3-dp qty and unit price, 2-dp EUR, no negative stock, one invoice + one fulfillment stock event per sale, immutable issued documents, credit notes never change stock, purchase invoices and payments never change stock, historical obligations never post stock/tax/numbering.
+- Accountant reviews; only the director final-approves ATK periods; official ATK export disabled until verified ("JO PËR DORËZIM" on previews).
+- Never write the banned legacy secondary-location name (spec A.2) anywhere. Never guess Kosovo tax law; use `docs/OPEN_LEGAL_DECISIONS.md`.
+- No secrets or real business data in code, tests, prompts, logs or screenshots. Never fabricate test results.
+- UI text Albanian (`sq-XK`); docs and code English.
+- Run `node scripts/verify-phase-00.mjs` before reporting completion.
