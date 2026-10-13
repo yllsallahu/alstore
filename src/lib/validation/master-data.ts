@@ -13,7 +13,7 @@ import {
 
 const collapse = (value: string) => value.trim().replace(/\s+/g, " ");
 
-const requiredText = (label: string, max: number, min = 1) =>
+export const requiredText = (label: string, max: number, min = 1) =>
   z
     .string({ error: `Shkruani ${label}.` })
     .transform(collapse)
@@ -25,7 +25,7 @@ const requiredText = (label: string, max: number, min = 1) =>
     );
 
 /** Empty → null; otherwise trimmed and length-limited. */
-const optionalText = (max: number) =>
+export const optionalText = (max: number) =>
   z
     .string()
     .nullish()
@@ -39,7 +39,7 @@ const optionalText = (max: number) =>
         .nullable(),
     );
 
-const flag = z
+export const flag = z
   .union([z.boolean(), z.enum(["true", "false", "on"])])
   .transform((v) => v === true || v === "true" || v === "on");
 

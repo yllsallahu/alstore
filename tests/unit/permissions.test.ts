@@ -37,7 +37,17 @@ const ACCOUNTANT_ONLY: Permission[] = [
   "P-98.REQUEST",
 ];
 const FOUR_EYES: Permission[] = ["P-03", "P-04", "P-05", "P-14", "P-42", "P-64", "P-72", "P-84"];
-const READ_ONLY: Permission[] = ["P-02", "P-16", "P-30", "P-40", "P-43", "P-52", "P-100", "P-101"];
+const READ_ONLY: Permission[] = [
+  "P-02",
+  "P-16",
+  "P-30",
+  "P-40",
+  "P-43",
+  "P-44",
+  "P-52",
+  "P-100",
+  "P-101",
+];
 
 const codeOf = (fn: () => void) => {
   try {

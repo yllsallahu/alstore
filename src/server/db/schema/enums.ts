@@ -141,6 +141,10 @@ export const IMPORT_BATCH_STATUSES = [
   "APPROVED",
   "REJECTED",
 ] as const;
+export const IMPORT_FILE_FORMATS = ["CSV", "XLSX"] as const;
+export const IMPORT_ROW_STATUSES = ["VALID", "WARNING", "ERROR"] as const;
+/** ALL_OR_NOTHING is the default; REVIEWED_PARTIAL needs an explicit, audited acknowledgement. */
+export const IMPORT_APPROVAL_MODES = ["ALL_OR_NOTHING", "REVIEWED_PARTIAL"] as const;
 export const OBLIGATION_DIRECTIONS = ["RECEIVABLE", "PAYABLE"] as const;
 export const OBLIGATION_STATUSES = ["STAGED", "APPROVED", "REJECTED"] as const;
 

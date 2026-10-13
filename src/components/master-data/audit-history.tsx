@@ -14,6 +14,21 @@ const ACTION_LABELS: Record<string, string> = {
   "customer.reinstate": "Pezullimi u hoq",
   "supplier.create": "Furnitori u krijua",
   "supplier.update": "Furnitori u ndryshua",
+  "import.upload": "Skedari u ngarkua (parashikim)",
+  "import.remap": "Kolonat u ndryshuan",
+  "import.approve": "Importi u miratua",
+  "import.reject": "Importi u refuzua",
+  "opening.batch.create": "U hap numërimi fillestar",
+  "opening.line.save": "Rresht numërimi u ruajt",
+  "opening.line.remove": "Rresht numërimi u hoq",
+  "opening.counted": "Numërimi përfundoi",
+  "opening.reopen": "Numërimi u hap përsëri",
+  "opening.reconcile": "Rakordimi me Excel u regjistrua",
+  "opening.post": "Gjendja fillestare u nënshkrua dhe u regjistrua",
+  "cutover.plan.create": "Plani i kalimit u krijua",
+  "cutover.plan.update": "Plani i kalimit u ndryshua",
+  "invoice.series.propose": "Seria e faturave u propozua",
+  "invoice.series.update": "Propozimi i serisë u ndryshua",
 };
 
 const ROLE_LABELS: Record<string, string> = { DIRECTOR: "Drejtori", ACCOUNTANT: "Kontabilisti" };

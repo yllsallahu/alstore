@@ -47,9 +47,10 @@ test.describe("App shell (development UI preview)", () => {
   });
 
   test("placeholders are honest: disabled action and no data entry", async ({ page }, testInfo) => {
-    // Klientët, Furnitorët and the Stoku catalogue are active since Phase 03 (master-data spec).
+    // Klientët, Furnitorët and the Stoku catalogue are active since Phase 03 (master-data spec);
+    // Cilësimet gained the cutover page in Phase 04.
     const placeholders = SECTIONS.filter(
-      ([, href]) => !["/klientet", "/furnitoret", "/stoku"].includes(href),
+      ([, href]) => !["/klientet", "/furnitoret", "/stoku", "/cilesimet"].includes(href),
     );
     for (const [label, href] of placeholders) {
       await page.goto(href);

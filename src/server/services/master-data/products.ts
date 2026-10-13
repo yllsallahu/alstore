@@ -53,7 +53,7 @@ const barcodeTaken = () =>
 
 const compactSku = (sku: string) => sku.replace(/[./_-]/g, "");
 
-const productHash = (row: Record<string, unknown>) =>
+export const productHash = (row: Record<string, unknown>) =>
   sha256Hex(
     canonicalJson({
       sku: row.sku,
@@ -109,7 +109,7 @@ async function assertBarcodeFree(tx: Tx, barcode: string | null, excludeId?: str
 
 async function hasStockMovements(tx: Tx, productId: string) {
   const rows = await tx.execute<{ exists: boolean }>(
-    sql`select exists (select 1 from app.stock_movements where product_id = ${productId}) as exists`,
+    sql`select (exists (select 1 from app.stock_movements where product_id = ${productId}) or exists (select 1 from app.opening_stock_lines where product_id = ${productId})) as exists`,
   );
   return rows[0]?.exists === true;
 }

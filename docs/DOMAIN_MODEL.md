@@ -135,6 +135,7 @@ Derived (never stored as SoT): invoice outstanding = gross + Σ issued debit del
 
 | Entity | Key fields | Rules |
 |---|---|---|
+| `import_batch_rows` | batch_id, row_no U, raw, status (VALID/WARNING/ERROR), issues, parsed, product_id | Staged rows of a dry run (Phase 04); frozen once the batch is decided. |
 | `import_batches` | id, kind ∈ {PRODUCTS, OPENING_STOCK, HISTORICAL_RECEIVABLES, HISTORICAL_PAYABLES}, file sha256, status (UPLOADED/VALIDATED/HAS_ERRORS/PENDING_APPROVAL/APPROVED/REJECTED), row counts, approvals | Dry run before approval; all-or-nothing by default. |
 | `historical_obligations` | id, direction ∈ {RECEIVABLE, PAYABLE}, party_id, original_series, original_number, original_issue_date, original_total?, open_balance_at_import numeric(18,2), batch_id, status (STAGED/APPROVED/REJECTED) | U(direction, party, normalized original series+number). **Never** a tax invoice, stock movement, sale, expense or book line. Only APPROVED records accept allocations. |
 

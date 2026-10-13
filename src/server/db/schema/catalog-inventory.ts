@@ -133,6 +133,12 @@ export const productUnitChanges = app.table(
   ],
 );
 
+/**
+ * Signed physical opening-stock setup (CMD-14). DRAFT (lines editable) → COUNTED (counting
+ * complete, lines frozen) → RECONCILED (ACCOUNTANT, P-23) → SIGNED_OFF → POSTED (DIRECTOR, P-24;
+ * the last two happen inside one transaction). Transitions and approvals are enforced by the
+ * trigger `opening_stock_batches_transition` (migration 0005).
+ */
 export const openingStockBatches = app.table(
   "opening_stock_batches",
   {
@@ -142,17 +148,60 @@ export const openingStockBatches = app.table(
       .notNull()
       .references(() => cutoverPlans.id),
     status: text("status").notNull().default("DRAFT"),
+    /** The final Excel workday the physical count is reconciled to (= the plan's last_excel_day). */
     countedAsOf: localDate("counted_as_of").notNull(),
     createdBy: uuid("created_by")
       .notNull()
       .references(() => users.id),
     createdAt: createdAt(),
+    countedBy: uuid("counted_by").references(() => users.id),
+    countedAt: instant("counted_at"),
+    reconciliationNote: text("reconciliation_note"),
+    reconciledBy: uuid("reconciled_by").references(() => users.id),
+    reconciledAt: instant("reconciled_at"),
+    reconciliationApprovalId: uuid("reconciliation_approval_id").references(() => approvals.id),
+    /** Hash of all lines at reconciliation; sign-off must present the same hash. */
+    linesHash: text("lines_hash"),
+    signedOffBy: uuid("signed_off_by").references(() => users.id),
+    signedOffAt: instant("signed_off_at"),
+    signoffApprovalId: uuid("signoff_approval_id").references(() => approvals.id),
+    /** Number of products left UNKNOWN that the director explicitly acknowledged at sign-off. */
+    unknownAcknowledgedCount: integer("unknown_acknowledged_count"),
+    postedAt: instant("posted_at"),
+    postedStockEventId: uuid("posted_stock_event_id").references((): AnyPgColumn => stockEvents.id),
   },
   (t) => [
     enumCheck("opening_stock_batches_status_ck", t.status, OPENING_BATCH_STATUSES),
     uniqueIndex("opening_stock_batches_one_posted_uq")
       .on(t.orgId)
       .where(sql`${t.status} = 'POSTED'`),
+    // One opening batch per cutover plan; re-opening after POSTED is an adjustment, not a new opening.
+    unique("opening_stock_batches_plan_uq").on(t.cutoverPlanId),
+    check(
+      "opening_stock_batches_lines_hash_ck",
+      sql`${t.linesHash} is null or ${t.linesHash} ~ '^[0-9a-f]{64}$'`,
+    ),
+    check(
+      "opening_stock_batches_counted_ck",
+      sql`(${t.status} in ('DRAFT')) = (${t.countedBy} is null and ${t.countedAt} is null)`,
+    ),
+    check(
+      "opening_stock_batches_reconciled_ck",
+      sql`(${t.status} in ('RECONCILED', 'SIGNED_OFF', 'POSTED')) = (
+        ${t.reconciledBy} is not null and ${t.reconciledAt} is not null
+        and ${t.reconciliationApprovalId} is not null and ${t.linesHash} is not null
+        and btrim(coalesce(${t.reconciliationNote}, '')) <> '')`,
+    ),
+    check(
+      "opening_stock_batches_signed_ck",
+      sql`(${t.status} in ('SIGNED_OFF', 'POSTED')) = (
+        ${t.signedOffBy} is not null and ${t.signedOffAt} is not null
+        and ${t.signoffApprovalId} is not null and ${t.unknownAcknowledgedCount} is not null)`,
+    ),
+    check(
+      "opening_stock_batches_posted_ck",
+      sql`(${t.status} = 'POSTED') = (${t.postedAt} is not null and ${t.postedStockEventId} is not null)`,
+    ),
   ],
 );
 

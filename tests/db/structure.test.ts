@@ -46,7 +46,7 @@ async function appTables(): Promise<string[]> {
 describe("schema structure", () => {
   it("creates every domain table in schema app", async () => {
     const tables = await appTables();
-    expect(tables).toHaveLength(60);
+    expect(tables).toHaveLength(61);
     expect(tables).toEqual(expect.arrayContaining(["organizations", ...APPEND_ONLY, ...DELETABLE]));
   });
 
@@ -57,7 +57,7 @@ describe("schema structure", () => {
           where p.schemaname = 'app' and p.tablename = c.relname and p.policyname = 'org_isolation') as policies
       from pg_class c join pg_namespace n on n.oid = c.relnamespace
       where n.nspname = 'app' and c.relkind = 'r'`;
-    expect(rows).toHaveLength(60);
+    expect(rows).toHaveLength(61);
     for (const row of rows) {
       expect(row, row.relname).toMatchObject({ rls: true, policies: 1 });
     }

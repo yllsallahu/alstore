@@ -31,6 +31,8 @@ export const version = () => integer("version").notNull().default(1);
 const literalList = (values: readonly string[]) =>
   sql.raw(`(${values.map((v) => `'${v.replace(/'/g, "''")}'`).join(", ")})`);
 
+export const oneOfList = (values: readonly string[]) => literalList(values);
+
 export const oneOf = (column: AnyPgColumn, values: readonly string[]): SQL =>
   sql`${column} in ${literalList(values)}`;
 

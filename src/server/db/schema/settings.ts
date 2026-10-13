@@ -1,5 +1,14 @@
 import { sql } from "drizzle-orm";
-import { check, integer, jsonb, text, unique, uniqueIndex, uuid } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  check,
+  integer,
+  jsonb,
+  text,
+  unique,
+  uniqueIndex,
+  uuid,
+} from "drizzle-orm/pg-core";
 
 import {
   app,
@@ -90,6 +99,11 @@ export const releaseGates = app.table(
   ],
 );
 
+/**
+ * The cutover plan: intended start date (D, first of a month preferred), the final Excel workday
+ * the opening stock is reconciled to, and the named cutover instant (D 00:00 Europe/Belgrade).
+ * DRAFT is editable; LOCKED when the opening stock is signed off; EXECUTED in Phase 20.
+ */
 export const cutoverPlans = app.table(
   "cutover_plans",
   {
@@ -102,10 +116,24 @@ export const cutoverPlans = app.table(
     signedBy: uuid("signed_by").references(() => users.id),
     signedAt: instant("signed_at"),
     createdAt: createdAt(),
+    createdBy: uuid("created_by").references(() => users.id),
+    /** A start date that is not the first of a month needs the accountant's period approach (OLD-19). */
+    midMonthAcknowledged: boolean("mid_month_acknowledged").notNull().default(false),
+    version: version(),
+    updatedAt: updatedAt(),
   },
   (t) => [
     enumCheck("cutover_plans_status_ck", t.status, CUTOVER_STATUSES),
     check("cutover_plans_dates_ck", sql`${t.lastExcelDay} < ${t.plannedCutoverDate}`),
+    check(
+      "cutover_plans_instant_ck",
+      sql`${t.cutoverInstant} is null
+        or ${t.cutoverInstant} = (${t.plannedCutoverDate}::timestamp at time zone 'Europe/Belgrade')`,
+    ),
+    check(
+      "cutover_plans_mid_month_ck",
+      sql`${t.midMonthAcknowledged} or extract(day from ${t.plannedCutoverDate}) = 1`,
+    ),
     uniqueIndex("cutover_plans_one_active_uq")
       .on(t.orgId)
       .where(sql`${t.status} in ('DRAFT', 'LOCKED')`),

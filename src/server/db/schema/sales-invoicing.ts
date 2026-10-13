@@ -100,6 +100,10 @@ export const invoiceSeries = app.table(
     nextNumber: integer("next_number").notNull(),
     status: text("status").notNull().default("PROPOSED"),
     approvalId: uuid("approval_id").references(() => approvals.id),
+    /** Who entered the proposal (Phase 04). Approval by the accountant (VG-05) is a later step. */
+    proposedBy: uuid("proposed_by").references(() => users.id),
+    version: version(),
+    updatedAt: updatedAt(),
     createdAt: createdAt(),
   },
   (t) => [

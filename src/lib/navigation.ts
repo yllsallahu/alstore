@@ -119,6 +119,7 @@ export const MODULES: readonly AppModule[] = [
     description: "Llogaritë personale, të dhënat e kompanisë dhe miratimet.",
     primaryAction: "Ndrysho cilësimet",
     plannedPhase: "02",
+    status: "partial",
   },
 ];
 

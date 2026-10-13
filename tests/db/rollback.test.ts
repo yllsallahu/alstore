@@ -31,8 +31,9 @@ describe("rollback method (docs/PHASE_02.md)", () => {
     const client = postgres(urlFor("postgres", SCRATCH), quiet);
     try {
       await migrate(drizzle(client), { migrationsFolder: "drizzle" });
-      expect(await tableCount(client)).toBe(60);
+      expect(await tableCount(client)).toBe(61);
 
+      await client.unsafe(await readFile("drizzle/rollback/0004_0005_down.sql", "utf8"));
       const down = await readFile("drizzle/rollback/0000_0001_down.sql", "utf8");
       await client.unsafe(down);
       expect(await tableCount(client)).toBe(0);
@@ -41,7 +42,7 @@ describe("rollback method (docs/PHASE_02.md)", () => {
       expect(schema?.n).toBe(0);
 
       await migrate(drizzle(client), { migrationsFolder: "drizzle" });
-      expect(await tableCount(client)).toBe(60);
+      expect(await tableCount(client)).toBe(61);
     } finally {
       await client.end();
     }
@@ -51,8 +52,10 @@ describe("rollback method (docs/PHASE_02.md)", () => {
     const client = postgres(urlFor("postgres", SCRATCH), quiet);
     try {
       await migrate(drizzle(client), { migrationsFolder: "drizzle" });
-      expect(await tableCount(client)).toBe(60);
+      expect(await tableCount(client)).toBe(61);
 
+      await client.unsafe(await readFile("drizzle/rollback/0004_0005_down.sql", "utf8"));
+      expect(await tableCount(client)).toBe(60);
       const down = await readFile("drizzle/rollback/0002_0003_down.sql", "utf8");
       await client.unsafe(down);
       expect(await tableCount(client)).toBe(58);
@@ -66,10 +69,45 @@ describe("rollback method (docs/PHASE_02.md)", () => {
       expect(guard?.src).not.toContain("unit_change_id");
 
       await migrate(drizzle(client), { migrationsFolder: "drizzle" });
-      expect(await tableCount(client)).toBe(60);
+      expect(await tableCount(client)).toBe(61);
       const [again] = await client<{ src: string }[]>`
         select prosrc as src from pg_proc where proname = 'products_guard'`;
       expect(again?.src).toContain("unit_change_id");
+    } finally {
+      await client.end();
+    }
+  });
+
+  it("rolls 0004/0005 back to the Phase 03 schema and re-applies them", async () => {
+    const client = postgres(urlFor("postgres", SCRATCH), quiet);
+    try {
+      await migrate(drizzle(client), { migrationsFolder: "drizzle" });
+      expect(await tableCount(client)).toBe(61);
+
+      await client.unsafe(await readFile("drizzle/rollback/0004_0005_down.sql", "utf8"));
+      expect(await tableCount(client)).toBe(60);
+      const [columns] = await client<{ n: number }[]>`
+        select count(*)::int as n from information_schema.columns
+        where table_schema = 'app' and table_name = 'opening_stock_batches' and column_name = 'lines_hash'`;
+      expect(columns?.n).toBe(0);
+      const [functions] = await client<{ n: number }[]>`
+        select count(*)::int as n from pg_proc p join pg_namespace s on s.oid = p.pronamespace
+        where s.nspname = 'app' and p.proname in ('stock_tracking_status', 'opening_lines_hash')`;
+      expect(functions?.n).toBe(0);
+      const [guard] = await client<{ src: string }[]>`
+        select prosrc as src from pg_proc where proname = 'stock_movements_guard'`;
+      expect(guard?.src).not.toContain("INV-08");
+      // Same-organization guards survive on the tables that lost columns.
+      const [guards] = await client<{ n: number }[]>`
+        select count(*)::int as n from pg_trigger
+        where tgname in ('import_batches_same_org', 'opening_stock_batches_same_org', 'cutover_plans_same_org')`;
+      expect(guards?.n).toBe(3);
+
+      await migrate(drizzle(client), { migrationsFolder: "drizzle" });
+      expect(await tableCount(client)).toBe(61);
+      const [again] = await client<{ src: string }[]>`
+        select prosrc as src from pg_proc where proname = 'stock_movements_guard'`;
+      expect(again?.src).toContain("INV-08");
     } finally {
       await client.end();
     }

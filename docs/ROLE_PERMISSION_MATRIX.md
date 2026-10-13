@@ -39,22 +39,24 @@ Legend: ✅ allowed · ❌ denied · ✅¹ allowed, but requires an approval by 
 | P-15 | Define / retire identifier format and requirement rules for customer identifiers (OLD-14) | ❌ | ✅ | Added in Phase 03. Each rule records its source; without an ACTIVE rule no format validity is claimed. |
 | P-16 | View products, customers, suppliers and their history | ✅ (👁) | ✅ (👁) | Added in Phase 03. |
 | **Cutover & imports** |||||
-| P-20 | Upload / dry-run product import | ✅ | ✅ | |
+| P-20 | Upload / dry-run product import | ✅ | ✅ | Includes changing the column mapping of an undecided batch. |
 | P-21 | Approve product import batch | ✅ | ✅ | Requester ≠ approver not required (no stock/tax effect). |
-| P-22 | Enter opening counts | ✅ | ✅ | |
-| P-23 | Mark opening stock RECONCILED | ❌ | ✅ | ⚙ OWN-05 |
-| P-24 | Sign off and post opening stock | ✅ | ❌ | ⚙ OWN-05; requires P-23 first. |
+| P-22 | Enter opening counts | ✅ | ✅ | Manual lines or an opening-count file (upload, dry run, approve into the DRAFT batch); mark counting complete; reopen before sign-off (invalidates a reconciliation). |
+| P-23 | Mark opening stock RECONCILED | ❌ | ✅ | ⚙ OWN-05. Records a REVIEWED approval bound to the lines hash; a written reconciliation note against the Excel stock list of the final Excel workday is mandatory. |
+| P-24 | Sign off and post opening stock | ✅ | ❌ | ⚙ OWN-05; requires P-23 first (different user and role; four-eyes recorded on the approval row). Locks the cutover plan. |
 | P-25 | Enter last legacy invoice number / series proposal | ✅ | ✅ | Number entered only in secure settings, never in chat/prompts. |
 | P-26 | Approve invoice series (incl. continuation from legacy number, annual reset) | ❌ | ✅ | VG-05. |
 | P-27 | Upload / dry-run historical obligation batch | ✅ | ✅ | |
 | P-28 | Validate historical batch | ❌ | ✅ | ⚙ OWN-06 |
 | P-29 | Approve historical batch | ✅ | ❌ | ⚙ OWN-06; requires P-28. |
 | P-30 | View historical import progress (restricted view) | ✅ | ✅ | Permission `historical_import.progress.view`; not on day-to-day screens. |
+| P-31 | Create / edit the cutover plan draft (planned start date, final Excel workday) | ✅ | ✅ | Added in Phase 04. Editable only while DRAFT and before counting is complete; locked by the director's opening-stock sign-off (P-24). A start date that is not the first of a month needs an explicit acknowledgement (OLD-19). |
 | **Inventory** |||||
 | P-40 | View stock, ledger, balances | ✅ | ✅ | |
 | P-41 | Request inventory adjustment | ✅ | ✅ | |
 | P-42 | Approve inventory adjustment | ✅¹ | ✅¹ | Four-eyes: approver ≠ requester (DB CHECK). |
 | P-43 | Run ledger↔balance reconciliation | ✅ | ✅ | Read-only. |
+| P-44 | View import batches, opening-stock batches, the cutover plan and the invoice-series proposal | ✅ (👁) | ✅ (👁) | Added in Phase 04. |
 | **Sales** |||||
 | P-50 | Create / edit / discard sale draft | ✅ | ✅ | |
 | P-51 | Issue invoice + confirm handover (CMD-02) | ✅ | ⚙ ✅ | Default both (C-08); owner may restrict to DIRECTOR. Blocked for everyone until tax gates pass. |
