@@ -1,0 +1,91 @@
+/*
+ * AL STORE design tokens — the only source of colour, type, spacing, radius and
+ * layout values. Documented in docs/DESIGN_RULES.md; update both together.
+ *
+ * Tailwind's default palette, type scale, radii and shadows are reset with
+ * `initial`, so utilities like `bg-blue-500`, `text-5xl` or `shadow-lg` do not
+ * exist in this project. Use the semantic tokens below (`bg-paper`, `text-ink`,
+ * `text-display`, `px-gutter`, …).
+ *
+ * The colour palette is PROVISIONAL: it is a neutral architectural base chosen
+ * to sit under any logo. When the official brand palette arrives, change values
+ * here; token names (and therefore components) stay the same.
+ */
+
+@theme {
+  /* ---------- Colour ---------- */
+  --color-*: initial;
+
+  /* Surfaces */
+  --color-paper: oklch(0.982 0.004 85); /* page background: warm plaster white */
+  --color-paper-sunken: oklch(0.952 0.005 85); /* inset panels, table stripes */
+  --color-graphite: oklch(0.235 0.008 255); /* dark bands: footer, feature sections */
+
+  /* Text */
+  --color-ink: oklch(0.22 0.008 255); /* primary text and primary actions */
+  --color-ink-hover: oklch(0.33 0.01 255); /* hover state for ink-filled actions */
+  --color-ink-muted: oklch(0.45 0.01 255); /* secondary text on paper */
+  --color-on-graphite: oklch(0.965 0.004 85); /* primary text on graphite */
+  --color-on-graphite-muted: oklch(0.76 0.008 255); /* secondary text on graphite */
+
+  /* Lines */
+  --color-line: oklch(0.885 0.005 85); /* hairlines and dividers on paper */
+  --color-line-strong: oklch(0.62 0.006 255); /* input borders, outlined actions (≥3:1) */
+  --color-line-inverse: oklch(0.38 0.01 255); /* hairlines on graphite */
+
+  /* Accent: anodised bronze. Decorative marks only; use accent-ink for text. */
+  --color-accent: oklch(0.62 0.1 62);
+  --color-accent-ink: oklch(0.47 0.085 60);
+
+  /* EVEREST name highlight (#ffef10, owner choice). Dark backgrounds only: fails contrast on paper. */
+  --color-everest: oklch(0.935 0.196 104.6);
+
+  /* States */
+  --color-focus: oklch(0.52 0.16 255);
+  --color-danger: oklch(0.5 0.17 27);
+
+  /* ---------- Typography ---------- */
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.4rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.65rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.8rem;
+  --text-xl: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --text-xl--line-height: 1.35;
+  --text-2xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-2xl--line-height: 1.2;
+  --text-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-3xl--line-height: 1.08;
+  --text-3xl--letter-spacing: -0.015em;
+  --text-display: clamp(2.5rem, 1.35rem + 4.8vw, 5.5rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.025em;
+
+  --tracking-label: 0.14em; /* uppercase eyebrow labels */
+
+  /* ---------- Space & layout ---------- */
+  --spacing-gutter: clamp(1.25rem, 0.75rem + 2.5vw, 3rem); /* page side padding */
+  --spacing-section: clamp(4rem, 2.75rem + 6vw, 9rem); /* vertical rhythm between sections */
+  --container-site: 84rem; /* max content width */
+  --container-measure: 42rem; /* max line length for running text */
+
+  /* ---------- Shape ---------- */
+  --radius-*: initial;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --shadow-*: initial;
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Font family is wired to the next/font CSS variable, so it must be `inline`. */
+@theme inline {
+  --font-sans:
+    var(--font-archivo), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+}

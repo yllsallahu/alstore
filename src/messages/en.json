@@ -1,0 +1,85 @@
+{
+  "Metadata": {
+    "defaultTitle": "AL STORE — EVEREST distributor in Kosovo",
+    "defaultDescription": "AL STORE is a distributor of EVEREST aluminium and PVC systems in Kosovo."
+  },
+  "Layout": {
+    "skipToContent": "Skip to main content",
+    "homeLinkLabel": "AL STORE — Home",
+    "callLabel": "Call AL STORE on {phone}",
+    "primaryNavLabel": "Main navigation",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "menuLabel": "Menu"
+  },
+  "Navigation": {
+    "home": "Home",
+    "products": "Products",
+    "systems": "Systems",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "sq": "Shqip",
+    "en": "English"
+  },
+  "Footer": {
+    "distributor": "AL STORE is a distributor of <everest>EVEREST</everest> products in Kosovo.",
+    "manufacturerLabel": "Manufacturer",
+    "contactHeading": "Contact",
+    "addressHeading": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "country": "Kosovo",
+    "copyright": "© {year} AL STORE"
+  },
+  "HomePage": {
+    "metaTitle": "AL STORE — EVEREST aluminium and PVC systems in Kosovo",
+    "metaDescription": "AL STORE is a distributor of EVEREST aluminium and PVC systems in Kosovo. Contact us for product information.",
+    "eyebrow": "<everest>EVEREST</everest> distributor in Kosovo",
+    "title": "Aluminium and PVC systems by <everest>EVEREST</everest>",
+    "contactHeading": "Contact us",
+    "callAction": "Call",
+    "emailAction": "Send an email"
+  },
+  "ProductCategories": {
+    "eyebrow": "Products",
+    "title": "Product categories",
+    "certification": "All our products are certified to European ISO standards.",
+    "imageAlt": "Illustration of a white window with a top-hung sash, beside a potted plant",
+    "aluminium": {
+      "title": "Aluminium",
+      "description": "EVEREST's range of architectural aluminium systems: glass facades, windows and doors, sliding systems, shutters and railings, with optimal thermal transmittance values."
+    },
+    "pvc": {
+      "title": "PVC",
+      "description": "EVEREST uPVC systems for windows and doors, with excellent thermal performance, energy saving and sound insulation."
+    },
+    "accessories": {
+      "title": "Accessories",
+      "description": "Accessories for aluminium and PVC systems. Contact us for details of the range."
+    },
+    "tags": {
+      "facades": "Facades",
+      "windowsDoors": "Windows & doors",
+      "sliding": "Sliding systems",
+      "railings": "Railings",
+      "upvcWindows": "uPVC windows",
+      "upvcDoors": "uPVC doors"
+    }
+  },
+  "NotFound": {
+    "eyebrow": "Error 404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "backHome": "Back to home"
+  },
+  "Error": {
+    "eyebrow": "Error",
+    "title": "Something went wrong",
+    "description": "The page did not load correctly. Please try again shortly.",
+    "retry": "Try again",
+    "reference": "Reference: {digest}"
+  }
+}

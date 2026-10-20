@@ -1,0 +1,85 @@
+{
+  "Metadata": {
+    "defaultTitle": "AL STORE — Distributor i EVEREST në Kosovë",
+    "defaultDescription": "AL STORE është distributor i sistemeve të aluminit dhe PVC të EVEREST në Kosovë."
+  },
+  "Layout": {
+    "skipToContent": "Kalo te përmbajtja kryesore",
+    "homeLinkLabel": "AL STORE — Ballina",
+    "callLabel": "Telefononi AL STORE në {phone}",
+    "primaryNavLabel": "Navigimi kryesor",
+    "menuOpen": "Hap menynë",
+    "menuClose": "Mbyll menynë",
+    "menuLabel": "Menyja"
+  },
+  "Navigation": {
+    "home": "Ballina",
+    "products": "Produktet",
+    "systems": "Sistemet",
+    "about": "Rreth nesh",
+    "contact": "Kontakti"
+  },
+  "LocaleSwitcher": {
+    "label": "Gjuha",
+    "sq": "Shqip",
+    "en": "English"
+  },
+  "Footer": {
+    "distributor": "AL STORE është distributor i produkteve <everest>EVEREST</everest> në Kosovë.",
+    "manufacturerLabel": "Prodhuesi",
+    "contactHeading": "Kontakti",
+    "addressHeading": "Adresa",
+    "phoneLabel": "Telefoni",
+    "emailLabel": "Email-i",
+    "country": "Kosovë",
+    "copyright": "© {year} AL STORE"
+  },
+  "HomePage": {
+    "metaTitle": "AL STORE — Sisteme alumini dhe PVC EVEREST në Kosovë",
+    "metaDescription": "AL STORE është distributor i sistemeve të aluminit dhe PVC të EVEREST në Kosovë. Na kontaktoni për informacion mbi produktet.",
+    "eyebrow": "Distributor i <everest>EVEREST</everest> në Kosovë",
+    "title": "Sisteme alumini dhe PVC nga <everest>EVEREST</everest>",
+    "contactHeading": "Na kontaktoni",
+    "callAction": "Telefono",
+    "emailAction": "Dërgo email"
+  },
+  "ProductCategories": {
+    "eyebrow": "Produktet",
+    "title": "Kategoritë e produkteve",
+    "certification": "Të gjitha produktet tona janë të certifikuara sipas standardeve evropiane ISO.",
+    "imageAlt": "Ilustrim i një dritareje të bardhë me kanat të sipërm, pranë një bime në vazo",
+    "aluminium": {
+      "title": "Alumini",
+      "description": "Gama e sistemeve arkitektonike të aluminit EVEREST: fasada xhami, dritare dhe dyer, sisteme rrëshqitëse, grila dhe kangjella, me vlera optimale të transmetimit termik."
+    },
+    "pvc": {
+      "title": "PVC",
+      "description": "Sistemet uPVC të EVEREST për dritare dhe dyer, me performancë të shkëlqyer termike, kursim energjie dhe izolim të zhurmave."
+    },
+    "accessories": {
+      "title": "Aksesorë",
+      "description": "Aksesorë për sistemet e aluminit dhe PVC. Na kontaktoni për informacion mbi gamën."
+    },
+    "tags": {
+      "facades": "Fasada",
+      "windowsDoors": "Dritare & dyer",
+      "sliding": "Sisteme rrëshqitëse",
+      "railings": "Kangjella",
+      "upvcWindows": "Dritare uPVC",
+      "upvcDoors": "Dyer uPVC"
+    }
+  },
+  "NotFound": {
+    "eyebrow": "Gabim 404",
+    "title": "Faqja nuk u gjet",
+    "description": "Faqja që kërkuat nuk ekziston ose është zhvendosur.",
+    "backHome": "Kthehu në ballinë"
+  },
+  "Error": {
+    "eyebrow": "Gabim",
+    "title": "Diçka shkoi keq",
+    "description": "Faqja nuk u ngarkua siç duhet. Provoni përsëri pas pak.",
+    "retry": "Provo përsëri",
+    "reference": "Referenca: {digest}"
+  }
+}
