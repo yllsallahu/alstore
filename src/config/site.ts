@@ -23,6 +23,12 @@ export const siteConfig = {
     /** ISO 3166-1 alpha-2 user-assigned code used for Kosovo by schema.org consumers. */
     countryCode: "XK",
   },
+  /** Cumulative AL STORE supply activity, 2018 to October 2026 (owner, 2026-10-21). Not annual. */
+  supplyStats: [
+    { key: "partnershipYears", value: "8+" },
+    { key: "supplyTrucks", value: "100+" },
+    { key: "aluminiumTonnes", value: "120+" },
+  ],
   manufacturer: {
     name: "EVEREST",
     url: "https://everest.al/",

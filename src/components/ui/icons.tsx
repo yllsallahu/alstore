@@ -41,3 +41,28 @@ export function CloseIcon(props: IconProps) {
     </Icon>
   );
 }
+
+export function ArrowRightIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M4 12h16m-6-6 6 6-6 6" />
+    </Icon>
+  );
+}
+
+export function DownloadIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M12 4v10m-4-4 4 4 4-4M5 19h14" />
+    </Icon>
+  );
+}
+
+export function ExternalIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M14 5h5v5M19 5 10 14" />
+      <path d="M17 13v5H5V7h5" />
+    </Icon>
+  );
+}

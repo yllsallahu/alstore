@@ -20,9 +20,9 @@ searching EVEREST systems, aluminium/PVC profiles and window/door systems.
   data and (later) Search Console settings.
 - **Localized slugs:** each route has an Albanian slug and an English slug, declared in
   `src/i18n/routing.ts` → `pathnames`. Slugs are lowercase ASCII with hyphens. Albanian letters
-  are transliterated (`ë→e`, `ç→c`). Example convention for Phase 2 (not yet created):
-  `/produktet` ↔ `/en/products`, `/kerkese-per-oferte` ↔ `/en/request-a-quote`. Final slugs are
-  decided with the Phase 2 spec.
+  are transliterated (`ë→e`, `ç→c`). Shipped: `/dokumentet` ↔ `/en/documents` (technical
+  documents). Example convention for later catalogue routes: `/produktet` ↔ `/en/products`,
+  `/kerkese-per-oferte` ↔ `/en/request-a-quote`.
 - English copy uses British spelling ("aluminium", "catalogue") to match the source material.
 
 ## 2. Indexing switch

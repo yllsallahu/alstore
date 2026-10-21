@@ -46,7 +46,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         </a>
         {/* Only namespaces used by Client Components are sent to the browser. */}
         <NextIntlClientProvider
-          messages={{ LocaleSwitcher: messages.LocaleSwitcher, Error: messages.Error }}
+          messages={{
+            LocaleSwitcher: messages.LocaleSwitcher,
+            ProductCategories: messages.ProductCategories,
+            TruckScrollHero: messages.TruckScrollHero,
+            Documents: messages.Documents,
+            Error: messages.Error,
+          }}
         >
           <SiteHeader />
           <main id="main" className="flex-1">

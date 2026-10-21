@@ -19,5 +19,9 @@ export const routing = defineRouting({
   localeCookie: false,
   pathnames: {
     "/": "/",
+    "/documents": {
+      sq: "/dokumentet",
+      en: "/documents",
+    },
   },
 });

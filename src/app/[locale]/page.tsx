@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { siteConfig } from "@/config/site";
 import { ProductCategories } from "@/features/catalog/components/product-categories";
+import { TruckScrollHero } from "@/features/home/components/truck-scroll-hero";
 import { resolveLocale } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { localBusinessJsonLd } from "@/lib/seo/structured-data";
@@ -71,6 +72,8 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       </section>
 
       <ProductCategories />
+
+      <TruckScrollHero />
 
       <section aria-labelledby="home-contact" className="bg-paper-sunken">
         <Container className="flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between md:py-16">

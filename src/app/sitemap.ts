@@ -7,7 +7,7 @@ import { type AppHref, absoluteUrl, languageAlternates } from "@/lib/seo/urls";
  * entries will be appended from the content layer in later phases.
  * No lastModified: we only publish dates we actually know.
  */
-const indexableRoutes: AppHref[] = ["/"];
+const indexableRoutes: AppHref[] = ["/", "/documents"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return indexableRoutes.map((href) => ({

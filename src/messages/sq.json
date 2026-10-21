@@ -44,30 +44,158 @@
     "emailAction": "Dërgo email"
   },
   "ProductCategories": {
-    "eyebrow": "Produktet",
-    "title": "Kategoritë e produkteve",
-    "certification": "Të gjitha produktet tona janë të certifikuara sipas standardeve evropiane ISO.",
-    "imageAlt": "Ilustrim i një dritareje të bardhë me kanat të sipërm, pranë një bime në vazo",
-    "aluminium": {
-      "title": "Alumini",
-      "description": "Gama e sistemeve arkitektonike të aluminit EVEREST: fasada xhami, dritare dhe dyer, sisteme rrëshqitëse, grila dhe kangjella, me vlera optimale të transmetimit termik."
-    },
-    "pvc": {
-      "title": "PVC",
-      "description": "Sistemet uPVC të EVEREST për dritare dhe dyer, me performancë të shkëlqyer termike, kursim energjie dhe izolim të zhurmave."
-    },
-    "accessories": {
-      "title": "Aksesorë",
-      "description": "Aksesorë për sistemet e aluminit dhe PVC. Na kontaktoni për informacion mbi gamën."
-    },
-    "tags": {
-      "facades": "Fasada",
-      "windowsDoors": "Dritare & dyer",
-      "sliding": "Sisteme rrëshqitëse",
-      "railings": "Kangjella",
-      "upvcWindows": "Dritare uPVC",
-      "upvcDoors": "Dyer uPVC"
+    "eyebrow": "Historiku EVEREST",
+    "title": "Nga alumini te PVC.",
+    "intro": "AL STORE është distributor i sistemeve EVEREST.",
+    "milestones": {
+      "founded": "Fillimi i EVEREST në fushën e ndërtimit",
+      "aluminiumMarket": "Hyrja në tregun e aluminit",
+      "profiles": "Fillimi i prodhimit të profileve të aluminit të ekstruduara dhe të lyera",
+      "upvc": "Zgjerimi në prodhimin uPVC"
     }
+  },
+  "Documents": {
+    "metaTitle": "Certifikatat dhe raportet teknike",
+    "metaDescription": "Raporte prove për mostra të emërtuara EVEREST, deklarata mjedisore dhe certifikimi i prodhuesit. Rezultatet nuk mbulojnë një kategori të tërë.",
+    "eyebrow": "Dokumentacioni",
+    "title": "Certifikatat dhe raportet",
+    "intro": "Tri lloje dokumentesh të prodhuesit mbahen të ndara. Raportet e provave japin klasat e mostrës së testuar. Deklaratat mjedisore listojnë profilet që mbulojnë. Certifikimet tregojnë kujt i përkasin. EV HYBRID është këtu vetëm si referencë e prodhuesit: AL STORE nuk e shet dhe nuk pranon kërkesa oferte për të.",
+    "viewAction": "Shiko certifikatat dhe raportet",
+    "testedSamples": "Mostra të testuara",
+    "declarationsHeading": "Deklaratë mjedisore",
+    "sampleLimit": "Këto rezultate i përkasin mostrës së testuar të emërtuar më sipër. Nuk janë certifikatë përputhshmërie dhe nuk vlejnë për të gjithë serinë apo kategorinë.",
+    "productStandard": "Referencë normative e raportit: EN 14351-1:2006+A2:2016.",
+    "pendingClassification": "RP2549 e emërton serinë 76 000 si PVC. Përputhja me katalogun aktual nuk është verifikuar ende.",
+    "notSold": "AL STORE nuk e shet këtë sistem dhe nuk pranon kërkesa për ofertë për të.",
+    "notAProductSeries": "Jo një seri e vetme produkti",
+    "seriesHeading": "Seria {series}",
+    "filtersLabel": "Filtro dokumentet",
+    "listLabel": "Dokumentet",
+    "issuedLabel": "Lëshuar",
+    "validUntilLabel": "E vlefshme deri më",
+    "date": "{day} {month} {year}",
+    "months": {
+      "m01": "janar",
+      "m02": "shkurt",
+      "m03": "mars",
+      "m04": "prill",
+      "m05": "maj",
+      "m06": "qershor",
+      "m07": "korrik",
+      "m08": "gusht",
+      "m09": "shtator",
+      "m10": "tetor",
+      "m11": "nëntor",
+      "m12": "dhjetor"
+    },
+    "issuerLabel": "Lëshuesi",
+    "previewFrame": "PDF: {title}",
+    "open": "Hap",
+    "download": "Shkarko",
+    "newTab": "hapet në një faqe të re",
+    "filters": {
+      "all": "Të gjitha",
+      "aluminium": "Alumini",
+      "pvc": "PVC",
+      "manufacturer": "Prodhuesi"
+    },
+    "kinds": {
+      "testReport": "Raport prove laboratorike",
+      "environmentalDeclaration": "Deklaratë mjedisore",
+      "certification": "Certifikim"
+    },
+    "links": {
+      "registry": "Regjistri",
+      "verification": "Faqja e verifikimit",
+      "technicalReport": "Raporti teknik"
+    },
+    "labels": {
+      "specimen": "Mostra",
+      "air": "Përshkueshmëria e ajrit",
+      "water": "Papërshkueshmëria ndaj ujit",
+      "wind": "Rezistenca ndaj ngarkesës së erës",
+      "uf": "Transmetimi termik i kornizës Uf",
+      "conditions": "Kushtet e llogaritjes",
+      "covered": "Profilet e listuara",
+      "scope": "Fusha",
+      "criteria": "Kriteret e certifikuara"
+    },
+    "items": {
+      "rp2147": {
+        "title": "Raport prove 1994-CPR-RP2147",
+        "specimen": "Dritare alumini me dy kanata, kanati kryesor anësor-rrotullues, emër tregtar 70000. Përmasa e deklaruar 1 447 mm × 1 650 mm. Xham i dyfishtë 4 mm / kavitet 20 mm / 33.1 mm.",
+        "air": "Klasa 4 (EN 1026:2016 / EN 12207:2016)",
+        "water": "Klasa E1500 (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Klasa C5 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2146": {
+        "title": "Raport prove 1994-CPR-RP2146",
+        "specimen": "Dritare alumini me dy kanata, kanati kryesor anësor-rrotullues, emër tregtar 71000. Përmasa e deklaruar 1 447 mm × 1 650 mm. Xham i dyfishtë 4 mm / kavitet 36 mm / 33.1 mm.",
+        "air": "Klasa 4 (EN 1026:2016 / EN 12207:2016)",
+        "water": "Klasa E1500 (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Klasa C5 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2790": {
+        "title": "Raport prove 1994-CPR-RP2790",
+        "specimen": "Një nyje kornize për dritare me kanat, emër tregtar 71 000: nyja anësore / e poshtme / e sipërme. Profilet 71101 dhe 71281. Xham trefish, 48 mm.",
+        "uf": "1,3 W/(m²K)",
+        "conditions": "EN ISO 10077-2:2017, metoda e radiositetit. Brenda 20 °C, jashtë 0 °C. Vlera është për këtë nyje."
+      },
+      "rp2157": {
+        "title": "Raport prove 1994-CPR-RP2157",
+        "specimen": "Dyer rrëshqitëse me dy kanata, emër tregtar PB2AAR_EVEREST_91000, kod laboratori PF2ASA_EVEREST_91000. Profilet e deklaruara përfshijnë 91106, 91202, 91204 dhe 91501. Përmasa e deklaruar 2 000 mm × 2 400 mm. Xham i dyfishtë 4 mm / kavitet 16 mm / 4 mm.",
+        "air": "Klasa 4 (EN 1026:2016 / EN 12207:2017)",
+        "water": "Klasa 8A (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Klasa B3 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2144": {
+        "title": "Raport prove 1994-CPR-RP2144",
+        "specimen": "Dyer ngritëse-rrëshqitëse me përforcim qendror, emër tregtar 92000, dy kanata simetrike. Kapaku i raportit e përshkruan mostrën si derë 300 kg. Përmasa e deklaruar 2 570 mm × 2 450 mm. Xham i dyfishtë 4 mm / kavitet 18 mm / 33.1 mm.",
+        "air": "Klasa 4 (EN 1026:2016 / EN 12207:2017)",
+        "water": "Klasa 8A (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Klasa C4 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2145": {
+        "title": "Raport prove 1994-CPR-RP2145",
+        "specimen": "Dyer ngritëse-rrëshqitëse pa përforcim qendror, emër tregtar 92000, dy kanata simetrike. Kapaku i raportit e përshkruan mostrën si derë 300 kg. Përmasa e deklaruar 2 570 mm × 2 450 mm. Xham i dyfishtë 4 mm / kavitet 18 mm / 33.1 mm.",
+        "air": "Klasa 4 (EN 1026:2016 / EN 12207:2017)",
+        "water": "Klasa 8A (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Klasa B4 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "epd26335": {
+        "title": "Deklaratë mjedisore EPD-IES-0026335",
+        "covered": "Produkti përfaqësues: profili 71 000. Profile të tjera të emërtuara në deklaratë: 92 000, 93 000, CE 32 000, E50 dhe E34. Njësia e deklaruar: 1 kg. Hartuar sipas ISO 14025:2006 dhe EN 15804:2012+A2:2019/AC:2021. Listimi i një profili këtu nuk i jep atij klasat laboratorike më sipër dhe nuk e shton si produkt më vete."
+      },
+      "rp2176": {
+        "title": "Raport prove 1994-CPR-RP2176",
+        "specimen": "Dritare PVC me dy kanata, kanati kryesor anësor-rrotullues, emër tregtar PVC 85000. Përmasa e deklaruar 1 447 mm × 1 650 mm. Xham i dyfishtë 4 mm / kavitet 12 mm / 4 mm.",
+        "air": "Klasa 4 (EN 1026:2016 / EN 12207:2016)",
+        "water": "Klasa E1500 (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Klasa C5 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2549": {
+        "title": "Raport prove 1994-CPR-RP2549",
+        "specimen": "Tri nyje dritaresh PVC, emër tregtar 76000, siç e emërton raporti. Profilet përfshijnë kornizën 76103 dhe kanatin 76401. Xham trefish, 43 mm në total.",
+        "uf": "1,2 W/(m²K) për nyjen 01 (kornizë–kanat), nyjen 02 (kornizë–kanat) dhe nyjen 03 (takimi i kanateve)",
+        "conditions": "EN ISO 10077-2:2017, metoda e radiositetit. Çdo nyje është llogaritur veç e veç."
+      },
+      "asi554": {
+        "title": "ASI Performance Standard, certifikata 554",
+        "scope": "Performance Standard V3.1, certifikim i plotë, certifikata 554. Mbajtësi: Everest Shpk, Kamez, Shqipëri. Fusha: prodhimi i biletave të aluminit, i profileve arkitektonike dhe industriale, i profileve të lyer me pluhur dhe i produkteve të fasadës, përfshirë dyert, dritaret dhe sistemet e fasadës. Është certifikim i prodhuesit, jo i një serie të vetme dhe jo i AL STORE."
+      },
+      "epd26336": {
+        "title": "Deklaratë mjedisore EPD-IES-0026336",
+        "scope": "Deklaratë mjedisore për një produkt: profili hibrid alumin/PVC 67 000. Njësia e deklaruar: 1 kg. ISO 14025:2006 dhe EN 15804:2012+A2:2019/AC:2021. Deklarata pohon për këtë profil klasën e efiçencës phB (Passive House), klasën C4 (EN 12211:2016), klasën E1350 (EN 1027:2016) dhe klasën 4 (EN 1026:2016)."
+      },
+      "ph2570": {
+        "title": "Certifikatë Passive House 2570ws04",
+        "specimen": "Sistem dritaresh EV HYBRID, komponenti 2570ws04, prodhuesi EVEREST, Tiranë. Klimë e ngrohtë e butë. Klasa e efiçencës phB.",
+        "criteria": "UW = 1,00 W/(m²K) (kufiri 1,00) me Ug = 0,90 W/(m²K), për dritaren e provës 2,46 m × 1,48 m. Kufiri i UW të instaluar: 1,05 W/(m²K). Kriteri i higjienës siç është shtypur: fRsi=0.25 ≥ 0,65. Q100 = 0,15 m³/(h·m), kufiri 0,25 m³/(h·m)."
+      }
+    },
+    "testedSampleHeading": "Rezultate të mostrës së testuar: seria {series}",
+    "technicalDocsAction": "Shiko dokumentacionin teknik",
+    "pdfLink": "PDF"
   },
   "NotFound": {
     "eyebrow": "Gabim 404",
@@ -81,5 +209,18 @@
     "description": "Faqja nuk u ngarkua siç duhet. Provoni përsëri pas pak.",
     "retry": "Provo përsëri",
     "reference": "Referenca: {digest}"
+  },
+  "TruckScrollHero": {
+    "eyebrow": "AL STORE × EVEREST",
+    "title": "Një partneritet që ndërton besim.",
+    "body": "Nga prodhimi te dorëzimi, çdo detaj pasqyron besueshmëri, cilësi dhe standarde moderne industriale.",
+    "secondary": "Ndërtuar për performancë. Paraqitur me qartësi.",
+    "truckAlt": "Kamion me rimorkio të verdha, në lëvizje",
+    "statsNote": "Të dhëna nga viti 2018 deri më sot.",
+    "stats": {
+      "partnershipYears": "Vite partneritet",
+      "supplyTrucks": "Kamionë furnizimi",
+      "aluminiumTonnes": "Ton alumin të furnizuar"
+    }
   }
 }

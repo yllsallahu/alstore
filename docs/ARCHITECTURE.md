@@ -12,10 +12,11 @@
 | typescript                         | 6.0.3   | **Not 7.x.** TS 7 (native compiler) is a new major; Next's build-time type check and typescript-eslint are proven on 6.x. Revisit once Next documents TS 7 support.                                                                                                                                              |
 | eslint                             | 9.39.5  | **Not 10.x.** `eslint-config-next` 16.4.2 depends on `eslint-plugin-react` 7.37, `eslint-plugin-import` 2.32 and `eslint-plugin-jsx-a11y` 6.10, whose peer ranges stop at ESLint 9. npm prints a "no longer supported" notice for 9.x; upgrade together with `eslint-config-next` once those plugins support 10. |
 | eslint-config-next                 | 16.4.2  | Core Web Vitals + TypeScript rule sets.                                                                                                                                                                                                                                                                          |
+| gsap                               | 3.15.0  | Owner-requested scroll-pinned truck showcase (`TruckScrollHero`). ScrollTrigger ships in the package; loaded only by that Client Component. CSS scroll timelines lack Safari support for pinning + scrub.                                                                                                        |
 | prettier                           | 3.9.10  | Formatting, enforced by `npm run format:check`.                                                                                                                                                                                                                                                                  |
 
 Node ≥ 22.12 (`.nvmrc` = 22). Deliberately **not** added: UI kits, icon packs, clsx or
-tailwind-merge, animation libraries, state managers, analytics. Add a dependency only with a
+tailwind-merge, animation libraries (except gsap, above), state managers, analytics. Add a dependency only with a
 documented reason in this file.
 
 ## 2. Directory layout
@@ -29,7 +30,8 @@ src/
     robots.ts  sitemap.ts    SEO routes (see SEO_RULES.md)
     [locale]/
       layout.tsx             <html lang>, metadata defaults, header/footer, intl provider
-      page.tsx               home (Phase 1: introduction + contact)
+      page.tsx               home (introduction, categories, contact)
+      documents/page.tsx     technical documents (reports, declarations, certifications)
       not-found.tsx          localized 404
       error.tsx              localized error boundary (client)
       [...rest]/page.tsx     sends unknown localized paths to not-found
@@ -39,7 +41,10 @@ src/
     brand/                   BrandMark (official-logo slot with text fallback)
     seo/                     JsonLd
   features/
-    catalog/components/      ProductCategories (homepage category entry points, no data yet)
+    catalog/
+      components/          ProductCategories, DocumentViewer
+      documents.ts         verified technical-document register (lab PDFs in public/documents/)
+      queries.ts           server validation of that register
   config/
     site.ts                  verified business facts (single source of truth)
     brand.ts                 brand asset registry (header logo filled; inverse and OG still null)
@@ -87,10 +92,12 @@ feature folders ahead of their phase.
   (`generateStaticParams` in `[locale]/layout.tsx`, `setRequestLocale` via `resolveLocale`).
 - **Client Components (current, complete list):** `LocaleSwitcher` (needs the current
   pathname), `MobileNav` (menu open/close), `HeaderFrame` (transparent header over the home hero:
-  pathname + scroll position), `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it).
+  pathname + scroll position), `ProductCategories` (selected category image), `DocumentViewer`
+  (selected technical document), `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it).
   Each new one needs a comment justifying it.
 - `NextIntlClientProvider` receives **only** the namespaces client components use
-  (`LocaleSwitcher`, `Error`). Add a namespace there when a new client component needs one.
+  (`LocaleSwitcher`, `ProductCategories`, `Documents`, `Error`). Add a namespace there when a new
+  client component needs one.
 
 ## 4. Localization flow
 

@@ -38,6 +38,7 @@ the names. Tailwind's default palette is reset (`--color-*: initial`), so only t
 | `line-inverse`      | `#3f4348`     | Hairlines on graphite                     | n/a                                         |
 | `accent`            | `#b17843`     | Rules, markers, active underline          | 3.6:1, **not for body text**                |
 | `accent-ink`        | `#7d4e24`     | Accent-coloured text on paper             | 6.7:1                                       |
+| `brand`             | `#001a55`     | Logo navy: product-category accents       | 15:1 on paper                               |
 | `everest`           | `#ffef10`     | "EVEREST" in the home hero (owner choice) | 14:1 on graphite, **dark backgrounds only** |
 | `focus`             | `#1467c2`     | Focus outline                             | 5.3:1 on paper                              |
 | `danger`            | `#b02b27`     | Validation errors                         | 6.2:1 on paper                              |
@@ -63,7 +64,8 @@ pages) and `3xl` for page titles elsewhere.
 
 - `Container` (`max-w-site` = 84rem, `px-gutter` = clamp 1.25–3rem) wraps every full-width band.
 - `py-section` (clamp 4–9rem) separates major sections. Smaller gaps use the default 0.25rem
-  spacing scale.
+  spacing scale. `h-preview` (36rem) is the technical-document preview pane from `lg` up;
+  below that the pane uses `h-96`.
 - 12-column grid at `md`+. Single column below `md`. Design mobile-first at 360px width.
 - Touch targets ≥ 44px (`min-h-11`). Primary actions are 48px (`min-h-12`).
 - Breakpoints are Tailwind defaults (`sm` 40rem, `md` 48rem, `lg` 64rem, `xl` 80rem).
@@ -81,7 +83,8 @@ pages) and `3xl` for page titles elsewhere.
 
 - **Server Components by default.** A Client Component starts with `"use client"` and a comment
   saying why. Current Client Components: `LocaleSwitcher` (needs pathname), `MobileNav` (menu
-  state), `HeaderFrame` (pathname + scroll position) and `error.tsx` / `global-error.tsx`
+  state), `HeaderFrame` (pathname + scroll position), `ProductCategories` (selected category
+  image), `DocumentViewer` (selected technical document) and `error.tsx` / `global-error.tsx`
   (Next.js requirement).
 - **Header over the hero:** on the home page `HeaderFrame` sets `data-overlay` on the header
   while the full-screen hero is behind it: transparent background, `on-graphite` text, and the

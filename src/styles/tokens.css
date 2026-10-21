@@ -37,6 +37,9 @@
   --color-accent: oklch(0.62 0.1 62);
   --color-accent-ink: oklch(0.47 0.085 60);
 
+  /* Brand navy sampled from the AL STORE wordmark (#001a55). Safe for text on paper. */
+  --color-brand: oklch(0.247 0.112 261.7);
+
   /* EVEREST name highlight (#ffef10, owner choice). Dark backgrounds only: fails contrast on paper. */
   --color-everest: oklch(0.935 0.196 104.6);
 
@@ -70,6 +73,7 @@
   /* ---------- Space & layout ---------- */
   --spacing-gutter: clamp(1.25rem, 0.75rem + 2.5vw, 3rem); /* page side padding */
   --spacing-section: clamp(4rem, 2.75rem + 6vw, 9rem); /* vertical rhythm between sections */
+  --spacing-preview: 36rem; /* technical-document preview pane, lg+ */
   --container-site: 84rem; /* max content width */
   --container-measure: 42rem; /* max line length for running text */
 

@@ -44,30 +44,158 @@
     "emailAction": "Send an email"
   },
   "ProductCategories": {
-    "eyebrow": "Products",
-    "title": "Product categories",
-    "certification": "All our products are certified to European ISO standards.",
-    "imageAlt": "Illustration of a white window with a top-hung sash, beside a potted plant",
-    "aluminium": {
-      "title": "Aluminium",
-      "description": "EVEREST's range of architectural aluminium systems: glass facades, windows and doors, sliding systems, shutters and railings, with optimal thermal transmittance values."
-    },
-    "pvc": {
-      "title": "PVC",
-      "description": "EVEREST uPVC systems for windows and doors, with excellent thermal performance, energy saving and sound insulation."
-    },
-    "accessories": {
-      "title": "Accessories",
-      "description": "Accessories for aluminium and PVC systems. Contact us for details of the range."
-    },
-    "tags": {
-      "facades": "Facades",
-      "windowsDoors": "Windows & doors",
-      "sliding": "Sliding systems",
-      "railings": "Railings",
-      "upvcWindows": "uPVC windows",
-      "upvcDoors": "uPVC doors"
+    "eyebrow": "EVEREST history",
+    "title": "From aluminium to PVC.",
+    "intro": "AL STORE is a distributor of EVEREST systems.",
+    "milestones": {
+      "founded": "EVEREST founded in construction",
+      "aluminiumMarket": "Entry into the aluminium market",
+      "profiles": "Manufacturing of extruded and painted aluminium profiles begins",
+      "upvc": "Expansion into uPVC production"
     }
+  },
+  "Documents": {
+    "metaTitle": "Certificates and technical reports",
+    "metaDescription": "Named-sample EVEREST test reports, environmental declarations and the manufacturer's certification. Results do not cover an entire category.",
+    "eyebrow": "Documentation",
+    "title": "Certificates and reports",
+    "intro": "Three kinds of manufacturer document are kept apart. Laboratory test reports give the classes of the sample that was tested. Environmental declarations list the profiles they cover. Certifications name the holder. EV HYBRID appears here only as a manufacturer reference: AL STORE does not sell it and does not accept quotation requests for it.",
+    "viewAction": "View the certificates and reports",
+    "testedSamples": "Tested samples",
+    "declarationsHeading": "Environmental declaration",
+    "sampleLimit": "These results belong to the tested sample named above. They are not a certificate of conformity and they do not apply to the whole series or category.",
+    "productStandard": "Normative reference on the report: EN 14351-1:2006+A2:2016.",
+    "pendingClassification": "RP2549 names series 76 000 as PVC. Agreement with the current catalogue has not been verified yet.",
+    "notSold": "AL STORE does not sell this system and does not accept quotation requests for it.",
+    "notAProductSeries": "Not an individual product series",
+    "seriesHeading": "Series {series}",
+    "filtersLabel": "Filter documents",
+    "listLabel": "Documents",
+    "issuedLabel": "Issued",
+    "validUntilLabel": "Valid until",
+    "date": "{day} {month} {year}",
+    "months": {
+      "m01": "January",
+      "m02": "February",
+      "m03": "March",
+      "m04": "April",
+      "m05": "May",
+      "m06": "June",
+      "m07": "July",
+      "m08": "August",
+      "m09": "September",
+      "m10": "October",
+      "m11": "November",
+      "m12": "December"
+    },
+    "issuerLabel": "Issuer",
+    "previewFrame": "PDF: {title}",
+    "open": "Open",
+    "download": "Download",
+    "newTab": "opens in a new tab",
+    "filters": {
+      "all": "All",
+      "aluminium": "Aluminium",
+      "pvc": "PVC",
+      "manufacturer": "Manufacturer"
+    },
+    "kinds": {
+      "testReport": "Laboratory test report",
+      "environmentalDeclaration": "Environmental declaration",
+      "certification": "Certification"
+    },
+    "links": {
+      "registry": "Registry",
+      "verification": "Verification page",
+      "technicalReport": "Technical report"
+    },
+    "labels": {
+      "specimen": "Specimen",
+      "air": "Air permeability",
+      "water": "Watertightness",
+      "wind": "Resistance to wind load",
+      "uf": "Frame thermal transmittance Uf",
+      "conditions": "Calculation conditions",
+      "covered": "Listed profiles",
+      "scope": "Scope",
+      "criteria": "Certified criteria"
+    },
+    "items": {
+      "rp2147": {
+        "title": "Test report 1994-CPR-RP2147",
+        "specimen": "Double-casement aluminium window, main casement tilt-and-turn, trade name 70000. Declared size 1 447 mm × 1 650 mm. Double glazing 4 mm / 20 mm cavity / 33.1 mm.",
+        "air": "Class 4 (EN 1026:2016 / EN 12207:2016)",
+        "water": "Class E1500 (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Class C5 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2146": {
+        "title": "Test report 1994-CPR-RP2146",
+        "specimen": "Double-casement aluminium window, main casement tilt-and-turn, trade name 71000. Declared size 1 447 mm × 1 650 mm. Double glazing 4 mm / 36 mm cavity / 33.1 mm.",
+        "air": "Class 4 (EN 1026:2016 / EN 12207:2016)",
+        "water": "Class E1500 (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Class C5 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2790": {
+        "title": "Test report 1994-CPR-RP2790",
+        "specimen": "One frame node for aluminium casement windows, trade name 71 000: the lateral / lower / upper node. Profiles 71101 and 71281. Triple glazing, 48 mm.",
+        "uf": "1.3 W/(m²K)",
+        "conditions": "EN ISO 10077-2:2017, radiosity method. Inside 20 °C, outside 0 °C. The value is for this node."
+      },
+      "rp2157": {
+        "title": "Test report 1994-CPR-RP2157",
+        "specimen": "Double-casement sliding door, trade name PB2AAR_EVEREST_91000, laboratory code PF2ASA_EVEREST_91000. Declared profiles include 91106, 91202, 91204 and 91501. Declared size 2 000 mm × 2 400 mm. Double glazing 4 mm / 16 mm cavity / 4 mm.",
+        "air": "Class 4 (EN 1026:2016 / EN 12207:2017)",
+        "water": "Class 8A (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Class B3 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2144": {
+        "title": "Test report 1994-CPR-RP2144",
+        "specimen": "Lift-and-slide door with central reinforcement, trade name 92000, double symmetrical sash. The report cover describes the specimen as a 300 kg door. Declared size 2 570 mm × 2 450 mm. Double glazing 4 mm / 18 mm cavity / 33.1 mm.",
+        "air": "Class 4 (EN 1026:2016 / EN 12207:2017)",
+        "water": "Class 8A (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Class C4 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2145": {
+        "title": "Test report 1994-CPR-RP2145",
+        "specimen": "Lift-and-slide door without central reinforcement, trade name 92000, double symmetrical sash. The report cover describes the specimen as a 300 kg door. Declared size 2 570 mm × 2 450 mm. Double glazing 4 mm / 18 mm cavity / 33.1 mm.",
+        "air": "Class 4 (EN 1026:2016 / EN 12207:2017)",
+        "water": "Class 8A (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Class B4 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "epd26335": {
+        "title": "Environmental declaration EPD-IES-0026335",
+        "covered": "Representative product: profile 71 000. Other profiles named in the declaration: 92 000, 93 000, CE 32 000, E50 and E34. Declared unit: 1 kg. Prepared to ISO 14025:2006 and EN 15804:2012+A2:2019/AC:2021. Listing a profile here does not give it the laboratory classes above and does not add it as a separate product."
+      },
+      "rp2176": {
+        "title": "Test report 1994-CPR-RP2176",
+        "specimen": "Double-casement PVC window, main casement tilt-and-turn, trade name PVC 85000. Declared size 1 447 mm × 1 650 mm. Double glazing 4 mm / 12 mm cavity / 4 mm.",
+        "air": "Class 4 (EN 1026:2016 / EN 12207:2016)",
+        "water": "Class E1500 (EN 1027:2016 / EN 12208:1999)",
+        "wind": "Class C5 (EN 12211:2016 / EN 12210:2016)"
+      },
+      "rp2549": {
+        "title": "Test report 1994-CPR-RP2549",
+        "specimen": "Three PVC window nodes, trade name 76000, as named in the report. Profiles include frame 76103 and sash 76401. Triple glazing, 43 mm in total.",
+        "uf": "1.2 W/(m²K) for node 01 (frame–sash), node 02 (frame–sash) and node 03 (sash meeting)",
+        "conditions": "EN ISO 10077-2:2017, radiosity method. Each node was calculated separately."
+      },
+      "asi554": {
+        "title": "ASI Performance Standard, certificate 554",
+        "scope": "Performance Standard V3.1, full certification, certificate 554. Holder: Everest Shpk, Kamez, Albania. Scope: manufacture of aluminium billets, architectural and industrial profiles, powder-coated profiles and fenestration products, including doors, windows and façade systems. This certifies the manufacturer, not one product series and not AL STORE."
+      },
+      "epd26336": {
+        "title": "Environmental declaration EPD-IES-0026336",
+        "scope": "Environmental declaration of one product: hybrid aluminium/PVC profile 67 000. Declared unit: 1 kg. ISO 14025:2006 and EN 15804:2012+A2:2019/AC:2021. The declaration states, for this profile, efficiency class phB (Passive House), class C4 (EN 12211:2016), class E1350 (EN 1027:2016) and class 4 (EN 1026:2016)."
+      },
+      "ph2570": {
+        "title": "Passive House certificate 2570ws04",
+        "specimen": "EV HYBRID window system, component 2570ws04, manufacturer EVEREST, Tirana. Warm, temperate climate. Efficiency class phB.",
+        "criteria": "UW = 1.00 W/(m²K) (limit 1.00) with Ug = 0.90 W/(m²K), for the 2.46 m × 1.48 m test window. Installed UW limit: 1.05 W/(m²K). Hygiene criterion as printed: fRsi=0.25 ≥ 0.65. Q100 = 0.15 m³/(h·m), limit 0.25 m³/(h·m)."
+      }
+    },
+    "testedSampleHeading": "Tested-sample results: series {series}",
+    "technicalDocsAction": "View technical documentation",
+    "pdfLink": "PDF"
   },
   "NotFound": {
     "eyebrow": "Error 404",
@@ -81,5 +209,18 @@
     "description": "The page did not load correctly. Please try again shortly.",
     "retry": "Try again",
     "reference": "Reference: {digest}"
+  },
+  "TruckScrollHero": {
+    "eyebrow": "AL STORE × EVEREST",
+    "title": "A partnership that builds trust.",
+    "body": "From production to delivery, every detail reflects reliability, quality, and modern industrial standards.",
+    "secondary": "Built for performance. Presented with clarity.",
+    "truckAlt": "Truck with yellow curtain-side trailers in motion",
+    "statsNote": "Figures from 2018 to date.",
+    "stats": {
+      "partnershipYears": "Years of partnership",
+      "supplyTrucks": "Supply trucks",
+      "aluminiumTonnes": "Tonnes of aluminium supplied"
+    }
   }
 }
