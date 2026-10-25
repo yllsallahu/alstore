@@ -30,7 +30,7 @@ src/
     robots.ts  sitemap.ts    SEO routes (see SEO_RULES.md)
     [locale]/
       layout.tsx             <html lang>, metadata defaults, header/footer, intl provider
-      page.tsx               home (introduction, categories, contact)
+      page.tsx               home (introduction, history, systems, contact)
       documents/page.tsx     technical documents (reports, declarations, certifications)
       not-found.tsx          localized 404
       error.tsx              localized error boundary (client)
@@ -42,8 +42,9 @@ src/
     seo/                     JsonLd
   features/
     catalog/
-      components/          ProductCategories, DocumentViewer
+      components/          ProductCategories, SystemsSection, DocumentViewer
       documents.ts         verified technical-document register (lab PDFs in public/documents/)
+      systems.ts           EVEREST systems shown on the homepage (sources in CONTENT_SOURCES §5)
       queries.ts           server validation of that register
   config/
     site.ts                  verified business facts (single source of truth)

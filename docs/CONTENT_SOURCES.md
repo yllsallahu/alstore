@@ -93,6 +93,30 @@ entry points only, with no products or availability.
 - **Accessories:** everest.al has no accessories category. The copy stays generic (no items named).
   No certificate is attached to Accessories.
 
+**Homepage "Systems" section (owner request, 2026-10-25):** `src/features/catalog/systems.ts`,
+wording in `Systems.*`. The owner named the sources and asked for EVEREST's official photos.
+
+| System          | Official page (read 2026-10-25)                            | Image                                                             | Status                                                                                                                                                                                 |
+| --------------- | ---------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 30 000 Standard | https://everest.al/aluminium-full/products/30000-standard/ | `everest.al/wp-content/uploads/2020/04/30000-standard-series.jpg` | **Pending.** The page shows only images (no public text), and the series is not in the aluminium product list. Copy says "aluminium system" only                                       |
+| 60 000 Series   | https://everest.al/aluminium-full/products/60000-series/   | `…/2020/04/sistemi-60000.jpg`                                     | Listed as Tilt & Turn, Windows/Doors. Copy paraphrased                                                                                                                                 |
+| 70 000 Series   | https://everest.al/aluminium-full/products/70000-series/   | `…/2020/04/70000-series.jpg`                                      | Listed as Tilt & Turn, Windows/Doors. Copy paraphrased                                                                                                                                 |
+| 71 000 Series   | https://everest.al/aluminium-full/products/71000-series/   | `…/2020/04/71000-series.jpg`                                      | Listed as Tilt & Turn, Windows/Doors. Copy paraphrased                                                                                                                                 |
+| 76 000 Series   | https://everest.al/aluminium-full/products/76000-series/   | `…/2020/04/76000-series.jpg`                                      | **Pending.** Only the product-list excerpt is readable. EVEREST lists 76 000 under **Aluminium**, while RP2549 (below) calls a 76 000 series PVC. Owner to confirm before linking them |
+| PVC (category)  | https://everest.al/pvc-full/                               | `public/media/categories/window.png` (same EVEREST uPVC render)   | Category card, no series named                                                                                                                                                         |
+
+- On 2026-10-25 every EVEREST product page above returned HTTP 500 ("critical error") with only
+  images rendering. Text came from the product lists (https://everest.al/aluminium-full/products/,
+  https://everest.al/sq/alumin/produktet/) and the PVC page.
+- **Images** are served from everest.al through `next/image` (`remotePatterns` in
+  `next.config.ts`). Owner instruction is the permission on record; EVEREST's written consent is
+  still to be filed. To self-host, save the files to `public/media/systems/` and change `src`
+  in `systems.ts`.
+- **Not published:** the Uf values on EVEREST's product list (70 000: 1.9, 71 000: 1.15,
+  76 000: 0.89 W/m²K) and the specification tables. They are manufacturer declarations, and the
+  71 000 figure differs from the RP2790 node result (1.3). Owner to decide how to present them.
+- No calls to action on the cards for now (owner, 2026-10-25). Content to be added later.
+
 ### Verified technical documents (read 2026-10-20)
 
 Supplied in `certificates/` (local archive, not a public route). Laboratory PDFs say IRCCOS

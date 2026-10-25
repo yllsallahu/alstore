@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { siteConfig } from "@/config/site";
 import { ProductCategories } from "@/features/catalog/components/product-categories";
+import { SystemsSection } from "@/features/catalog/components/systems-section";
 import { TruckScrollHero } from "@/features/home/components/truck-scroll-hero";
 import { resolveLocale } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -27,8 +28,8 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
 }
 
 /**
- * Home page: hero, product category entry points and direct contact actions.
- * Category pages, systems and the quotation flow come in later phases.
+ * Home page: hero, EVEREST history, EVEREST systems and direct contact actions.
+ * Category pages and the quotation flow come in later phases.
  */
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const locale = await resolveLocale(params);
@@ -72,6 +73,8 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       </section>
 
       <ProductCategories />
+
+      <SystemsSection />
 
       <TruckScrollHero />
 

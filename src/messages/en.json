@@ -54,6 +54,50 @@
       "upvc": "Expansion into uPVC production"
     }
   },
+  "Systems": {
+    "eyebrow": "EVEREST systems",
+    "title": "Aluminium and PVC systems for windows and doors.",
+    "intro": "The systems are manufactured by EVEREST. AL STORE is a distributor in Kosovo and helps you choose a system and get a quotation.",
+    "footnote": "System names, descriptions and images: EVEREST (everest.al). AL STORE is a distributor, not the manufacturer.",
+    "items": {
+      "s30000": {
+        "name": "30 000 Standard",
+        "category": "Aluminium",
+        "description": "Aluminium system from the EVEREST range.",
+        "alt": "Cross-section of the EVEREST 30 000 Standard aluminium profile with glazing"
+      },
+      "s60000": {
+        "name": "60 000 Series",
+        "category": "Aluminium · Tilt & Turn",
+        "description": "Non-insulated casement system for a wide range of uses, including interior space divisions.",
+        "alt": "Cross-section of the EVEREST 60 000 frame and sash"
+      },
+      "s70000": {
+        "name": "70 000 Series",
+        "category": "Aluminium · Tilt & Turn",
+        "description": "Tilt-and-turn window system designed for energy efficiency, air and water tightness, and sound control.",
+        "alt": "Cross-section of the EVEREST 70 000 frame and sash with thermal break"
+      },
+      "s71000": {
+        "name": "71 000 Series",
+        "category": "Aluminium · Tilt & Turn",
+        "description": "Tilt-and-turn system combining the benefits of aluminium with maximum thermal insulation, for design-led buildings.",
+        "alt": "Cross-section of the EVEREST 71 000 frame and sash with triple glazing"
+      },
+      "s76000": {
+        "name": "76 000 Series",
+        "category": "Aluminium · Windows and doors",
+        "description": "Hinged system for windows and doors, based on the 75 000 series, with better thermal insulation and greater comfort.",
+        "alt": "Cross-section of the EVEREST 76 000 system with triple glazing and a wood-effect interior face"
+      },
+      "pvc": {
+        "name": "PVC (uPVC)",
+        "category": "Category · Windows and doors",
+        "description": "uPVC systems for windows and doors, with good thermal performance and durability. EVEREST entered the uPVC market in 2018.",
+        "alt": "White two-casement uPVC window by EVEREST"
+      }
+    }
+  },
   "Documents": {
     "metaTitle": "Certificates and technical reports",
     "metaDescription": "Named-sample EVEREST test reports, environmental declarations and the manufacturer's certification. Results do not cover an entire category.",

@@ -8,9 +8,10 @@ import type { Locale } from "next-intl";
  * Status of the targets:
  *   - contact: points at the existing contact block (#home-contact).
  *   - products: points at the product categories section (ProductCategories).
- *   - systems, about: their homepage sections are not built yet, so
- *     these links land on the homepage until those sections ship with the ids
- *     below. When a dedicated page replaces an anchor, change it to a route.
+ *   - systems: points at the EVEREST systems section (SystemsSection).
+ *   - about: its homepage section is not built yet, so the link lands on the
+ *     homepage until that section ships with the id below.
+ * When a dedicated page replaces an anchor, change it to a route.
  */
 const sectionAnchors = {
   products: { sq: "produktet", en: "products" },

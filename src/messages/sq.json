@@ -54,6 +54,50 @@
       "upvc": "Zgjerimi në prodhimin uPVC"
     }
   },
+  "Systems": {
+    "eyebrow": "Sistemet EVEREST",
+    "title": "Sisteme alumini dhe PVC për dritare dhe dyer.",
+    "intro": "Sistemet janë prodhuar nga EVEREST. AL STORE është distributor në Kosovë dhe ju ndihmon të zgjidhni sistemin dhe të merrni ofertë.",
+    "footnote": "Emrat, përshkrimet dhe pamjet e sistemeve: EVEREST (everest.al). AL STORE është distributor, jo prodhues.",
+    "items": {
+      "s30000": {
+        "name": "30 000 Standard",
+        "category": "Alumini",
+        "description": "Sistem alumini nga gama e EVEREST.",
+        "alt": "Pamje në prerje e profilit të aluminit EVEREST 30 000 Standard me xham"
+      },
+      "s60000": {
+        "name": "60 000 Series",
+        "category": "Alumini · Tilt & Turn",
+        "description": "Sistem me kanata pa izolim termik, për një gamë të gjerë përdorimesh, përfshirë ndarjen e hapësirave të brendshme.",
+        "alt": "Pamje në prerje e kornizës dhe kanatës së sistemit EVEREST 60 000"
+      },
+      "s70000": {
+        "name": "70 000 Series",
+        "category": "Alumini · Tilt & Turn",
+        "description": "Sistem dritaresh tilt & turn, i projektuar për efikasitet energjetik, mbyllje ndaj ajrit dhe ujit dhe izolim akustik.",
+        "alt": "Pamje në prerje e kornizës dhe kanatës së sistemit EVEREST 70 000 me urë termike"
+      },
+      "s71000": {
+        "name": "71 000 Series",
+        "category": "Alumini · Tilt & Turn",
+        "description": "Sistem tilt & turn që bashkon përparësitë e aluminit me izolim termik maksimal, për ndërtesa me fokus te dizajni.",
+        "alt": "Pamje në prerje e kornizës dhe kanatës së sistemit EVEREST 71 000 me xham të trefishtë"
+      },
+      "s76000": {
+        "name": "76 000 Series",
+        "category": "Alumini · Dritare dhe dyer",
+        "description": "Sistem me hapje për dritare dhe dyer, i bazuar te seria 75 000, me izolim termik më të mirë dhe komoditet më të lartë.",
+        "alt": "Pamje në prerje e sistemit EVEREST 76 000 me xham të trefishtë dhe anë të brendshme me pamje druri"
+      },
+      "pvc": {
+        "name": "PVC (uPVC)",
+        "category": "Kategori · Dritare dhe dyer",
+        "description": "Sisteme uPVC për dritare dhe dyer, me performancë të mirë termike dhe qëndrueshmëri. EVEREST hyri në tregun uPVC në vitin 2018.",
+        "alt": "Dritare uPVC e bardhë me dy kanata nga EVEREST"
+      }
+    }
+  },
   "Documents": {
     "metaTitle": "Certifikatat dhe raportet teknike",
     "metaDescription": "Raporte prove për mostra të emërtuara EVEREST, deklarata mjedisore dhe certifikimi i prodhuesit. Rezultatet nuk mbulojnë një kategori të tërë.",

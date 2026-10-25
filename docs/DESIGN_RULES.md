@@ -134,6 +134,9 @@ colours, update the colour tokens in `tokens.css` at the same time.
 - Only owner-supplied photographs, or EVEREST material with written permission recorded in
   `CONTENT_SOURCES.md`.
 - No stock imagery standing in for real projects or products. No AI-generated product photos.
+- **EVEREST system renders** (homepage Systems section) load from `everest.al` via `next/image`
+  `remotePatterns`. They sit on `paper-sunken` with `mix-blend-multiply`, so their white
+  backgrounds take the panel tone. The section is a hairline grid, not shadowed cards.
 - Always use `next/image` with explicit dimensions and meaningful `alt` text in both languages.
   Purely decorative backgrounds (the hero video and its poster) use `alt=""` / `aria-hidden`.
 - **Home hero video:** `public/media/hero-video.mp4` (owner-supplied, 848×478, ~11 s) with
