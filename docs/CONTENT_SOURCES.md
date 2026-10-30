@@ -53,14 +53,14 @@ category.
 
 ## 4. Brand assets
 
-| Asset                      | Status            | Notes                                                                                                                                                                                                                               |
-| -------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Official AL STORE logo     | **Partial**       | Owner supplied `images/logo without bg.png` (2026-10-20). Cropped transparent wordmark is `public/brand/alstore-logo.png`, registered as `logo.primary` (header). `logo.inverse` is still null                                      |
-| Brand colours / guidelines | **Not delivered** | Tokens are provisional (DESIGN_RULES §2)                                                                                                                                                                                            |
-| Photography                | **Not delivered** | No still photography yet                                                                                                                                                                                                            |
-| Home hero video            | **Supplied**      | Owner supplied `images/Untitled design.mp4` (2026-10-20, replaces an earlier warehouse clip), published as `public/media/hero-video.mp4` with a first-frame poster. Location not confirmed: don't caption it as AL STORE's premises |
-| Open Graph image           | **Not delivered** | `ogImage` = null                                                                                                                                                                                                                    |
-| Favicon / app icons        | **Not delivered** | No icon is shipped; browsers show the default                                                                                                                                                                                       |
+| Asset                      | Status            | Notes                                                                                                                                                                                                                                                                                        |
+| -------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Official AL STORE logo     | **Partial**       | Owner supplied `images/logo without bg.png` (2026-10-20). Published wordmark is `public/brand/alstore-logo.webp` (from the cropped PNG), registered as `logo.primary` (header). Source PNG kept beside it. `logo.inverse` is still null                                                      |
+| Brand colours / guidelines | **Not delivered** | Tokens are provisional (DESIGN_RULES §2)                                                                                                                                                                                                                                                     |
+| Photography                | **Not delivered** | No still photography yet                                                                                                                                                                                                                                                                     |
+| Home hero video            | **Supplied**      | Owner supplied `images/Untitled design.mp4` (2026-10-20), published as `public/media/hero-video.mp4` (re-encoded 640×360 H.264 ~430 KB for 4G; original was ~2.4 MB) with WebP poster `public/media/hero-video-poster.webp`. Location not confirmed: don't caption it as AL STORE's premises |
+| Open Graph image           | **Not delivered** | `ogImage` = null                                                                                                                                                                                                                                                                             |
+| Favicon / app icons        | **Not delivered** | No icon is shipped; browsers show the default                                                                                                                                                                                                                                                |
 
 **Candidates found in git history, NOT approved and NOT used:**
 
@@ -81,7 +81,7 @@ category.
 entry points only, with no products or availability.
 
 - **Image:** owner-supplied transparent render `images/9457114deb8d49c7b20bcd36.png` (714×700,
-  2026-10-20), published as `public/media/categories/window.png` and shown for every category.
+  2026-10-20), published as `public/media/categories/window.webp` (WebP; PNG kept as source).
   Original author not recorded; confirm usage rights with the owner.
 - **Rejected as too blurry (owner, 2026-10-20):** `images/alumin.jpg` and `images/pvc.jpg`
   (300×250). Per-category images need sharp files at least ~1000px wide.
@@ -103,15 +103,15 @@ wording in `Systems.*`. The owner named the sources and asked for EVEREST's offi
 | 70 000 Series   | https://everest.al/aluminium-full/products/70000-series/   | `…/2020/04/70000-series.jpg`                                      | Listed as Tilt & Turn, Windows/Doors. Copy paraphrased                                                                                                                                 |
 | 71 000 Series   | https://everest.al/aluminium-full/products/71000-series/   | `…/2020/04/71000-series.jpg`                                      | Listed as Tilt & Turn, Windows/Doors. Copy paraphrased                                                                                                                                 |
 | 76 000 Series   | https://everest.al/aluminium-full/products/76000-series/   | `…/2020/04/76000-series.jpg`                                      | **Pending.** Only the product-list excerpt is readable. EVEREST lists 76 000 under **Aluminium**, while RP2549 (below) calls a 76 000 series PVC. Owner to confirm before linking them |
-| PVC (category)  | https://everest.al/pvc-full/                               | `public/media/categories/window.png` (same EVEREST uPVC render)   | Category card, no series named                                                                                                                                                         |
+| PVC (category)  | https://everest.al/pvc-full/                               | `public/media/categories/window.webp` (same EVEREST uPVC render)  | Category card, no series named                                                                                                                                                         |
 
 - On 2026-10-25 every EVEREST product page above returned HTTP 500 ("critical error") with only
   images rendering. Text came from the product lists (https://everest.al/aluminium-full/products/,
   https://everest.al/sq/alumin/produktet/) and the PVC page.
-- **Images** are served from everest.al through `next/image` (`remotePatterns` in
-  `next.config.ts`). Owner instruction is the permission on record; EVEREST's written consent is
-  still to be filed. To self-host, save the files to `public/media/systems/` and change `src`
-  in `systems.ts`.
+- **Images** are self-hosted as WebP under `public/media/systems/*.webp` (mirrored from the
+  everest.al uploads listed above on 2026-10-30 for 4G performance; next/image may still
+  re-encode to AVIF for supporting clients). Owner instruction is the permission on record;
+  EVEREST's written consent is still to be filed.
 - **Not published:** the Uf values on EVEREST's product list (70 000: 1.9, 71 000: 1.15,
   76 000: 0.89 W/m²K) and the specification tables. They are manufacturer declarations, and the
   71 000 figure differs from the RP2790 node result (1.3). Owner to decide how to present them.

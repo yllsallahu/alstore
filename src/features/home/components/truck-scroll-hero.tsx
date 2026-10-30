@@ -1,8 +1,7 @@
 "use client";
 // Client Component: GSAP ScrollTrigger pins the section and scrubs the truck on scroll.
+// GSAP is loaded dynamically so it is not in the initial JS for mid-range phones.
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useLayoutEffect, useRef } from "react";
@@ -10,8 +9,6 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { siteConfig } from "@/config/site";
 import { truckImage } from "../truck-assets";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Scroll story after the EVEREST history: the truck crosses the screen while the
@@ -26,45 +23,61 @@ export function TruckScrollHero() {
     const section = root.current;
     if (!section) return;
 
-    const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
+    let cancelled = false;
+    let ctx: { revert: () => void } | undefined;
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const truck = section.querySelector<HTMLElement>("[data-truck]");
-        if (!truck) return;
+    void (async () => {
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+      if (cancelled || !root.current) return;
 
-        gsap.set("[data-secondary]", { autoAlpha: 0, y: 24 });
+      gsap.registerPlugin(ScrollTrigger);
 
-        const tl = gsap.timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=160%",
-            pin: true,
-            scrub: 0.6,
-            invalidateOnRefresh: true,
-          },
+      ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add("(prefers-reduced-motion: no-preference)", () => {
+          const truck = section.querySelector<HTMLElement>("[data-truck]");
+          if (!truck) return;
+
+          gsap.set("[data-secondary]", { autoAlpha: 0, y: 24 });
+
+          const tl = gsap.timeline({
+            defaults: { ease: "none" },
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: "+=160%",
+              pin: true,
+              scrub: 0.6,
+              invalidateOnRefresh: true,
+            },
+          });
+
+          // Truck: fully off-screen left → fully off-screen right.
+          tl.fromTo(
+            truck,
+            { x: () => -truck.offsetWidth },
+            { x: () => window.innerWidth, duration: 1 },
+            0,
+          )
+            .to("[data-wheel]", { rotation: 720, transformOrigin: "50% 50%", duration: 1 }, 0)
+            // Copy: intro out, secondary line in.
+            .to("[data-intro]", { autoAlpha: 0, y: -24, duration: 0.2, stagger: 0.03 }, 0.35)
+            .to("[data-secondary]", { autoAlpha: 1, y: 0, duration: 0.2 }, 0.55)
+            // Depth: background shapes drift slower than the truck.
+            .to("[data-shape='far']", { xPercent: -12, duration: 1 }, 0)
+            .to("[data-shape='near']", { xPercent: -30, duration: 1 }, 0);
         });
+      }, section);
+    })();
 
-        // Truck: fully off-screen left → fully off-screen right.
-        tl.fromTo(
-          truck,
-          { x: () => -truck.offsetWidth },
-          { x: () => window.innerWidth, duration: 1 },
-          0,
-        )
-          .to("[data-wheel]", { rotation: 720, transformOrigin: "50% 50%", duration: 1 }, 0)
-          // Copy: intro out, secondary line in.
-          .to("[data-intro]", { autoAlpha: 0, y: -24, duration: 0.2, stagger: 0.03 }, 0.35)
-          .to("[data-secondary]", { autoAlpha: 1, y: 0, duration: 0.2 }, 0.55)
-          // Depth: background shapes drift slower than the truck.
-          .to("[data-shape='far']", { xPercent: -12, duration: 1 }, 0)
-          .to("[data-shape='near']", { xPercent: -30, duration: 1 }, 0);
-      });
-    }, section);
-
-    return () => ctx.revert();
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   return (
@@ -145,6 +158,7 @@ export function TruckScrollHero() {
                 width={truckImage.width}
                 height={truckImage.height}
                 sizes="(min-width: 64rem) 56rem, 100vw"
+                loading="lazy"
                 className="h-auto w-full"
               />
             ) : (

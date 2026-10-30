@@ -43,6 +43,7 @@ export async function SystemsSection() {
                   width={image.width}
                   height={image.height}
                   sizes="(min-width: 64rem) 28rem, (min-width: 40rem) 50vw, 100vw"
+                  loading="lazy"
                   className="size-full object-contain p-6 mix-blend-multiply"
                 />
               </div>
