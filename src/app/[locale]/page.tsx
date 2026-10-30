@@ -9,6 +9,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { siteConfig } from "@/config/site";
 import { ProductCategories } from "@/features/catalog/components/product-categories";
 import { SystemsSection } from "@/features/catalog/components/systems-section";
+import { DeferredHeroVideo } from "@/features/home/components/deferred-hero-video";
 import { TruckScrollHero } from "@/features/home/components/truck-scroll-hero";
 import { resolveLocale } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -43,24 +44,17 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       {/* Pulled up under the sticky header (h-16 / sm:h-20) so the video fills the whole screen. */}
       <section className="relative isolate -mt-16 flex min-h-dvh items-end overflow-hidden bg-graphite text-on-graphite sm:-mt-20">
         <div aria-hidden="true" className="absolute inset-0 -z-10">
+          {/* Explicit width/height via fill+sizes; priority preloads this as the LCP image. */}
           <Image
-            src="/media/hero-video-poster.jpg"
+            src="/media/hero-video-poster.webp"
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover"
           />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 size-full object-cover motion-reduce:hidden"
-          >
-            <source src="/media/hero-video.mp4" type="video/mp4" />
-          </video>
+          <DeferredHeroVideo />
           <div className="absolute inset-0 bg-graphite/60" />
         </div>
 

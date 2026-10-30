@@ -48,7 +48,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <NextIntlClientProvider
           messages={{
             LocaleSwitcher: messages.LocaleSwitcher,
-            ProductCategories: messages.ProductCategories,
             TruckScrollHero: messages.TruckScrollHero,
             Documents: messages.Documents,
             Error: messages.Error,

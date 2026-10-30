@@ -31,7 +31,7 @@ export type BrandAssets = {
 
 export const brandAssets: BrandAssets = {
   logo: {
-    primary: { src: "/brand/alstore-logo.png", width: 239, height: 101 },
+    primary: { src: "/brand/alstore-logo.webp", width: 239, height: 101 },
     inverse: null,
   },
   ogImage: null,

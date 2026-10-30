@@ -12,7 +12,7 @@
 | typescript                         | 6.0.3   | **Not 7.x.** TS 7 (native compiler) is a new major; Next's build-time type check and typescript-eslint are proven on 6.x. Revisit once Next documents TS 7 support.                                                                                                                                              |
 | eslint                             | 9.39.5  | **Not 10.x.** `eslint-config-next` 16.4.2 depends on `eslint-plugin-react` 7.37, `eslint-plugin-import` 2.32 and `eslint-plugin-jsx-a11y` 6.10, whose peer ranges stop at ESLint 9. npm prints a "no longer supported" notice for 9.x; upgrade together with `eslint-config-next` once those plugins support 10. |
 | eslint-config-next                 | 16.4.2  | Core Web Vitals + TypeScript rule sets.                                                                                                                                                                                                                                                                          |
-| gsap                               | 3.15.0  | Owner-requested scroll-pinned truck showcase (`TruckScrollHero`). ScrollTrigger ships in the package; loaded only by that Client Component. CSS scroll timelines lack Safari support for pinning + scrub.                                                                                                        |
+| gsap                               | 3.15.0  | Owner-requested scroll-pinned truck showcase (`TruckScrollHero`). ScrollTrigger ships in the package; **dynamically imported** inside that Client Component so it is not in the initial JS. CSS scroll timelines lack Safari support for pinning + scrub.                                                        |
 | prettier                           | 3.9.10  | Formatting, enforced by `npm run format:check`.                                                                                                                                                                                                                                                                  |
 
 Node ≥ 22.12 (`.nvmrc` = 22). Deliberately **not** added: UI kits, icon packs, clsx or
@@ -46,6 +46,9 @@ src/
       documents.ts         verified technical-document register (lab PDFs in public/documents/)
       systems.ts           EVEREST systems shown on the homepage (sources in CONTENT_SOURCES §5)
       queries.ts           server validation of that register
+    home/
+      components/          DeferredHeroVideo, TruckScrollHero
+      truck-assets.ts      optional truck cut-out registry
   config/
     site.ts                  verified business facts (single source of truth)
     brand.ts                 brand asset registry (header logo filled; inverse and OG still null)
@@ -93,11 +96,12 @@ feature folders ahead of their phase.
   (`generateStaticParams` in `[locale]/layout.tsx`, `setRequestLocale` via `resolveLocale`).
 - **Client Components (current, complete list):** `LocaleSwitcher` (needs the current
   pathname), `MobileNav` (menu open/close), `HeaderFrame` (transparent header over the home hero:
-  pathname + scroll position), `ProductCategories` (selected category image), `DocumentViewer`
-  (selected technical document), `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it).
-  Each new one needs a comment justifying it.
+  pathname + scroll position), `DeferredHeroVideo` (idle-loads the hero MP4 after the poster LCP),
+  `TruckScrollHero` (GSAP scroll story), `DocumentViewer` (selected technical document),
+  `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it). Each new one needs a comment
+  justifying it.
 - `NextIntlClientProvider` receives **only** the namespaces client components use
-  (`LocaleSwitcher`, `ProductCategories`, `Documents`, `Error`). Add a namespace there when a new
+  (`LocaleSwitcher`, `TruckScrollHero`, `Documents`, `Error`). Add a namespace there when a new
   client component needs one.
 
 ## 4. Localization flow

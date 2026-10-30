@@ -105,10 +105,11 @@ pages) and `3xl` for page titles elsewhere.
 
 ## 7. Brand assets
 
-The owner supplied a transparent wordmark for light backgrounds (`public/brand/alstore-logo.png`,
-registered as `logo.primary`). Photography, brand guidelines, the inverse logo, the Open Graph
-image and icons **have not been delivered**. Do not draw, generate, trace or approximate a logo.
-Do not use the other PNG candidates found in git history (see `CONTENT_SOURCES.md`).
+The owner supplied a transparent wordmark for light backgrounds (published as
+`public/brand/alstore-logo.webp`, registered as `logo.primary`; PNG source kept beside it).
+Photography, brand guidelines, the inverse logo, the Open Graph image and icons **have not been
+delivered**. Do not draw, generate, trace or approximate a logo. Do not use the other PNG
+candidates found in git history (see `CONTENT_SOURCES.md`).
 
 **How it works now:** `src/config/brand.ts` is a typed registry. `<BrandMark>` renders the logo
 when that tone's slot is filled; otherwise it renders the words "AL STORE" in the site typeface.
@@ -119,7 +120,7 @@ the supplied wordmark is dark and has no inverse version.
 
 | File                                    | Registry slot          | Notes                                 |
 | --------------------------------------- | ---------------------- | ------------------------------------- |
-| `public/brand/alstore-logo.png`         | `logo.primary`         | Supplied. Light backgrounds (header). |
+| `public/brand/alstore-logo.webp`        | `logo.primary`         | Supplied. Light backgrounds (header). |
 | `public/brand/alstore-logo-inverse.svg` | `logo.inverse`         | For graphite backgrounds (footer)     |
 | `public/brand/og-default.png`           | `ogImage`              | 1200×630 social share image           |
 | `src/app/icon.svg` or `icon.png`        | (Next file convention) | Favicon, auto-detected by Next.js     |
@@ -134,15 +135,16 @@ colours, update the colour tokens in `tokens.css` at the same time.
 - Only owner-supplied photographs, or EVEREST material with written permission recorded in
   `CONTENT_SOURCES.md`.
 - No stock imagery standing in for real projects or products. No AI-generated product photos.
-- **EVEREST system renders** (homepage Systems section) load from `everest.al` via `next/image`
-  `remotePatterns`. They sit on `paper-sunken` with `mix-blend-multiply`, so their white
-  backgrounds take the panel tone. The section is a hairline grid, not shadowed cards.
+- **EVEREST system renders** (homepage Systems section) are self-hosted WebP under
+  `public/media/systems/` and served through `next/image` (AVIF when the client supports it).
+  They sit on `paper-sunken` with `mix-blend-multiply`, so their white backgrounds take the panel
+  tone. The section is a hairline grid, not shadowed cards. Lazy-load below the fold.
 - Always use `next/image` with explicit dimensions and meaningful `alt` text in both languages.
   Purely decorative backgrounds (the hero video and its poster) use `alt=""` / `aria-hidden`.
-- **Home hero video:** `public/media/hero-video.mp4` (owner-supplied, 848×478, ~11 s) with
-  `public/media/hero-video-poster.jpg` (its first frame) underneath. It plays muted, looped
-  and inline behind a `graphite/60` scrim so `on-graphite` text stays readable. Replace both files
-  together with a higher-resolution export when available.
+- **Home hero:** LCP is the poster `public/media/hero-video-poster.webp` (`priority` +
+  `fetchPriority="high"`). The MP4 (`public/media/hero-video.mp4`, ~640×360, ~430 KB) is
+  idle-loaded by `DeferredHeroVideo` and skipped on reduced motion / save-data / 2G. Behind a
+  `graphite/60` scrim so `on-graphite` text stays readable.
 
 ## 9. Accessibility baseline
 

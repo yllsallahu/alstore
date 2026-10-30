@@ -86,9 +86,12 @@ Targets measured on mobile (4G, mid-range Android) at the 75th percentile: **LCP
 INP < 200ms, CLS < 0.1**.
 
 - Static rendering by default (`generateStaticParams` + `setRequestLocale`).
-- One self-hosted variable font with `display: swap`. No third-party font requests.
+- One self-hosted variable font with `display: swap` (preloaded by `next/font`). No third-party
+  font requests.
 - Client JavaScript only where interaction requires it. Only the needed message namespaces are
-  sent to the browser.
-- Images via `next/image` with dimensions. The LCP image (when one exists) gets `preload`.
+  sent to the browser. GSAP is dynamically imported from `TruckScrollHero`.
+- Images via `next/image` with dimensions, WebP sources, AVIF negotiation, and lazy-load below
+  the fold. The LCP poster gets `priority` / `fetchPriority="high"` (Next emits the preload).
+- Long-cache `Cache-Control` for `/media`, `/brand`, `/_next/static`; shorter for `/documents`.
 - No third-party scripts (analytics, chat, maps) without a documented decision covering
   performance and privacy.
