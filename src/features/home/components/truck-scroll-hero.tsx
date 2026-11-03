@@ -14,9 +14,9 @@ import { truckImage } from "../truck-assets";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Scroll story after the EVEREST history: the truck crosses the screen while the
- * copy hands over from the intro to the secondary line. Reduced motion gets a
- * static, unpinned layout with everything visible.
+ * Partnership scroll story (owner favourite, restored 2026-11-03): the EVEREST truck crosses
+ * the screen while the copy hands over from the intro to the secondary line. Reduced motion
+ * gets a static, unpinned layout with everything visible.
  */
 export function TruckScrollHero() {
   const t = useTranslations("TruckScrollHero");
@@ -93,21 +93,21 @@ export function TruckScrollHero() {
             <Eyebrow>{t("eyebrow")}</Eyebrow>
             <h2
               id="truck-hero"
-              className="mt-4 text-3xl font-semibold text-balance font-stretch-semi-expanded"
+              className="mt-5 max-w-headline text-statement font-light text-balance font-stretch-semi-expanded"
             >
               {t("title")}
             </h2>
             {/* Paragraph and secondary line share one grid cell and swap on scroll. */}
-            <div className="mt-4 grid">
+            <div className="mt-6 grid">
               <p
                 data-intro
-                className="col-start-1 row-start-1 max-w-measure text-pretty text-ink-muted"
+                className="col-start-1 row-start-1 max-w-measure text-lg text-pretty text-ink-muted"
               >
                 {t("body")}
               </p>
               <p
                 data-secondary
-                className="col-start-1 row-start-1 text-xl font-semibold text-brand text-balance motion-reduce:row-start-2 motion-reduce:mt-4"
+                className="col-start-1 row-start-1 text-2xl font-light text-brand text-balance font-stretch-semi-expanded motion-reduce:row-start-2 motion-reduce:mt-4"
               >
                 {t("secondary")}
               </p>
@@ -116,16 +116,16 @@ export function TruckScrollHero() {
 
           {/* Stays visible through the scroll; only the intro copy hands over. */}
           <div className="lg:col-span-5">
-            <dl className="grid grid-cols-3 gap-4 border-t border-line pt-6 sm:gap-8">
+            <dl className="grid grid-cols-3 gap-6 border-t border-line pt-6 sm:gap-10">
               {siteConfig.supplyStats.map(({ key, value }) => (
                 <div key={key}>
                   <dt className="sr-only">{t(`stats.${key}`)}</dt>
-                  <dd className="text-3xl font-semibold text-brand tabular-nums font-stretch-semi-expanded">
+                  <dd className="text-statement font-light text-brand tabular-nums font-stretch-semi-expanded">
                     {value}
                   </dd>
                   <dd
                     aria-hidden="true"
-                    className="mt-2 text-xs font-semibold uppercase tracking-label text-pretty text-ink-muted"
+                    className="mt-3 text-xs font-medium uppercase tracking-label text-pretty text-ink-muted"
                   >
                     {t(`stats.${key}`)}
                   </dd>

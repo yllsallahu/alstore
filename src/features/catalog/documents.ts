@@ -377,26 +377,36 @@ export function groupBySeries(documents: readonly TechnicalDocument[]) {
 
 /**
  * Document series for each homepage system key. null: no document may be attached yet.
- * 76 000 stays null: RP2549 calls it PVC while EVEREST lists it under Aluminium, and the
- * owner has to confirm before they are linked (CONTENT_SOURCES.md §5).
+ * 76 000 (aluminium) stays null: RP2549 is a 76 000 *uPVC* calculation (the 2024 catalogue lists
+ * both a "76 000 SERIES" and a "76 000 UPVC SYSTEM"), so it belongs to the PVC page, which lists
+ * every PVC document (CONTENT_SOURCES.md §5).
  */
-const seriesBySystem: Record<EverestSystem["key"], string | null> = {
+const seriesBySystem: Record<Exclude<EverestSystem["key"], "pvc">, string | null> = {
   s30000: null,
   s60000: null,
   s70000: "70 000",
   s71000: "71 000",
   s76000: null,
-  pvc: null,
 };
 
 /**
- * Documents to list on a system page: reports for that series and declarations that name it.
- * Manufacturer references are never returned. Link to one with `/documents#<id>`.
+ * Documents to list on a system page: reports for that series and declarations that name it;
+ * for the PVC category, every offered PVC document. Manufacturer references are never returned.
+ * Link to one with `/documents#<id>`.
  */
 export function documentsForSystem(key: EverestSystem["key"]) {
+  if (key === "pvc") {
+    const documents: readonly TechnicalDocument[] = technicalDocuments;
+    return documents.filter(
+      (document) => document.group === "pvc" && document.offer === "documentation",
+    );
+  }
   const series = seriesBySystem[key];
-  if (!series) return [];
+  return series ? documentsForSeries(series) : [];
+}
 
+/** Offered documents that test or name a series ("91 000"). Manufacturer references excluded. */
+export function documentsForSeries(series: string) {
   const documents: readonly TechnicalDocument[] = technicalDocuments;
   return documents.filter(
     (document) =>

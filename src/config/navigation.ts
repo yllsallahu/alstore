@@ -1,36 +1,49 @@
 import type { Locale } from "next-intl";
+import type { ComponentProps } from "react";
+import type { Link } from "@/i18n/navigation";
+
+/** Any target accepted by the localized `Link`, including in-page hashes. */
+export type LinkHref = ComponentProps<typeof Link>["href"];
 
 /**
  * Primary navigation. Labels live in messages (Navigation.*).
  *
- * The site is currently a single page, so every item except Home targets a
- * homepage anchor. Anchors are localized (/#produktet, /en#products).
- * Status of the targets:
- *   - contact: points at the existing contact block (#home-contact).
- *   - products: points at the homepage company story (CompanyStory), its existing anchor.
- *   - systems: points at the EVEREST systems section (SystemsSection).
- *   - about: its homepage section is not built yet, so the link lands on the
- *     homepage until that section ships with the id below.
- * When a dedicated page replaces an anchor, change it to a route.
+ * Systems and Contact are homepage sections, reached by localized anchors
+ * (/#sistemet, /en#systems). Films, Documents, Knowledge and About are pages.
  */
 const sectionAnchors = {
-  products: { sq: "produktet", en: "products" },
   systems: { sq: "sistemet", en: "systems" },
-  about: { sq: "rreth-nesh", en: "about" },
   contact: { sq: "home-contact", en: "home-contact" },
 } as const satisfies Record<string, Record<Locale, string>>;
 
-export type NavItemKey = "home" | keyof typeof sectionAnchors;
+type SectionKey = keyof typeof sectionAnchors;
+
+const pageRoutes = {
+  films: "/films",
+  documents: "/documents",
+  knowledge: "/knowledge",
+  about: "/about",
+} as const satisfies Record<string, LinkHref>;
+
+export type NavItemKey = SectionKey | keyof typeof pageRoutes;
 
 export const primaryNavigation: readonly NavItemKey[] = [
-  "home",
-  "products",
   "systems",
+  "films",
+  "documents",
+  "knowledge",
   "about",
   "contact",
 ];
 
-/** Hash for a navigation item, or undefined for Home (plain "/"). */
-export function navHash(item: NavItemKey, locale: Locale): string | undefined {
-  return item === "home" ? undefined : sectionAnchors[item][locale];
+/** Anchor id of a homepage section, e.g. "sistemet" in Albanian. */
+export function navHash(item: SectionKey, locale: Locale): string {
+  return sectionAnchors[item][locale];
+}
+
+const isSection = (item: NavItemKey): item is SectionKey => item in sectionAnchors;
+
+/** Localized link target for a navigation item. */
+export function navHref(item: NavItemKey, locale: Locale): LinkHref {
+  return isSection(item) ? { pathname: "/", hash: navHash(item, locale) } : pageRoutes[item];
 }

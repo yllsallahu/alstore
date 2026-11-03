@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/everest-kosove", destination: "/", permanent: true },
-      { source: "/about.html", destination: "/", permanent: true },
+      { source: "/about.html", destination: "/rreth-nesh", permanent: true },
       { source: "/contact.html", destination: "/#home-contact", permanent: true },
       { source: "/certificate.html", destination: "/dokumentet", permanent: true },
       { source: "/everest.pdf", destination: "/dokumentet", permanent: true },
@@ -24,6 +24,14 @@ const nextConfig: NextConfig = {
     // Official EVEREST system renders (Systems section). Provenance: CONTENT_SOURCES.md §5.
     remotePatterns: [
       { protocol: "https", hostname: "everest.al", pathname: "/wp-content/uploads/**", search: "" },
+      // Unsplash photographs (src/config/photography.ts). Provenance: CONTENT_SOURCES.md §4.
+      // The exact query string keeps the optimizer to the one source size used there.
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/photo-*",
+        search: "?auto=format&fit=max&w=3200&q=85",
+      },
     ],
   },
 };

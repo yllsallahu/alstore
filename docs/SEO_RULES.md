@@ -20,11 +20,13 @@ searching EVEREST systems, aluminium/PVC profiles and window/door systems.
   data and (later) Search Console settings.
 - **Localized slugs:** each route has an Albanian slug and an English slug, declared in
   `src/i18n/routing.ts` → `pathnames`. Slugs are lowercase ASCII with hyphens. Albanian letters
-  are transliterated (`ë→e`, `ç→c`). Shipped: `/dokumentet` ↔ `/en/documents` (technical
+  are transliterated (`ë→e`, `ç→c`). Shipped: `/rreth-nesh` ↔ `/en/about` (about AL STORE),
+  `/video` ↔ `/en/videos` (EVEREST technical films),
+  `/dokumentet` ↔ `/en/documents` (technical
   documents), `/njohuri` ↔ `/en/knowledge` (knowledge centre) one slug pair per article
   (`/njohuri/<albanian-slug>` ↔ `/en/knowledge/<english-slug>`, keyed `/knowledge/<article-key>`),
-  system pages `/sistemet/<series>` ↔ `/en/systems/<series>` (series number, e.g. `71000`, only
-  for systems in `system-specs.ts`) and `/sistemet/krahaso` ↔ `/en/systems/compare` (one URL;
+  system pages `/sistemet/<series>` ↔ `/en/systems/<series>` (series number, e.g. `71000`, or
+  `pvc`; one per system in `systems.ts`, slugs in `system-specs.ts`) and `/sistemet/krahaso` ↔ `/en/systems/compare` (one URL;
   the selection is a query string the canonical omits). Example convention for later catalogue routes: `/produktet` ↔ `/en/products`,
   `/kerkese-per-oferte` ↔ `/en/request-a-quote`.
 - English copy uses British spelling ("aluminium", "catalogue") to match the source material.
@@ -79,7 +81,8 @@ appended from the content layer. Omit `lastModified` unless the real modificatio
   home page next to `LocalBusiness`. `LocalBusiness` is a subtype of `Organization`, so no separate
   `Organization` node is emitted (it would duplicate the same entity).
 - `BreadcrumbList` is rendered on nested pages via `breadcrumbJsonLd()` (shipped:
-  `/dokumentet`, `/njohuri`, each article, each system page and the comparison).
+  `/rreth-nesh`, `/video`, `/dokumentet`, `/njohuri`, each article, each system page and the
+  comparison).
 - `Article` JSON-LD on each knowledge-centre article (`src/features/knowledge/structured-data.ts`):
   headline, description, language, `datePublished`/`dateModified` = the article's `reviewedOn`
   date, AL STORE as author and publisher (no invented people), and `citation` = the article's
@@ -94,7 +97,7 @@ with an equivalent page get a permanent (308) redirect in `next.config.ts` `redi
 | Old URL                              | Redirects to     |
 | ------------------------------------ | ---------------- |
 | `/index.html`, `/everest-kosove/`    | `/`              |
-| `/about.html`                        | `/`              |
+| `/about.html`                        | `/rreth-nesh`    |
 | `/contact.html`                      | `/#home-contact` |
 | `/certificate.html`, `/everest.pdf`  | `/dokumentet`    |
 | `/blog-home.html`, `/blog-post.html` | `/njohuri`       |

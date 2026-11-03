@@ -10,12 +10,15 @@
     "primaryNavLabel": "Navigimi kryesor",
     "menuOpen": "Hap menynë",
     "menuClose": "Mbyll menynë",
-    "menuLabel": "Menyja"
+    "menuLabel": "Menyja",
+    "quoteAction": "Kërko ofertë"
   },
   "Navigation": {
     "home": "Ballina",
-    "products": "Produktet",
     "systems": "Sistemet",
+    "films": "Video",
+    "documents": "Dokumentet",
+    "knowledge": "Njohuri",
     "about": "Rreth nesh",
     "contact": "Kontakti"
   },
@@ -25,35 +28,102 @@
     "en": "English"
   },
   "Footer": {
-    "distributor": "AL STORE është distributor i produkteve <everest>EVEREST</everest> në Kosovë.",
     "manufacturerLabel": "Prodhuesi",
-    "documentsLink": "Certifikatat dhe raportet teknike",
-    "knowledgeLink": "Qendra e njohurive",
     "contactHeading": "Kontakti",
     "addressHeading": "Adresa",
     "mapLink": "Hap në Google Maps",
     "phoneLabel": "Telefoni",
     "emailLabel": "Email-i",
     "country": "Kosovë",
-    "copyright": "© {year} AL STORE"
+    "copyright": "© {year} AL STORE",
+    "photoCredit": "Fotografitë: EVEREST (katalogu 2024 dhe filmat teknikë) dhe Unsplash. Ilustruese.",
+    "tagline": "Sisteme alumini dhe PVC nga <everest>EVEREST</everest>, të furnizuara në Kosovë.",
+    "systemsHeading": "Sistemet dhe burimet",
+    "companyHeading": "Kompania",
+    "compareLink": "Krahaso sistemet",
+    "backToTop": "Kthehu lart"
   },
   "HomePage": {
     "metaTitle": "AL STORE — Sisteme alumini dhe PVC EVEREST në Kosovë",
     "metaDescription": "AL STORE është distributor i sistemeve të aluminit dhe PVC të EVEREST në Radivojc, Kosovë. Shikoni sistemet dhe dokumentet teknike ose kërkoni ofertë.",
-    "eyebrow": "Distributor i <everest>EVEREST</everest> në Kosovë",
-    "title": "Sisteme alumini dhe PVC nga <everest>EVEREST</everest>",
-    "systemsAction": "Shiko sistemet",
-    "quoteAction": "Kërko ofertë",
-    "factsLabel": "AL STORE me një vështrim",
-    "contactHeading": "Na kontaktoni",
-    "mapTitle": "Harta e vendndodhjes së AL STORE në Google Maps",
-    "callAction": "Telefono",
-    "emailAction": "Dërgo email"
+    "hero": {
+      "eyebrow": "Distributor i <everest>EVEREST</everest> në Kosovë",
+      "title": "Precizion në çdo detaj.",
+      "lead": "Sisteme alumini dhe PVC nga <everest>EVEREST</everest>, të furnizuara në Kosovë.",
+      "systemsAction": "Shiko sistemet",
+      "quoteAction": "Kërko ofertë"
+    },
+    "statement": {
+      "title": "Sisteme që i hapin hapësirat <muted>ndaj dritës.</muted>",
+      "lead": "Profile alumini dhe PVC të EVEREST, të furnizuara nga AL STORE që nga viti 2018."
+    },
+    "collection": {
+      "eyebrow": "Koleksioni",
+      "title": "Zgjidhni sistemin tuaj.",
+      "allAction": "Të gjitha sistemet",
+      "items": {
+        "windows": {
+          "label": "Alumini",
+          "title": "Dritare dhe dyer"
+        },
+        "sliding": {
+          "label": "Alumini",
+          "title": "Sisteme rrëshqitëse"
+        },
+        "pvc": {
+          "label": "PVC",
+          "title": "Dritare dhe dyer PVC"
+        }
+      }
+    },
+    "engineering": {
+      "eyebrow": "Inxhinieri",
+      "title": "Saktësi deri në milimetër.",
+      "results": {
+        "air": {
+          "label": "Përshkueshmëria e ajrit",
+          "value": "Klasa 4"
+        },
+        "water": {
+          "label": "Papërshkueshmëria e ujit",
+          "value": "E1500"
+        },
+        "wind": {
+          "label": "Rezistenca ndaj erës",
+          "value": "C5"
+        }
+      },
+      "note": "Mostra e dritares 70 000, raporti IRCCOS 1994-CPR-RP2147 (2020). Rezultatet vlejnë për mostrën e testuar.",
+      "action": "Dokumentet teknike"
+    },
+    "about": {
+      "eyebrow": "Rreth AL STORE",
+      "title": "Nga prodhuesi, te projekti juaj.",
+      "lead": "AL STORE furnizon prodhuesit e dritareve, montuesit dhe kompanitë e ndërtimit në Kosovë me sisteme EVEREST.",
+      "sinceLabel": "Distributor që nga",
+      "manufacturerLabel": "Prodhuesi",
+      "action": "Njihuni me ne"
+    },
+    "films": {
+      "eyebrow": "Filma teknikë",
+      "title": "Shikoni sistemet në lëvizje.",
+      "allAction": "Të gjithë filmat"
+    }
+  },
+  "TruckScrollHero": {
+    "eyebrow": "AL STORE × EVEREST",
+    "title": "Një partneritet që ndërton besim.",
+    "body": "Nga prodhimi te dorëzimi, çdo detaj pasqyron besueshmëri, cilësi dhe standarde moderne industriale.",
+    "secondary": "Ndërtuar për performancë. Paraqitur me qartësi.",
+    "truckAlt": "Kamion me rimorkio të verdha, në lëvizje",
+    "statsNote": "Të dhëna nga viti 2018 deri më sot.",
+    "stats": {
+      "partnershipYears": "Vite partneritet"
+    }
   },
   "CompanyStory": {
     "eyebrow": "Historia jonë · 2018 – sot",
     "title": "Nga prodhuesi te tregu i Kosovës.",
-    "intro": "EVEREST prodhon sistemet e aluminit dhe PVC. Që nga viti 2018, AL STORE i distribuon ato në Kosovë për prodhues, montues dhe kompani ndërtimi.",
     "chainLabel": "Kush bën çfarë",
     "chain": {
       "everest": {
@@ -88,8 +158,8 @@
   },
   "Systems": {
     "eyebrow": "Sistemet EVEREST",
-    "title": "Sisteme alumini dhe PVC për dritare dhe dyer.",
-    "intro": "Sistemet janë prodhuar nga EVEREST. AL STORE është distributor në Kosovë dhe ju ndihmon të zgjidhni sistemin dhe të merrni ofertë.",
+    "title": "Sisteme për dritare dhe dyer.",
+    "intro": "Prodhuar nga EVEREST. Të furnizuara në Kosovë nga AL STORE.",
     "footnote": "Emrat, përshkrimet dhe pamjet e sistemeve: EVEREST (everest.al). AL STORE është distributor, jo prodhues.",
     "items": {
       "s30000": {
@@ -172,8 +242,6 @@
     "specsIntro": "Vetëm vlera nga dokumente të verifikuara ose nga EVEREST. Ato që mungojnë shënohen si të padokumentuara.",
     "documentsHeading": "Dokumentet",
     "documentsIntro": "Raporte dhe deklarata të verifikuara që përmendin këtë seri, të publikuara të plota.",
-    "viewInResources": "Shiko te burimet teknike",
-    "openPdf": "Hap PDF-në",
     "relatedHeading": "Sisteme të tjera",
     "allSystems": "Të gjitha sistemet",
     "inquiryHeading": "Kërkesë për ofertë: {name}",
@@ -182,6 +250,14 @@
     "emailAction": "Dërgo email",
     "emailSubject": "Kërkesë për ofertë: EVEREST {name}",
     "items": {
+      "s30000": {
+        "metaTitle": "EVEREST 30 000 Standard: sistem alumini",
+        "metaDescription": "Seria EVEREST 30 000 Standard në Kosovë: përshkrimi, filmi teknik i montimit dhe kërkesë për ofertë te AL STORE, distributor i EVEREST."
+      },
+      "s60000": {
+        "metaTitle": "EVEREST 60 000: sistem alumini Tilt & Turn pa izolim termik",
+        "metaDescription": "Seria EVEREST 60 000 për dritare, dyer dhe ndarje të brendshme në Kosovë: përshkrimi, të dhënat nga EVEREST dhe kërkesë për ofertë te AL STORE."
+      },
       "s70000": {
         "metaTitle": "EVEREST 70 000: sistem alumini Tilt & Turn",
         "metaDescription": "Seria EVEREST 70 000 për dritare dhe dyer në Kosovë: përshkrimi, rezultatet e testit IRCCOS RP2147 dhe kërkesë për ofertë te AL STORE, distributor."
@@ -189,8 +265,24 @@
       "s71000": {
         "metaTitle": "EVEREST 71 000: sistem alumini me izolim termik",
         "metaDescription": "Seria EVEREST 71 000 në Kosovë: rezultatet e testit IRCCOS, Uf 1,3 W/(m²K) i një nyjeje të llogaritur, EPD dhe kërkesë për ofertë te AL STORE."
+      },
+      "s76000": {
+        "metaTitle": "EVEREST 76 000: sistem alumini për dritare dhe dyer",
+        "metaDescription": "Seria EVEREST 76 000 në Kosovë: sistem me hapje i bazuar te seria 75 000, me izolim termik më të mirë. Kërkoni ofertë te AL STORE, distributor."
+      },
+      "pvc": {
+        "metaTitle": "Dritare dhe dyer uPVC EVEREST në Kosovë",
+        "metaDescription": "Sistemet uPVC të EVEREST në Kosovë: filmi teknik i serisë 85 000, raportet IRCCOS të verifikuara dhe kërkesë për ofertë te AL STORE, distributor."
       }
-    }
+    },
+    "filmHeading": "Filmi teknik",
+    "filmCredit": "Filmi: EVEREST",
+    "allFilms": "Të gjithë filmat",
+    "pendingText": "Për këtë sistem ende nuk ka raporte laboratorike të verifikuara në faqe, prandaj nuk publikojmë vlera teknike. Kërkoni fletën teknike dhe certifikatat nga AL STORE.",
+    "pendingAction": "Kërko dokumentacionin teknik",
+    "documentsIntroCategory": "Raporte të verifikuara për sistemet uPVC të EVEREST, të publikuara të plota.",
+    "specsInDocuments": "Vlerat e testuara janë në raportet e verifikuara më poshtë. Secila vlen për mostrën ose nyjen e emërtuar në raport, jo për gjithë kategorinë.",
+    "specsInDocumentsAction": "Shiko raportet"
   },
   "SystemCompare": {
     "metaTitle": "Krahaso sistemet e aluminit EVEREST",
@@ -205,7 +297,6 @@
     "specHeader": "Karakteristika",
     "differs": "Ndryshon",
     "viewPage": "Faqja e sistemit",
-    "noPage": "Ende pa faqe të veçantë",
     "sameSelection": "Zgjidhni dy sisteme të ndryshme për t'i krahasuar.",
     "legend": "“Ndryshon” do të thotë se vlerat e dokumentuara janë të ndryshme. “Nuk është dokumentuar” do të thotë se nuk ka burim të verifikuar.",
     "noDifferences": "Nuk ka dallime të dokumentuara mes këtyre dy sistemeve."
@@ -215,7 +306,7 @@
     "metaDescription": "Raporte prove IRCCOS, llogaritje termike, deklarata mjedisore dhe certifikime për sistemet EVEREST të aluminit dhe PVC, sipas serisë, me gjuhën dhe formatin.",
     "eyebrow": "Dokumentacioni",
     "title": "Burime teknike",
-    "intro": "Dokumentacioni teknik i EVEREST për sistemet e aluminit dhe PVC, i renditur sipas serisë. Çdo dokument tregon kategorinë, sistemin, gjuhën dhe formatin e skedarit, si dhe kush e ka lëshuar. Referencat e prodhuesit, si EV HYBRID, mbahen të ndara: AL STORE nuk i shet dhe nuk pranon kërkesa oferte për to.",
+    "intro": "Raporte testimi, llogaritje termike dhe deklarata të EVEREST, sipas serisë.",
     "categoriesHeading": "Llojet e dokumenteve",
     "count": "{count, plural, one {# dokument} other {# dokumente}}",
     "categories": {
@@ -256,10 +347,11 @@
     "reading": {
       "sample": "Rezultatet laboratorike i përkasin mostrës ose nyjes së emërtuar në raport. Nuk janë certifikata përputhshmërie dhe nuk vlejnë për një seri të tërë apo për kategorinë alumin ose PVC.",
       "complete": "Raportet IRCCOS publikohen të plota dhe të pandryshuara, siç e lejon laboratori. Deklaratat mjedisore dhe certifikimet hapen nga faqet zyrtare që i kanë lëshuar.",
-      "official": "Shënimi “Dokument zyrtar i EVEREST” do të thotë që vetë dokumenti e emërton EVEREST si aplikant, pronar, mbajtës ose prodhues. Lëshuesi shënohet veç."
+      "official": "Shënimi “Dokument zyrtar i EVEREST” do të thotë që vetë dokumenti e emërton EVEREST si aplikant, pronar, mbajtës ose prodhues. Lëshuesi shënohet veç.",
+      "manufacturer": "Referencat e prodhuesit, si EV HYBRID, mbahen të ndara: AL STORE nuk i shet dhe nuk pranon kërkesa oferte për to."
     },
-    "browseHeading": "Dokumentet sipas sistemit",
-    "browseIntro": "Zgjidhni një dokument për ta parë këtu, ose hapeni si skedar."
+    "coverAlt": "Faqja e parë e dokumentit {title}",
+    "summary": "{documents} dokumente nga {issuers} lëshues të pavarur · PDF të plota, të pandryshuara"
   },
   "Documents": {
     "viewAction": "Shiko certifikatat dhe raportet",
@@ -431,7 +523,51 @@
     "formats": {
       "pdf": "PDF"
     },
-    "fileDescription": "{format}, {language}"
+    "fileDescription": "{format}, {language}",
+    "close": "Mbyll",
+    "viewDetails": "Shiko dokumentin",
+    "filmLink": "Shiko filmin teknik të serisë",
+    "count": "{count, plural, one {# dokument} other {# dokumente}}"
+  },
+  "Films": {
+    "metaTitle": "Filma teknikë EVEREST: seritë 30 000, 91 000, 92 000, 93 000 dhe PVC",
+    "metaDescription": "Filmat teknikë të EVEREST për fasadat, sistemet rrëshqitëse dhe dritaret PVC, seri pas serie, me dokumentet e verifikuara të secilës seri. AL STORE, Kosovë.",
+    "eyebrow": "Filma teknikë",
+    "title": "Sistemet, në lëvizje.",
+    "intro": "Filmat e EVEREST tregojnë profilet, mekanizmat dhe montimin, seri pas serie.",
+    "playLabel": "Luaj filmin {name} ({duration})",
+    "durationLabel": "Kohëzgjatja",
+    "sourceLabel": "Filmi",
+    "source": "EVEREST",
+    "documentsHeading": "Dokumentet e serisë",
+    "note": "Filmat dhe pamjet janë të EVEREST, prodhuesit. AL STORE është distributor në Kosovë. Vlerat teknike merren vetëm nga dokumentet e verifikuara.",
+    "items": {
+      "s93000": {
+        "name": "93 000 Minimal Slide",
+        "category": "Alumini · Rrëshqitës minimal",
+        "description": "Profile të holla, shina në nivel të dyshemesë dhe sistemi i montuar në një vilë."
+      },
+      "s91000": {
+        "name": "91 000 Slide",
+        "category": "Alumini · Rrëshqitës",
+        "description": "Kanata rrëshqitëse, shinat dhe prerja e profilit me urën termike."
+      },
+      "s92000": {
+        "name": "92 000 Lift & Slide",
+        "category": "Alumini · Ngritës-rrëshqitës",
+        "description": "Hapja ngritëse-rrëshqitëse dhe prerja e profilit të kanatës."
+      },
+      "s30000": {
+        "name": "30 000",
+        "category": "Alumini · Fasadë xhami",
+        "description": "Montimi i fasadës: ankorimi në soletë, shtyllat, traversat dhe vendosja e xhamit."
+      },
+      "pvc85000": {
+        "name": "85 000 PVC",
+        "category": "PVC · Dritare",
+        "description": "Këndi i dritares PVC me veshje alumini, në dy ngjyra."
+      }
+    }
   },
   "NotFound": {
     "eyebrow": "Gabim 404",
@@ -445,19 +581,6 @@
     "description": "Faqja nuk u ngarkua siç duhet. Provoni përsëri pas pak.",
     "retry": "Provo përsëri",
     "reference": "Referenca: {digest}"
-  },
-  "TruckScrollHero": {
-    "eyebrow": "AL STORE × EVEREST",
-    "title": "Një partneritet që ndërton besim.",
-    "body": "Nga prodhimi te dorëzimi, çdo detaj pasqyron besueshmëri, cilësi dhe standarde moderne industriale.",
-    "secondary": "Ndërtuar për performancë. Paraqitur me qartësi.",
-    "truckAlt": "Kamion me rimorkio të verdha, në lëvizje",
-    "statsNote": "Të dhëna nga viti 2018 deri më sot.",
-    "stats": {
-      "partnershipYears": "Vite partneritet",
-      "supplyTrucks": "Kamionë furnizimi",
-      "aluminiumTonnes": "Ton alumin të furnizuar"
-    }
   },
   "Projects": {
     "metaTitle": "Projekte me sisteme EVEREST",
@@ -495,8 +618,8 @@
     "metaDescription": "Artikuj teknikë për ndërtuesit dhe projektuesit në Kosovë: ndërprerja termike, vlerat U të dritareve dhe klasat e ajrit, ujit e erës, me burime për çdo fakt.",
     "eyebrow": "Qendra e njohurive",
     "title": "Njohuri teknike për dritare dhe dyer",
-    "intro": "Artikuj për fabrikuesit, montuesit, projektuesit dhe investitorët në Kosovë. Çdo vlerë teknike vjen nga një standard, një raport laboratorik ose një burim zyrtar, i listuar në fund të artikullit.",
-    "method": "Rezultatet laboratorike citohen vetëm për mostrën ose nyjen e provuar, jo për një seri të tërë.",
+    "intro": "Artikuj teknikë për fabrikuesit, montuesit dhe projektuesit në Kosovë.",
+    "method": "Rezultatet laboratorike citohen vetëm për mostrën ose nyjen e provuar, jo për një seri të tërë. Çdo vlerë teknike vjen nga një standard, një raport laboratorik ose një burim zyrtar, i listuar në fund të artikullit.",
     "listLabel": "Artikujt",
     "readArticle": "Lexo artikullin",
     "breadcrumbLabel": "Gjurma e navigimit",
@@ -510,5 +633,45 @@
     "documentsAction": "Dokumentet teknike",
     "contactAction": "Na kontaktoni",
     "allArticles": "Të gjithë artikujt"
+  },
+  "ClosingCta": {
+    "title": "Le të flasim për projektin tuaj.",
+    "lead": "Na tregoni sistemin, sasitë dhe afatin. Ju përgjigjemi me informacion dhe ofertë.",
+    "callAction": "Telefononi",
+    "emailAction": "Kërkoni ofertë me email",
+    "emailSubject": "Kërkesë për ofertë"
+  },
+  "AboutPage": {
+    "metaTitle": "Rreth AL STORE: distributor i sistemeve EVEREST në Kosovë",
+    "metaDescription": "AL STORE distribuon sistemet e aluminit dhe PVC të EVEREST në Kosovë që nga viti 2018. Historia, roli ynë dhe vendndodhja në Radivojc.",
+    "eyebrow": "Rreth nesh",
+    "title": "Lidhja mes EVEREST dhe tregut të Kosovës.",
+    "lead": "Që nga viti 2018, AL STORE distribuon sistemet e aluminit dhe PVC të EVEREST për prodhues, montues dhe kompani ndërtimi.",
+    "location": {
+      "eyebrow": "Vendndodhja",
+      "title": "Na vizitoni në Radivojc.",
+      "mapTitle": "Harta e vendndodhjes së AL STORE në Google Maps"
+    }
+  },
+  "Photography": {
+    "alt": {
+      "duskHouse": "Shtëpi moderne në muzg, me dritare të mëdha të ndriçuara dhe një pemë para saj",
+      "livingRoom": "Dhomë ndenjeje e ndritshme me dyer xhami rrëshqitëse drejt oborrit",
+      "kitchenWindow": "Kuzhinë moderne me dritare horizontale dhe derë xhami drejt ballkonit",
+      "seaSlide": "Derë xhami rrëshqitëse me profile të holla, me pamje nga deti",
+      "whiteWindow": "Dritare me korniza të bardha mbi një parvaz me lule",
+      "timberFacade": "Shtëpi moderne me fasadë druri dhe dritare të mëdha xhami",
+      "poolVilla": "Vilë moderne me xhami të mëdha dhe pishinë",
+      "glassPavilion": "Shtëpi moderne me mure xhami nga dyshemeja te tavani pranë një pishine",
+      "glassTower": "Kullë me fasadë xhami që reflekton qiellin",
+      "series70000": "Ndërtesë banimi me dritare alumini në rresht, nga faqja e serisë 70 000 në katalogun EVEREST",
+      "series71000": "Kuzhinë me dritare alumini me kanata të errëta, nga faqja e serisë 71 000 në katalogun EVEREST",
+      "profileSection": "Prerje e profilit të aluminit me urë termike, nga video teknike e EVEREST",
+      "profileGasket": "Profil alumini me shiritin izolues të verdhë, nga video teknike e EVEREST",
+      "series60000": "Zyrë me mure ndarëse xhami dhe dritare alumini, nga faqja e serisë 60 000 në katalogun EVEREST",
+      "series76000": "Shtëpi moderne me fasadë guri dhe dritare alumini, nga faqja e serisë 76 000 në katalogun EVEREST",
+      "seriesPvc": "Dritare e bardhë uPVC e hapur drejt detit, nga faqja e sistemit 76 000 uPVC në katalogun EVEREST"
+    },
+    "credit": "Fotografi: katalogu i sistemeve EVEREST 2024"
   }
 }

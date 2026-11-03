@@ -1,4 +1,4 @@
-import { type DocumentId, type FactKey, documentsForSystem, technicalDocuments } from "./documents";
+import { type DocumentId, type FactKey, technicalDocuments } from "./documents";
 import { type EverestSystem, everestSystems } from "./systems";
 
 /**
@@ -103,29 +103,33 @@ export function systemSpecs(key: ComparableKey): Record<SpecRow, SpecValue> {
 }
 
 /**
- * Systems with their own page. A page needs verified documents that give it real technical
- * content; without them it would be thin, so the list is checked against the register.
- * Today that is 70 000 and 71 000. Add a key here (and SystemPage.items) when a system qualifies.
+ * Every system in the homepage register has its own page (owner request, 2026-11-03: "create a
+ * page for each system"). A page shows only what is verified for that system: the EVEREST
+ * description, its catalogue photograph or technical film, the specification table where the
+ * system is comparable, and its documents. Missing data is stated, never filled in.
  */
-const systemPageKeys = ["s70000", "s71000"] as const satisfies readonly ComparableKey[];
-export type SystemPageKey = (typeof systemPageKeys)[number];
+const systemPageKeys = everestSystems.map(({ key }) => key);
+export type SystemPageKey = EverestSystem["key"];
 
-export function systemHasPage(key: EverestSystem["key"]): key is SystemPageKey {
-  return (systemPageKeys as readonly string[]).includes(key);
-}
+/** URL slug: the series number, identical in both locales ("71000"), or "pvc". */
+const slugs: Record<SystemPageKey, string> = {
+  s30000: "30000",
+  s60000: "60000",
+  s70000: "70000",
+  s71000: "71000",
+  s76000: "76000",
+  pvc: "pvc",
+};
 
-/** URL slug: the series number, identical in both locales ("71000"). */
 export function systemSlug(key: SystemPageKey): string {
-  return key.slice(1);
+  return slugs[key];
 }
 
 export function listSystemPages() {
   return systemPageKeys.map((key) => {
     const system = everestSystems.find((candidate) => candidate.key === key);
-    if (!system || documentsForSystem(key).length === 0) {
-      throw new Error(`System page ${key} needs a system entry and verified documents`);
-    }
-    return { ...system, key, slug: systemSlug(key) };
+    if (!system) throw new Error(`System page ${key} needs a system entry`);
+    return { ...system, slug: systemSlug(key) };
   });
 }
 

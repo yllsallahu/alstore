@@ -66,3 +66,11 @@ export function ExternalIcon(props: IconProps) {
     </Icon>
   );
 }
+
+export function PlayIcon(props: IconProps) {
+  return (
+    <Icon {...props}>
+      <path d="M8 5v14l11-7z" />
+    </Icon>
+  );
+}

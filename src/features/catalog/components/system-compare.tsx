@@ -12,8 +12,8 @@ export type CompareSystem = {
   key: string;
   name: string;
   category: string;
-  /** Series slug when the system has its own page. */
-  slug: string | null;
+  /** Slug of the system page. */
+  slug: string;
 };
 
 export type CompareRow = { row: string; label: string; cells: Record<string, SpecCell> };
@@ -29,7 +29,6 @@ type SystemCompareProps = {
     specHeader: string;
     differs: string;
     viewPage: string;
-    noPage: string;
     sameSelection: string;
     noDifferences: string;
     notDocumented: string;
@@ -157,19 +156,13 @@ export function SystemCompare({ systems, rows, labels }: SystemCompareProps) {
                     <span className="mt-1 block text-xl font-semibold text-brand tabular-nums font-stretch-semi-expanded">
                       {system.name}
                     </span>
-                    {system.slug ? (
-                      <Link
-                        href={{ pathname: "/systems/[slug]", params: { slug: system.slug } }}
-                        className="mt-1 inline-flex min-h-11 items-center text-sm font-medium underline decoration-line-strong underline-offset-4 hover:decoration-accent"
-                      >
-                        {labels.viewPage}
-                        <span className="sr-only">: {system.name}</span>
-                      </Link>
-                    ) : (
-                      <span className="mt-1 block min-h-11 py-3 text-sm text-ink-muted">
-                        {labels.noPage}
-                      </span>
-                    )}
+                    <Link
+                      href={{ pathname: "/systems/[slug]", params: { slug: system.slug } }}
+                      className="mt-1 inline-flex min-h-11 items-center text-sm font-medium underline decoration-line-strong underline-offset-4 hover:decoration-accent"
+                    >
+                      {labels.viewPage}
+                      <span className="sr-only">: {system.name}</span>
+                    </Link>
                   </th>
                 ))}
               </tr>

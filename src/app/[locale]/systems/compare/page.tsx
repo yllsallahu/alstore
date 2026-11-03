@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { PageHero } from "@/components/layout/page-hero";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Container } from "@/components/ui/container";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { SystemCompare } from "@/features/catalog/components/system-compare";
 import { keepSeriesTogether, resolveSpecTable } from "@/features/catalog/spec-copy";
-import { comparableSystems, systemHasPage, systemSlug } from "@/features/catalog/system-specs";
+import { comparableSystems, systemSlug } from "@/features/catalog/system-specs";
 import { resolveLocale } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { breadcrumbJsonLd } from "@/lib/seo/structured-data";
@@ -41,49 +41,45 @@ export default async function ComparePage({ params }: PageProps<"/[locale]/syste
     key,
     name: keepSeriesTogether(tSystems(`items.${key}.name`)),
     category: tSystems(`items.${key}.category`),
-    slug: systemHasPage(key) ? systemSlug(key) : null,
+    slug: systemSlug(key),
   }));
 
   return (
-    <Container className="py-section">
-      <Eyebrow>{t("eyebrow")}</Eyebrow>
-      <h1 className="mt-6 max-w-measure text-3xl font-semibold text-balance font-stretch-semi-expanded">
-        {t("title")}
-      </h1>
-      <p className="mt-6 max-w-measure text-pretty text-ink-muted">{t("intro")}</p>
+    <>
+      <PageHero eyebrow={t("eyebrow")} title={t("title")} lead={t("intro")} video="facade30000" />
+      <Container className="pb-section">
+        <div className="pt-section">
+          <SystemCompare
+            systems={systems}
+            rows={table.rows}
+            labels={{
+              first: t("firstLabel"),
+              second: t("secondLabel"),
+              onlyDifferences: t("onlyDifferences"),
+              caption: t("tableCaption", { first: "{first}", second: "{second}" }),
+              specHeader: t("specHeader"),
+              differs: t("differs"),
+              viewPage: t("viewPage"),
+              sameSelection: t("sameSelection"),
+              noDifferences: t("noDifferences"),
+              notDocumented: tSpecs("notDocumented"),
+              sourceLabel: tSpecs("sourceLabel"),
+            }}
+          />
+        </div>
 
-      <div className="mt-12">
-        <SystemCompare
-          systems={systems}
-          rows={table.rows}
-          labels={{
-            first: t("firstLabel"),
-            second: t("secondLabel"),
-            onlyDifferences: t("onlyDifferences"),
-            caption: t("tableCaption", { first: "{first}", second: "{second}" }),
-            specHeader: t("specHeader"),
-            differs: t("differs"),
-            viewPage: t("viewPage"),
-            noPage: t("noPage"),
-            sameSelection: t("sameSelection"),
-            noDifferences: t("noDifferences"),
-            notDocumented: tSpecs("notDocumented"),
-            sourceLabel: tSpecs("sourceLabel"),
-          }}
+        <p className="mt-6 max-w-measure text-sm text-pretty text-ink-muted">{t("legend")}</p>
+        <p className="mt-2 max-w-measure text-sm text-pretty text-ink-muted">
+          {tSpecs("sampleNote")}
+        </p>
+
+        <JsonLd
+          data={breadcrumbJsonLd(locale, [
+            { name: tPage("breadcrumbHome"), href: "/" },
+            { name: t("metaTitle"), href: "/systems/compare" },
+          ])}
         />
-      </div>
-
-      <p className="mt-6 max-w-measure text-sm text-pretty text-ink-muted">{t("legend")}</p>
-      <p className="mt-2 max-w-measure text-sm text-pretty text-ink-muted">
-        {tSpecs("sampleNote")}
-      </p>
-
-      <JsonLd
-        data={breadcrumbJsonLd(locale, [
-          { name: tPage("breadcrumbHome"), href: "/" },
-          { name: t("metaTitle"), href: "/systems/compare" },
-        ])}
-      />
-    </Container>
+      </Container>
+    </>
   );
 }

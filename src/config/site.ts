@@ -28,12 +28,13 @@ export const siteConfig = {
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5895.157446671279!2d21.368421546565862!3d42.37281656098295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13548b1f5db3c479%3A0x5f3d23bd78f9ab24!2sAl%20Store!5e0!3m2!1sen!2s!4v1793364956198!5m2!1sen!2s",
   },
-  /** Cumulative AL STORE supply activity, 2018 to October 2026 (owner, 2026-10-21). Not annual. */
-  supplyStats: [
-    { key: "partnershipYears", value: "8+" },
-    { key: "supplyTrucks", value: "100+" },
-    { key: "aluminiumTonnes", value: "120+" },
-  ],
+  /** Year AL STORE began distributing EVEREST systems in Kosovo (owner, 2026-10-25). */
+  distributorSince: "2018",
+  /**
+   * Cumulative AL STORE supply activity, 2018 to date (owner, 2026-10-21). Only verified
+   * figures: the truck and tonnage counts wait for the owner's confirmation (CONTENT_SOURCES §1).
+   */
+  supplyStats: [{ key: "partnershipYears", value: "8+" }],
   manufacturer: {
     name: "EVEREST",
     url: "https://everest.al/",

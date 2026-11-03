@@ -19,6 +19,7 @@
   /* Surfaces */
   --color-paper: oklch(0.982 0.004 85); /* page background: warm plaster white */
   --color-paper-sunken: oklch(0.952 0.005 85); /* inset panels, table stripes */
+  --color-stone: oklch(0.905 0.007 80); /* image wells: shown while a photograph loads */
   --color-graphite: oklch(0.235 0.008 255); /* dark bands: footer, feature sections */
 
   /* Text */
@@ -67,6 +68,13 @@
   --text-display: clamp(2.5rem, 1.35rem + 4.8vw, 5.5rem);
   --text-display--line-height: 0.98;
   --text-display--letter-spacing: -0.025em;
+  /* Editorial sizes: the home hero H1 and large typographic statements. */
+  --text-hero: clamp(3rem, 1.2rem + 7.6vw, 9.5rem);
+  --text-hero--line-height: 0.9;
+  --text-hero--letter-spacing: -0.04em;
+  --text-statement: clamp(1.875rem, 1.1rem + 3.3vw, 4.25rem);
+  --text-statement--line-height: 1.04;
+  --text-statement--letter-spacing: -0.025em;
 
   --tracking-label: 0.14em; /* uppercase eyebrow labels */
 
@@ -77,6 +85,8 @@
   --spacing-fold: calc(100svh - 5rem); /* one screen below the sticky header (h-20 from sm) */
   --container-site: 84rem; /* max content width */
   --container-measure: 42rem; /* max line length for running text */
+  --container-headline: 22ch; /* max width of large editorial headlines */
+  --container-wide: 120rem; /* cinematic full-bleed photographs on very wide screens */
 
   /* ---------- Shape ---------- */
   --radius-*: initial;
@@ -87,16 +97,27 @@
   /* ---------- Motion ---------- */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 
-  /* One-time home hero entrance (owner request): fade in and rise 0.75rem, staggered 80ms. */
-  --animate-rise: rise 700ms var(--ease-standard) both;
-  --animate-rise-2: rise 700ms var(--ease-standard) 80ms both;
-  --animate-rise-3: rise 700ms var(--ease-standard) 160ms both;
-  --animate-rise-4: rise 700ms var(--ease-standard) 240ms both;
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1); /* long, settling motion (images, reveals) */
+
+  /* One-time hero entrance: copy fades in and rises 1rem, staggered 120ms. */
+  --animate-rise: rise 900ms var(--ease-out-soft) 200ms both;
+  --animate-rise-2: rise 900ms var(--ease-out-soft) 320ms both;
+  --animate-rise-3: rise 900ms var(--ease-out-soft) 440ms both;
+  --animate-rise-4: rise 900ms var(--ease-out-soft) 560ms both;
+  /* Hero photograph settles from a slight zoom once on load. */
+  --animate-settle: settle 2400ms var(--ease-out-soft) both;
 
   @keyframes rise {
     from {
       opacity: 0;
-      translate: 0 0.75rem;
+      translate: 0 1rem;
+    }
+  }
+
+  @keyframes settle {
+    from {
+      opacity: 0.6;
+      scale: 1.08;
     }
   }
 }

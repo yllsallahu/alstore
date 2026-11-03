@@ -23,10 +23,12 @@ listed as **verified**, it does not go on the site.
 | Distributor since | 2018 (EVEREST partner since 2018)         | Owner (chat)               | 2026-10-25 |
 
 **Truck figures:** on 2026-10-25 the owner asked to treat 100+ trucks and 120+ tonnes as unverified
-until confirmed. They stay where they already are (TruckScrollHero) pending that decision and are not
-repeated anywhere new, including the company story.
+until confirmed. On 2026-11-03 the owner asked for the truck animation back: `TruckScrollHero`
+is restored on the homepage with **only** the verified "8+ years" figure. The truck and tonnage
+counts stay unpublished until the owner confirms them; then add them to `siteConfig.supplyStats`
+and `TruckScrollHero.stats`.
 
-**Company story (homepage, 2026-10-25):** `src/features/home/company-story.ts`. AL STORE rows: the
+**Company story (About page since 2026-11-03; homepage before):** `src/features/about/company-story.ts`. AL STORE rows: the
 2018 start and "8+ years" above. EVEREST rows: 2018 uPVC entry from https://everest.al/about-us/
 (read 2026-10-25), then RP2147, RP2176, RP2790, EPD-IES-0026335 and ASI 554 from §5, with the year
 read from the document register. Pre-2018 EVEREST milestones (1997, 2000, 2005) were removed with the
@@ -65,14 +67,101 @@ category.
 
 ## 4. Brand assets
 
-| Asset                      | Status            | Notes                                                                                                                                                                                                                               |
-| -------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Official AL STORE logo     | **Partial**       | Owner supplied `images/logo without bg.png` (2026-10-20). Cropped transparent wordmark is `public/brand/alstore-logo.png`, registered as `logo.primary` (header). `logo.inverse` is still null                                      |
-| Brand colours / guidelines | **Not delivered** | Tokens are provisional (DESIGN_RULES §2)                                                                                                                                                                                            |
-| Photography                | **Not delivered** | No still photography yet                                                                                                                                                                                                            |
-| Home hero video            | **Supplied**      | Owner supplied `images/Untitled design.mp4` (2026-10-20, replaces an earlier warehouse clip), published as `public/media/hero-video.mp4` with a first-frame poster. Location not confirmed: don't caption it as AL STORE's premises |
-| Open Graph image           | **Not delivered** | `ogImage` = null                                                                                                                                                                                                                    |
-| Favicon / app icons        | **Not delivered** | No icon is shipped; browsers show the default                                                                                                                                                                                       |
+| Asset                      | Status            | Notes                                                                                                                                                                                                                        |
+| -------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Official AL STORE logo     | **Partial**       | Owner supplied `images/logo without bg.png` (2026-10-20). Cropped transparent wordmark is `public/brand/alstore-logo.png`, registered as `logo.primary` (header). `logo.inverse` is still null                               |
+| Brand colours / guidelines | **Not delivered** | Tokens are provisional (DESIGN_RULES §2)                                                                                                                                                                                     |
+| Photography                | **Partial**       | No AL STORE photography yet. Illustrative EVEREST and Unsplash photography is in use (see "Site photography" below)                                                                                                          |
+| Home hero video            | **Retired**       | Owner supplied `images/Untitled design.mp4` (2026-10-20). Removed from the site on 2026-11-03 (848×478, too soft at full width); the About band now uses a 1080p loop from the EVEREST 93 000 film. Location never confirmed |
+| Open Graph image           | **Not delivered** | `ogImage` = null                                                                                                                                                                                                             |
+| Favicon / app icons        | **Not delivered** | No icon is shipped; browsers show the default                                                                                                                                                                                |
+
+### Site photography (2026-11-03)
+
+On 2026-11-03 the owner added the folder `6. Videot teknike/` (EVEREST catalogues, technical
+videos and certificates) to the project and asked for its photos and pictures to be used in the
+visual redesign. That instruction is the permission on record; EVEREST's written consent is still
+to be filed, as for the system renders in §5. Files live in `src/assets/photography/`, registered in
+`src/config/photography.ts`:
+
+| File                  | Source                                                                  | Where it is used                 |
+| --------------------- | ----------------------------------------------------------------------- | -------------------------------- |
+| `glass-pavilion.jpg`  | `Everest systems catalog 2024.pdf`, p. 30, left photograph              | About page header                |
+| `glass-tower.jpg`     | catalogue p. 9, left                                                    | Technical resources header       |
+| `series-70000.jpg`    | catalogue p. 18 ("70 000 SERIES"), left, top trimmed                    | 70 000 system page               |
+| `series-71000.jpg`    | catalogue p. 20 ("71 000 SERIES"), right                                | 71 000 system page               |
+| `profile-section.jpg` | `91 000 slide system.mp4`, native 1080p still at 0:48, logo and bar cut | Knowledge centre header          |
+| `profile-gasket.jpg`  | `91 000 slide system.mp4`, native 1080p still at 0:46, logo and bar cut | Technical resources: how to read |
+
+**Sharpness pass (owner, 2026-11-03: "all photos high quality, not blurry; if one is blurry remove
+it or use a similar photo from the internet").** The catalogue PDF holds each page as one
+compressed 300 ppi scan, so its crops are soft when shown full-width. Removed: `villa-dusk`,
+`lake-view`, `window-seat`, `sea-slide`, `pvc-window`, `timber-house`, `forest-house` and the
+848×478 factory clip (`hero-video.mp4` + poster). The two series photographs stay because the
+catalogue ties them to their series; system pages now show them framed at half width, where they
+are sharp. Video stills were re-cut from the 1080p source films without upscaling.
+
+Replacements are free photographs from **Unsplash** (Unsplash License: free commercial use, no
+attribution required, not to be sold unaltered or used to build a competing service; Unsplash+
+images excluded). Each was checked at full resolution (camera originals, 3.7k–6.7k px wide) and
+none is AI-generated. They are generic architecture, **illustrative only**: never captioned as an
+EVEREST product, a specific series or an AL STORE project. Hotlinked from images.unsplash.com
+(`next.config.ts` remotePatterns, exact query string), registered in `src/config/photography.ts`:
+
+| Key             | Unsplash image                     | Photographer (where listed) | Where it is used                   |
+| --------------- | ---------------------------------- | --------------------------- | ---------------------------------- |
+| `duskHouse`     | `photo-1600585154340-be6161a56a0c` |                             | Home hero                          |
+| `livingRoom`    | `photo-1600607687939-ce8a6c25118c` |                             | Home brand statement               |
+| `kitchenWindow` | `photo-1662624915046-02d9d4ee724d` | Jessica Hearn               | Home collection: windows and doors |
+| `seaSlide`      | `photo-1565261949232-3fcc78206c0c` | Adam Elwan                  | Home collection: sliding systems   |
+| `whiteWindow`   | `photo-1496092607007-ca127e0b6a10` | Nathan Fertig               | Home collection: PVC               |
+| `timberFacade`  | `photo-1600566753190-17f0baa2a6c3` |                             | Home about teaser                  |
+| `poolVilla`     | `photo-1613490493576-7fde63acd811` |                             | Closing call to action             |
+
+The footer credits "EVEREST … and Unsplash". To move off hotlinking, download the same IDs at
+3200 px into `src/assets/photography/` and switch the entries to static imports.
+
+**Technical films and loops (2026-11-03):** the owner asked for "the technical videos for the
+specific series" from the same folder. Published in `public/media/films/` (re-encoded to 720p
+H.264, otherwise unaltered, EVEREST branding kept, credited as EVEREST's):
+
+| File                    | Source in "6. Videot teknike"       | Series / what it shows              |
+| ----------------------- | ----------------------------------- | ----------------------------------- |
+| `everest-93000.mp4`     | `Everest 93 000 minimal Slide.mp4`  | 93 000 minimal slide                |
+| `everest-91000.mp4`     | `91 000 slide system.mp4`           | 91 000 slide                        |
+| `everest-92000.mp4`     | `Everest 92 000 List and Slide.mp4` | 92 000 lift and slide               |
+| `everest-30000.mp4`     | `Seria 30 000 1.mp4`                | 30 000 curtain wall assembly        |
+| `everest-85000-pvc.mp4` | `Everest PVC_Aluclip.mp4`           | 85 000 PVC (the film's own caption) |
+
+Each `-poster.jpg` is a frame of its film. Series names and categories are the ones printed in
+each film; descriptions say only what the film shows; no technical value is taken from a film.
+Ambient loops in `public/media/loops/` are 6–10 s native-1080p cuts of the 93 000, 91 000 and 30 000 films
+with logos and caption bars cropped out (times in `src/config/media.ts`). Still **not used**:
+`Pergola 1/2`, `Gyotine`, `Everest Longboard` (products not confirmed as AL STORE's) and
+`Seria 91 000 1.mp4` (a shorter cut of the 91 000 film).
+
+**Document covers (2026-11-03):** `src/assets/documents/<id>.jpg` is page 1 of each registered
+document, rendered unaltered from the same complete PDF (IRCCOS files from `public/documents/`;
+ASI 554, EPD-IES-0026335/0026336 and Passive House 2570ws04 from the owner's `certificates/`
+copies of the official files). A cover is a preview of the whole document and always links to
+it, so it is not a partial reproduction published in place of the report.
+
+Rules for these files:
+
+- They are **illustrative**: EVEREST catalogue photography and renders, not AL STORE projects. They
+  are never captioned or described as projects AL STORE supplied. The footer credits them.
+- Only `series-70000.jpg` and `series-71000.jpg` are shown next to a series, because the EVEREST
+  catalogue itself prints them on that series' page; they carry the caption "EVEREST systems
+  catalogue 2024". No other photograph is presented as a specific product model.
+- EVEREST logos and caption bars were cropped out of video stills; nothing else was retouched.
+- **Not used:** `images/main page.png` (appears AI-generated: distorted machinery), the
+  `Pergola`, `Gyotine` and `Longboard` videos (products not verified as AL STORE's), and the
+  `Prezantimi Share Architects 2026.pdf` reference projects (third-party projects, no consent).
+
+**Deleted from the project folder (owner request, 2026-11-03):** `images/alumin.jpg`,
+`images/pvc.jpg`, `images/main page.png`, `images/Untitled design.mp4` (all unused) and the
+duplicate `certificates/EVEREST_Certifikata_dhe_Raporte_AL_STORE (1).zip`. They remain in git
+history; the notes above that name them are kept as the record of why they were not used.
 
 **Candidates found in git history, NOT approved and NOT used:**
 
@@ -132,9 +221,22 @@ wording in `Systems.*`. The owner named the sources and asked for EVEREST's offi
 
 **System pages and comparison (2026-10-25):** `src/features/catalog/system-specs.ts`.
 
-- **Pages** exist only for 70 000 and 71 000: the systems with verified documents (RP2147;
-  RP2146, RP2790, EPD-IES-0026335). 60 000 is in the comparison but has no page (only the
-  product-list excerpt exists). 30 000, 76 000 and PVC stay off both until resolved above.
+- **Pages** exist for every system in the register (owner request, 2026-11-03: "create a page
+  for each system"): `/sistemet/30000`, `60000`, `70000`, `71000`, `76000` and `pvc`. A page
+  shows only what is verified: the EVEREST description, its catalogue series photograph (60 000,
+  70 000, 71 000, 76 000; PVC uses the "76 000 UPVC SYSTEM" page) or, for 30 000 (no catalogue
+  page), its EVEREST technical film; the specification table only for comparable systems
+  (60 000, 70 000, 71 000); documents where the register has them (70 000, 71 000; PVC lists
+  RP2176 and RP2549). Otherwise it states plainly that no verified technical data is published
+  yet and offers to send the technical sheet. The comparison still covers 60 000, 70 000 and
+  71 000 only.
+- **76 000 resolved in part (2026-11-03):** the 2024 catalogue has two different products, "76 000
+  SERIES" (aluminium, p. 24) and "76 000 UPVC SYSTEM" (p. 32). RP2549 is the uPVC one, so it is
+  listed on the PVC page, not on the aluminium 76 000 page. Its "pending classification" note stays
+  until the owner confirms.
+- **Catalogue series photographs added:** `series-60000.jpg` (p. 34, "60 000 SERIES", top band),
+  `series-76000.jpg` (p. 24, left), `series-pvc.jpg` (p. 32, "76 000 UPVC SYSTEM", right), cropped
+  from the native 300 ppi page image above the caption bar and shown framed at half width.
 - **Values** are either a fact of a verified document, rendered from `Documents.items`, or a
   statement from the EVEREST product list (https://everest.al/aluminium-full/products/, read
   2026-10-25): Windows/Doors, Tilt & Turn, "non-insulated" (60 000), "engineered to perform"

@@ -27,3 +27,7 @@ Thumbs.db
 /private/
 *.pem
 *.key
+
+# Owner source material (videos, catalogues, certificates; 1.4 GB, one file > 100 MB).
+# The site uses web copies in public/ and src/assets/. Keep the originals outside git.
+/6. Videot teknike/

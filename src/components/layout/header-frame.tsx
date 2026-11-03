@@ -1,8 +1,8 @@
 "use client";
 
-// Client Component: on the home page the header sits transparently over the
-// full-screen hero video and turns solid once the hero has scrolled away, which
-// needs the current pathname and the scroll position. Everything inside the bar
+// Client Component: on pages that open with a dark full-bleed hero (home, films, documents,
+// system pages) the header sits transparently over it and turns solid once the hero has
+// scrolled away, which needs the current pathname and the scroll position. Everything inside the bar
 // stays server-rendered and reacts through `group-data-overlay/header:` styles.
 
 import { type ReactNode, useSyncExternalStore } from "react";
@@ -26,13 +26,16 @@ function subscribe(onChange: () => void) {
 
 const isPastHero = () => window.scrollY > window.innerHeight - SOLID_BEFORE_HERO_END_PX;
 
+/** Internal pathnames whose hero is pulled up under the header (`-mt-16 sm:-mt-20`). */
+const overlayPaths = new Set(["/", "/films", "/documents", "/systems/[slug]"]);
+
 export function HeaderFrame({ children }: { children: ReactNode }) {
-  const isHome = usePathname() === "/";
+  const hasOverlay = overlayPaths.has(usePathname());
   const pastHero = useSyncExternalStore(subscribe, isPastHero, () => false);
 
   return (
     <header
-      data-overlay={isHome && !pastHero ? "" : undefined}
+      data-overlay={hasOverlay && !pastHero ? "" : undefined}
       className="group/header sticky top-0 z-40 border-b border-line bg-paper transition-colors duration-200 ease-standard data-overlay:border-on-graphite/20 data-overlay:bg-transparent"
     >
       {children}

@@ -12,7 +12,7 @@
 | typescript                         | 6.0.3   | **Not 7.x.** TS 7 (native compiler) is a new major; Next's build-time type check and typescript-eslint are proven on 6.x. Revisit once Next documents TS 7 support.                                                                                                                                              |
 | eslint                             | 9.39.5  | **Not 10.x.** `eslint-config-next` 16.4.2 depends on `eslint-plugin-react` 7.37, `eslint-plugin-import` 2.32 and `eslint-plugin-jsx-a11y` 6.10, whose peer ranges stop at ESLint 9. npm prints a "no longer supported" notice for 9.x; upgrade together with `eslint-config-next` once those plugins support 10. |
 | eslint-config-next                 | 16.4.2  | Core Web Vitals + TypeScript rule sets.                                                                                                                                                                                                                                                                          |
-| gsap                               | 3.15.0  | Owner-requested scroll-pinned truck showcase (`TruckScrollHero`). ScrollTrigger ships in the package; loaded only by that Client Component. CSS scroll timelines lack Safari support for pinning + scrub.                                                                                                        |
+| gsap                               | 3.15.0  | Owner-requested scroll-pinned truck story (`TruckScrollHero`, removed then restored on owner request 2026-11-03). ScrollTrigger ships in the package; loaded only by that Client Component. CSS scroll timelines lack Safari support for pinning + scrub.                                                        |
 | prettier                           | 3.9.10  | Formatting, enforced by `npm run format:check`.                                                                                                                                                                                                                                                                  |
 
 Node ≥ 22.12 (`.nvmrc` = 22). Deliberately **not** added: UI kits, icon packs, clsx or
@@ -30,8 +30,11 @@ src/
     robots.ts  sitemap.ts    SEO routes (see SEO_RULES.md)
     [locale]/
       layout.tsx             <html lang>, metadata defaults, header/footer, intl provider
-      page.tsx               home (introduction, history, systems, contact)
-      documents/page.tsx     Technical Resources hub (documents by system, in-page categories)
+      page.tsx               home (hero, statement, collections, systems, engineering, films,
+                             truck story, about, contact)
+      films/page.tsx         EVEREST technical films, one chapter per series (/video, /en/videos)
+      about/page.tsx         about AL STORE (supply chain, story 2018 – today, location)
+      documents/page.tsx     Technical Resources hub (cover hero, filterable library + dialog, how to read)
       projects/page.tsx      projects gallery (404 until enough approved projects exist)
       projects/[slug]/       project detail page (404 unless the project qualifies)
       knowledge/page.tsx     knowledge-centre index
@@ -40,13 +43,17 @@ src/
       error.tsx              localized error boundary (client)
       [...rest]/page.tsx     sends unknown localized paths to not-found
   components/
-    ui/                      primitives: Container, Eyebrow, buttonClasses()
-    layout/                  SiteHeader, HeaderFrame, SiteFooter, LocaleSwitcher, MobileNav
+    ui/                      primitives: Container, Eyebrow, buttonClasses(), Photo, Reveal,
+                             AmbientVideo (muted loop over its poster)
+                             (+ reveal-classes.ts), icons
+    layout/                  SiteHeader, HeaderFrame, PrimaryNav, SiteFooter, LocaleSwitcher, MobileNav,
+                             PageHero (inner-page opening), ClosingCta (contact close)
     brand/                   BrandMark (official-logo slot with text fallback)
     seo/                     JsonLd
   features/
     catalog/
-      components/          SystemsSection, DocumentViewer, SystemDetail, SystemCompare
+      components/          SystemsSection, DocumentLibrary, DocumentCard, SystemDetail,
+                           SystemCompare
       documents.ts         verified technical-document register (lab PDFs in public/documents/)
       systems.ts           EVEREST systems shown on the homepage (sources in CONTENT_SOURCES §5)
       system-specs.ts      spec model (document facts / EVEREST statements / not documented),
@@ -55,9 +62,15 @@ src/
       structured-data.ts   Product JSON-LD for system pages
       queries.ts           server validation of that register
     home/
-      components/          CompanyStory (2018 – today timeline), TruckScrollHero
+      components/          HomeHero, BrandStatement, CollectionShowcase, EngineeringBand,
+                           AboutTeaser (Server Components), TruckScrollHero (client, gsap)
+      truck-assets.ts      truck artwork slot for TruckScrollHero (placeholder SVG until filled)
+    films/
+      films.ts             technical-film register (series, files, posters, running time)
+      components/          FilmPlayer (client: click-to-load), FilmChapters, FilmsShowcase
+    about/
+      components/          SupplyChain, FilmBand, CompanyTimeline, LocationSection
       company-story.ts     story milestones; EVEREST years read from documents.ts
-      truck-assets.ts      truck artwork slot for TruckScrollHero
     projects/
       components/          ProjectGallery, ProjectCard, ProjectFilters, ProjectDetail
       schemas.ts           Zod project schema (localized text, systems, images, provenance)
@@ -71,6 +84,9 @@ src/
   config/
     site.ts                  verified business facts (single source of truth)
     brand.ts                 brand asset registry (header logo filled; inverse and OG still null)
+    photography.ts           site photographs (static imports from src/assets/photography/)
+    media.ts                 ambient video loops and their posters (public/media/)
+    navigation.ts            primary navigation: homepage anchors and page routes
     env.ts                   Zod-validated server environment
   i18n/
     routing.ts               locales, prefix strategy, localized pathnames
@@ -83,6 +99,9 @@ src/
     seo/metadata.ts          buildPageMetadata()
     seo/structured-data.ts   localBusinessJsonLd()
   messages/sq.json en.json   message catalogues (sq is the typed reference)
+  assets/photography/        EVEREST photographs and video stills, statically imported so
+                             next/image knows their size and builds a blur placeholder
+  assets/documents/          first page of each registered document (catalog/document-covers.ts)
   styles/
     globals.css              Tailwind import + base layer
     tokens.css               design tokens (@theme)
@@ -146,16 +165,34 @@ How it switches on, in order:
 Images are local, owner-supplied files through `next/image` with recorded dimensions (no
 `remotePatterns` needed). Hover is an opacity change only (DESIGN_RULES §5).
 
+### Photography
+
+Site photographs are registered in `src/config/photography.ts` and rendered with
+`<Photo name="…">` (a `next/image` that fills its positioned parent, alt text from
+`Photography.alt.*`). Local files in `src/assets/photography/` get a blur placeholder; Unsplash
+photographs are remote entries (`{ src, width, height }`, allowed by `remotePatterns` with an
+exact query string) that load over the `bg-stone` well. Static imports
+are used instead of `public/` paths because they give the build the intrinsic size and the blur
+data, so photographs never shift the layout. Provenance per file: `CONTENT_SOURCES.md` §4.
+Owner-supplied media that is not a photograph stays in `public/media/`:
+`loops/` (short muted ambient clips, registered in `src/config/media.ts`, rendered with
+`<AmbientVideo name="…">`) and `films/` (full technical films with posters, registered in
+`src/features/films/films.ts`). Films are 720p H.264 with AAC sound and `+faststart`, and load
+only when the visitor presses play (`FilmPlayer`), so a page with five films stays light.
+
 ## 3. Rendering model
 
 - **Server Components by default.** Pages are statically generated per locale
   (`generateStaticParams` in `[locale]/layout.tsx`, `setRequestLocale` via `resolveLocale`).
 - **Client Components (current, complete list):** `LocaleSwitcher` (needs the current
-  pathname), `MobileNav` (menu open/close), `HeaderFrame` (transparent header over the home hero:
+  pathname), `PrimaryNav` (marks the current page: pathname; labels as props, no namespace),
+  `MobileNav` (menu open/close, current page), `HeaderFrame` (transparent header over the home hero:
   pathname + scroll position), `Reveal` (IntersectionObserver
-  scroll-in reveal around server-rendered content; needs no namespace), `DocumentViewer`
-  (selected technical document), `SystemCompare` (two selected systems, differences filter,
-  shareable query string; text arrives resolved as props, so no namespace), `ProjectFilters` (gallery filter state; rendered only above the
+  scroll-in reveal around server-rendered content; needs no namespace), `DocumentLibrary`
+  (filters and the document dialog with its PDF preview; `#<id>` deep links), `SystemCompare` (two selected systems, differences filter,
+  shareable query string; text arrives resolved as props, so no namespace), `TruckScrollHero`
+  (gsap ScrollTrigger pin and scrub), `FilmPlayer` (click-to-load film; copy as props, so no
+  namespace), `ProjectFilters` (gallery filter state; rendered only above the
   filter threshold, takes translated labels as props so it needs no namespace),
   `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it).
   Each new one needs a comment justifying it.

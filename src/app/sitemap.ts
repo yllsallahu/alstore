@@ -12,6 +12,8 @@ import { type AppHref, absoluteUrl, languageAlternates } from "@/lib/seo/urls";
  */
 const indexableRoutes: AppHref[] = [
   "/",
+  "/about",
+  "/films",
   "/documents",
   "/systems/compare",
   ...listSystemPages().map(({ slug }): AppHref => ({

@@ -6,7 +6,7 @@ import { listSystemPages, systemBySlug } from "@/features/catalog/system-specs";
 import { resolveLocale } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-/** Only systems with verified documents have a page; every other slug is a 404. */
+/** One page per system in the register; every other slug is a 404. */
 export const dynamicParams = false;
 
 export function generateStaticParams() {

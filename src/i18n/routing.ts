@@ -19,6 +19,14 @@ export const routing = defineRouting({
   localeCookie: false,
   pathnames: {
     "/": "/",
+    "/about": {
+      sq: "/rreth-nesh",
+      en: "/about",
+    },
+    "/films": {
+      sq: "/video",
+      en: "/videos",
+    },
     "/documents": {
       sq: "/dokumentet",
       en: "/documents",
