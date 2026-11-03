@@ -1,5 +1,11 @@
 import { z } from "zod";
-import { technicalDocuments } from "./documents";
+import {
+  documentFormats,
+  documentKinds,
+  documentLanguages,
+  everestRoles,
+  technicalDocuments,
+} from "./documents";
 
 /**
  * Server read for the technical-document register. Pages call this; the UI
@@ -11,9 +17,13 @@ const fileUrl = z.union([z.url(), z.string().regex(/^\/documents\/[a-z0-9-]+\.pd
 
 const documentSchema = z.object({
   id: z.string().min(1),
-  kind: z.enum(["test-report", "environmental-declaration", "certification"]),
+  kind: z.enum(documentKinds),
   group: z.enum(["aluminium", "pvc", "manufacturer"]),
   series: z.string().min(1).nullable(),
+  coveredSeries: z.array(z.string().min(1)),
+  everestRole: z.enum(everestRoles).nullable(),
+  language: z.enum(documentLanguages),
+  format: z.enum(documentFormats),
   reportNumber: z.string().min(1),
   issuedOn: isoDate.nullable(),
   validUntil: isoDate.nullable(),

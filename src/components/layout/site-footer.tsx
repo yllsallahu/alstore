@@ -2,7 +2,9 @@ import { useTranslations } from "next-intl";
 import { BrandMark } from "@/components/brand/brand-mark";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { ExternalIcon } from "@/components/ui/icons";
 import { siteConfig } from "@/config/site";
+import { Link } from "@/i18n/navigation";
 
 const linkClass =
   "underline decoration-line-inverse underline-offset-4 transition-colors duration-200 ease-standard hover:decoration-accent";
@@ -31,6 +33,16 @@ export function SiteFooter() {
               {manufacturerHost}
             </a>
           </p>
+          <p className="mt-2 text-sm">
+            <Link href="/documents" className={linkClass}>
+              {t("documentsLink")}
+            </Link>
+          </p>
+          <p className="mt-2 text-sm">
+            <Link href="/knowledge" className={linkClass}>
+              {t("knowledgeLink")}
+            </Link>
+          </p>
         </div>
 
         <div className="md:col-span-3 md:col-start-7">
@@ -38,11 +50,15 @@ export function SiteFooter() {
             {t("addressHeading")}
           </Eyebrow>
           <address className="mt-5 not-italic">
-            {address.street}
-            <br />
-            {address.locality} {address.postalCode}
-            <br />
-            {t("country")}
+            <a href={address.mapUrl} target="_blank" rel="noopener" className={linkClass}>
+              {address.street}
+              <br />
+              {address.locality} {address.postalCode}
+              <br />
+              {t("country")}
+              <span className="sr-only">: {t("mapLink")}</span>
+              <ExternalIcon className="ml-2 inline size-4 align-baseline" />
+            </a>
           </address>
         </div>
 

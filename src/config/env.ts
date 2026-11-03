@@ -23,11 +23,14 @@ const envSchema = z.object({
       .default("false")
       .transform((value) => value === "true"),
   ),
+  /** Token from the Search Console "HTML tag" method (the content="…" value only). */
+  GOOGLE_SITE_VERIFICATION: z.preprocess(emptyToUndefined, z.string().trim().min(1).optional()),
 });
 
 const parsed = envSchema.safeParse({
   SITE_URL: process.env.SITE_URL,
   SITE_INDEXABLE: process.env.SITE_INDEXABLE,
+  GOOGLE_SITE_VERIFICATION: process.env.GOOGLE_SITE_VERIFICATION,
 });
 
 if (!parsed.success) {
@@ -39,4 +42,6 @@ export const env = {
   siteUrl: parsed.data.SITE_URL,
   /** True only on the approved production deployment. */
   indexable: parsed.data.SITE_INDEXABLE,
+  /** Search Console verification token, rendered as google-site-verification when set. */
+  googleSiteVerification: parsed.data.GOOGLE_SITE_VERIFICATION,
 } as const;

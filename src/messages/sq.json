@@ -27,8 +27,11 @@
   "Footer": {
     "distributor": "AL STORE është distributor i produkteve <everest>EVEREST</everest> në Kosovë.",
     "manufacturerLabel": "Prodhuesi",
+    "documentsLink": "Certifikatat dhe raportet teknike",
+    "knowledgeLink": "Qendra e njohurive",
     "contactHeading": "Kontakti",
     "addressHeading": "Adresa",
+    "mapLink": "Hap në Google Maps",
     "phoneLabel": "Telefoni",
     "emailLabel": "Email-i",
     "country": "Kosovë",
@@ -36,23 +39,52 @@
   },
   "HomePage": {
     "metaTitle": "AL STORE — Sisteme alumini dhe PVC EVEREST në Kosovë",
-    "metaDescription": "AL STORE është distributor i sistemeve të aluminit dhe PVC të EVEREST në Kosovë. Na kontaktoni për informacion mbi produktet.",
+    "metaDescription": "AL STORE është distributor i sistemeve të aluminit dhe PVC të EVEREST në Radivojc, Kosovë. Shikoni sistemet dhe dokumentet teknike ose kërkoni ofertë.",
     "eyebrow": "Distributor i <everest>EVEREST</everest> në Kosovë",
     "title": "Sisteme alumini dhe PVC nga <everest>EVEREST</everest>",
+    "systemsAction": "Shiko sistemet",
+    "quoteAction": "Kërko ofertë",
+    "factsLabel": "AL STORE me një vështrim",
     "contactHeading": "Na kontaktoni",
+    "mapTitle": "Harta e vendndodhjes së AL STORE në Google Maps",
     "callAction": "Telefono",
     "emailAction": "Dërgo email"
   },
-  "ProductCategories": {
-    "eyebrow": "Historiku EVEREST",
-    "title": "Nga alumini te PVC.",
-    "intro": "AL STORE është distributor i sistemeve EVEREST.",
+  "CompanyStory": {
+    "eyebrow": "Historia jonë · 2018 – sot",
+    "title": "Nga prodhuesi te tregu i Kosovës.",
+    "intro": "EVEREST prodhon sistemet e aluminit dhe PVC. Që nga viti 2018, AL STORE i distribuon ato në Kosovë për prodhues, montues dhe kompani ndërtimi.",
+    "chainLabel": "Kush bën çfarë",
+    "chain": {
+      "everest": {
+        "role": "Prodhuesi",
+        "name": "EVEREST",
+        "text": "Prodhon profilet dhe sistemet e aluminit dhe PVC."
+      },
+      "alstore": {
+        "role": "Distributori",
+        "name": "AL STORE",
+        "text": "Furnizon tregun e Kosovës dhe ndihmon në zgjedhjen e sistemit dhe ofertën."
+      },
+      "customers": {
+        "role": "Klientët",
+        "name": "Prodhues dhe montues",
+        "text": "Prodhojnë dhe montojnë dritaret dhe dyert në projekte."
+      }
+    },
+    "today": "Sot",
     "milestones": {
-      "founded": "Fillimi i EVEREST në fushën e ndërtimit",
-      "aluminiumMarket": "Hyrja në tregun e aluminit",
-      "profiles": "Fillimi i prodhimit të profileve të aluminit të ekstruduara dhe të lyera",
-      "upvc": "Zgjerimi në prodhimin uPVC"
-    }
+      "distributor": "AL STORE fillon distribuimin e sistemeve EVEREST në Kosovë.",
+      "upvc": "EVEREST hyn në tregun e uPVC me dritare dhe dyer.",
+      "tests": "Laboratori IRCCOS teston mostra dritaresh të serive të aluminit 70 000 dhe 71 000 për ajrin, ujin dhe erën.",
+      "pvcTest": "IRCCOS teston një mostër dritareje të serisë PVC 85 000.",
+      "thermal": "Llogaritje termike e një nyjeje të profilit 71 000: Uf = 1,3 W/(m²K).",
+      "epd": "Deklaratë mjedisore (EPD) për profilin përfaqësues 71 000.",
+      "asi": "Everest Shpk certifikohet sipas Standardit të Performancës ASI.",
+      "today": "Mbi 8 vite si distributor i sistemeve EVEREST në Kosovë."
+    },
+    "documentLink": "Shiko dokumentin",
+    "footnote": "Ngjarjet e EVEREST: everest.al dhe dokumentet teknike të verifikuara. Çdo rezultat vlen vetëm për mostrën ose nyjen e testuar."
   },
   "Systems": {
     "eyebrow": "Sistemet EVEREST",
@@ -96,14 +128,140 @@
         "description": "Sisteme uPVC për dritare dhe dyer, me performancë të mirë termike dhe qëndrueshmëri. EVEREST hyri në tregun uPVC në vitin 2018.",
         "alt": "Dritare uPVC e bardhë me dy kanata nga EVEREST"
       }
+    },
+    "compareLink": "Krahaso sistemet"
+  },
+  "SystemSpecs": {
+    "rows": {
+      "use": "Përdorimi",
+      "opening": "Hapja",
+      "insulation": "Izolimi termik (sipas EVEREST)",
+      "specimen": "Mostra e testuar (madhësia, xhami)",
+      "air": "Përshkueshmëria e ajrit",
+      "water": "Papërshkueshmëria nga uji",
+      "wind": "Rezistenca ndaj ngarkesës së erës",
+      "uf": "Uf i nyjes së llogaritur",
+      "profileDepth": "Thellësia e profilit"
+    },
+    "values": {
+      "windowsDoors": "Dritare dhe dyer",
+      "tiltTurn": "Me hapje dhe anim (Tilt & Turn)",
+      "nonInsulated": "Pa izolim termik",
+      "efficiency": "Projektuar për efiçencë energjetike",
+      "maxInsulation": "Izolim termik maksimal",
+      "basicDepth90": "Thellësi bazë 90 mm"
+    },
+    "sources": {
+      "everest": "Lista e produkteve EVEREST (everest.al)",
+      "everestShort": "everest.al"
+    },
+    "sourceLabel": "Burimi",
+    "notDocumented": "Nuk është dokumentuar",
+    "sampleNote": "Rezultatet e testeve vlejnë për mostrën ose nyjen e testuar, jo për çdo dritare të serisë."
+  },
+  "SystemPage": {
+    "breadcrumbLabel": "Ku ndodheni",
+    "breadcrumbHome": "Ballina",
+    "breadcrumbSystems": "Sistemet",
+    "title": "EVEREST {name}",
+    "manufacturer": "Prodhuar nga EVEREST. AL STORE është distributor në Kosovë.",
+    "imageCredit": "Pamja: EVEREST (everest.al)",
+    "quoteAction": "Kërko ofertë",
+    "compareAction": "Krahaso me një sistem tjetër",
+    "specsHeading": "Të dhënat teknike",
+    "specsIntro": "Vetëm vlera nga dokumente të verifikuara ose nga EVEREST. Ato që mungojnë shënohen si të padokumentuara.",
+    "documentsHeading": "Dokumentet",
+    "documentsIntro": "Raporte dhe deklarata të verifikuara që përmendin këtë seri, të publikuara të plota.",
+    "viewInResources": "Shiko te burimet teknike",
+    "openPdf": "Hap PDF-në",
+    "relatedHeading": "Sisteme të tjera",
+    "allSystems": "Të gjitha sistemet",
+    "inquiryHeading": "Kërkesë për ofertë: {name}",
+    "inquiryText": "Na tregoni projektin, sasitë dhe afatin. AL STORE ju përgjigjet me informacion dhe ofertë.",
+    "callAction": "Telefono",
+    "emailAction": "Dërgo email",
+    "emailSubject": "Kërkesë për ofertë: EVEREST {name}",
+    "items": {
+      "s70000": {
+        "metaTitle": "EVEREST 70 000: sistem alumini Tilt & Turn",
+        "metaDescription": "Seria EVEREST 70 000 për dritare dhe dyer në Kosovë: përshkrimi, rezultatet e testit IRCCOS RP2147 dhe kërkesë për ofertë te AL STORE, distributor."
+      },
+      "s71000": {
+        "metaTitle": "EVEREST 71 000: sistem alumini me izolim termik",
+        "metaDescription": "Seria EVEREST 71 000 në Kosovë: rezultatet e testit IRCCOS, Uf 1,3 W/(m²K) i një nyjeje të llogaritur, EPD dhe kërkesë për ofertë te AL STORE."
+      }
     }
   },
-  "Documents": {
-    "metaTitle": "Certifikatat dhe raportet teknike",
-    "metaDescription": "Raporte prove për mostra të emërtuara EVEREST, deklarata mjedisore dhe certifikimi i prodhuesit. Rezultatet nuk mbulojnë një kategori të tërë.",
+  "SystemCompare": {
+    "metaTitle": "Krahaso sistemet e aluminit EVEREST",
+    "metaDescription": "Krahasoni dy sisteme alumini EVEREST krah për krah: përdorimi, hapja, izolimi dhe rezultatet e testeve të verifikuara. Të dhënat që mungojnë shënohen qartë.",
+    "eyebrow": "Krahasimi i sistemeve",
+    "title": "Krahasoni dy sisteme alumini.",
+    "intro": "Zgjidhni dy sisteme EVEREST. Shfaqen vetëm të dhëna nga dokumente të verifikuara dhe nga EVEREST; asgjë nuk vlerësohet.",
+    "firstLabel": "Sistemi i parë",
+    "secondLabel": "Sistemi i dytë",
+    "onlyDifferences": "Shfaq vetëm dallimet",
+    "tableCaption": "{first} krahasuar me {second}",
+    "specHeader": "Karakteristika",
+    "differs": "Ndryshon",
+    "viewPage": "Faqja e sistemit",
+    "noPage": "Ende pa faqe të veçantë",
+    "sameSelection": "Zgjidhni dy sisteme të ndryshme për t'i krahasuar.",
+    "legend": "“Ndryshon” do të thotë se vlerat e dokumentuara janë të ndryshme. “Nuk është dokumentuar” do të thotë se nuk ka burim të verifikuar.",
+    "noDifferences": "Nuk ka dallime të dokumentuara mes këtyre dy sistemeve."
+  },
+  "TechnicalResources": {
+    "metaTitle": "Burime teknike: raporte prove dhe EPD EVEREST",
+    "metaDescription": "Raporte prove IRCCOS, llogaritje termike, deklarata mjedisore dhe certifikime për sistemet EVEREST të aluminit dhe PVC, sipas serisë, me gjuhën dhe formatin.",
     "eyebrow": "Dokumentacioni",
-    "title": "Certifikatat dhe raportet",
-    "intro": "Tri lloje dokumentesh të prodhuesit mbahen të ndara. Raportet e provave japin klasat e mostrës së testuar. Deklaratat mjedisore listojnë profilet që mbulojnë. Certifikimet tregojnë kujt i përkasin. EV HYBRID është këtu vetëm si referencë e prodhuesit: AL STORE nuk e shet dhe nuk pranon kërkesa oferte për të.",
+    "title": "Burime teknike",
+    "intro": "Dokumentacioni teknik i EVEREST për sistemet e aluminit dhe PVC, i renditur sipas serisë. Çdo dokument tregon kategorinë, sistemin, gjuhën dhe formatin e skedarit, si dhe kush e ka lëshuar. Referencat e prodhuesit, si EV HYBRID, mbahen të ndara: AL STORE nuk i shet dhe nuk pranon kërkesa oferte për to.",
+    "categoriesHeading": "Llojet e dokumenteve",
+    "count": "{count, plural, one {# dokument} other {# dokumente}}",
+    "categories": {
+      "testReport": {
+        "title": "Raporte prove laboratorike",
+        "description": "Raporte të laboratorit IRCCOS për një mostër dritareje ose dere të emërtuar: përshkueshmëria e ajrit, papërshkueshmëria ndaj ujit dhe rezistenca ndaj ngarkesës së erës. Klasat vlejnë për mostrën e testuar."
+      },
+      "thermalCalculation": {
+        "title": "Llogaritje termike",
+        "description": "Llogaritje të transmetimit termik Uf sipas EN ISO 10077-2:2017 për nyje të caktuara kornize. Vlera është për nyjen e llogaritur, jo për një dritare të plotë."
+      },
+      "environmentalDeclaration": {
+        "title": "Deklarata mjedisore (EPD)",
+        "description": "Deklarata mjedisore produkti (EPD) sipas ISO 14025 dhe EN 15804, të regjistruara në International EPD System. Përshkruajnë ndikimin mjedisor për 1 kg profil, jo performancën e dritares."
+      },
+      "certification": {
+        "title": "Certifikime",
+        "description": "Certifikime të lëshuara nga organizma të pavarur. Secili emërton mbajtësin dhe fushën e vet. Asnjëri nuk është certifikatë e AL STORE."
+      },
+      "catalogue": {
+        "title": "Katalogë",
+        "description": "Katalogë të prodhuesit EVEREST."
+      },
+      "drawing": {
+        "title": "Vizatime teknike",
+        "description": "Vizatime teknike të profileve dhe nyjeve."
+      },
+      "specification": {
+        "title": "Specifikime",
+        "description": "Specifikime teknike të sistemeve."
+      },
+      "installation": {
+        "title": "Udhëzime montimi",
+        "description": "Udhëzime për montimin."
+      }
+    },
+    "readingHeading": "Si t'i lexoni",
+    "reading": {
+      "sample": "Rezultatet laboratorike i përkasin mostrës ose nyjes së emërtuar në raport. Nuk janë certifikata përputhshmërie dhe nuk vlejnë për një seri të tërë apo për kategorinë alumin ose PVC.",
+      "complete": "Raportet IRCCOS publikohen të plota dhe të pandryshuara, siç e lejon laboratori. Deklaratat mjedisore dhe certifikimet hapen nga faqet zyrtare që i kanë lëshuar.",
+      "official": "Shënimi “Dokument zyrtar i EVEREST” do të thotë që vetë dokumenti e emërton EVEREST si aplikant, pronar, mbajtës ose prodhues. Lëshuesi shënohet veç."
+    },
+    "browseHeading": "Dokumentet sipas sistemit",
+    "browseIntro": "Zgjidhni një dokument për ta parë këtu, ose hapeni si skedar."
+  },
+  "Documents": {
     "viewAction": "Shiko certifikatat dhe raportet",
     "testedSamples": "Mostra të testuara",
     "declarationsHeading": "Deklaratë mjedisore",
@@ -146,7 +304,12 @@
     "kinds": {
       "testReport": "Raport prove laboratorike",
       "environmentalDeclaration": "Deklaratë mjedisore",
-      "certification": "Certifikim"
+      "certification": "Certifikim",
+      "thermalCalculation": "Llogaritje termike",
+      "catalogue": "Katalog",
+      "drawing": "Vizatim teknik",
+      "specification": "Specifikim",
+      "installation": "Udhëzim montimi"
     },
     "links": {
       "registry": "Regjistri",
@@ -239,7 +402,36 @@
     },
     "testedSampleHeading": "Rezultate të mostrës së testuar: seria {series}",
     "technicalDocsAction": "Shiko dokumentacionin teknik",
-    "pdfLink": "PDF"
+    "pdfLink": "PDF",
+    "groups": {
+      "aluminium": "Seritë e aluminit",
+      "pvc": "Seritë PVC",
+      "manufacturer": "Referenca të prodhuesit"
+    },
+    "manufacturerNote": "Dokumente për vetë prodhuesin ose për sisteme që AL STORE nuk i shet. Jepen vetëm si referencë.",
+    "categoryFilterLabel": "Filtro sipas kategorisë",
+    "categoryAll": "Të gjitha kategoritë",
+    "coveredSeries": "Seri të emërtuara: {series}",
+    "notSoldTag": "Nuk shitet nga AL STORE",
+    "everestBadge": "Dokument zyrtar i EVEREST",
+    "everestRoleLabel": "EVEREST në dokument",
+    "everestRoles": {
+      "publisher": "Botuesi",
+      "applicant": "Aplikanti i raportit",
+      "epdOwner": "Pronari i deklaratës",
+      "holder": "Mbajtësi i certifikatës",
+      "manufacturer": "Prodhuesi i sistemit të certifikuar"
+    },
+    "languageLabel": "Gjuha",
+    "formatLabel": "Formati",
+    "languages": {
+      "sq": "shqip",
+      "en": "anglisht"
+    },
+    "formats": {
+      "pdf": "PDF"
+    },
+    "fileDescription": "{format}, {language}"
   },
   "NotFound": {
     "eyebrow": "Gabim 404",
@@ -266,5 +458,57 @@
       "supplyTrucks": "Kamionë furnizimi",
       "aluminiumTonnes": "Ton alumin të furnizuar"
     }
+  },
+  "Projects": {
+    "metaTitle": "Projekte me sisteme EVEREST",
+    "metaDescription": "Projekte ku janë përdorur sistemet EVEREST të shpërndara nga AL STORE në Kosovë, me vendndodhjen, sistemin dhe fotografi të siguruara nga AL STORE.",
+    "eyebrow": "Projekte",
+    "title": "Projekte me sistemet EVEREST.",
+    "intro": "Projekte ku janë përdorur sistemet EVEREST që shpërndan AL STORE. Çdo projekt publikohet me pëlqimin me shkrim të klientit.",
+    "footnote": "Fotografitë janë siguruar nga AL STORE dhe publikohen me pëlqimin me shkrim të klientit. Sistemet prodhohen nga EVEREST.",
+    "photoCredit": "Fotografitë: {credit}. Publikohen me pëlqimin me shkrim të klientit.",
+    "listLabel": "Lista e projekteve",
+    "photosLabel": "Fotografi të projektit",
+    "backToGallery": "Të gjitha projektet",
+    "filters": {
+      "label": "Filtro projektet",
+      "system": "Sistemi",
+      "type": "Lloji i projektit",
+      "all": "Të gjitha",
+      "empty": "Asnjë projekt nuk përputhet me këta filtra."
+    },
+    "facts": {
+      "location": "Vendndodhja",
+      "systems": "Sistemi",
+      "type": "Lloji",
+      "year": "Viti"
+    },
+    "types": {
+      "residential": "Banesor",
+      "commercial": "Komercial",
+      "public": "Publik",
+      "industrial": "Industrial"
+    }
+  },
+  "Knowledge": {
+    "metaTitle": "Qendra e njohurive për dritare dhe profile alumini",
+    "metaDescription": "Artikuj teknikë për ndërtuesit dhe projektuesit në Kosovë: ndërprerja termike, vlerat U të dritareve dhe klasat e ajrit, ujit e erës, me burime për çdo fakt.",
+    "eyebrow": "Qendra e njohurive",
+    "title": "Njohuri teknike për dritare dhe dyer",
+    "intro": "Artikuj për fabrikuesit, montuesit, projektuesit dhe investitorët në Kosovë. Çdo vlerë teknike vjen nga një standard, një raport laboratorik ose një burim zyrtar, i listuar në fund të artikullit.",
+    "method": "Rezultatet laboratorike citohen vetëm për mostrën ose nyjen e provuar, jo për një seri të tërë.",
+    "listLabel": "Artikujt",
+    "readArticle": "Lexo artikullin",
+    "breadcrumbLabel": "Gjurma e navigimit",
+    "home": "Ballina",
+    "tocHeading": "Në këtë artikull",
+    "reviewed": "Kontrolluar me burimet më {date}",
+    "sourcesHeading": "Burimet",
+    "sourcesIntro": "Datat tregojnë kur u lexua secili burim. Standardet citohen sipas përmbledhjeve zyrtare të fushës së tyre; raportet IRCCOS janë të plota te dokumentet teknike.",
+    "accessed": "Lexuar më {date}",
+    "relatedHeading": "Lexoni edhe",
+    "documentsAction": "Dokumentet teknike",
+    "contactAction": "Na kontaktoni",
+    "allArticles": "Të gjithë artikujt"
   }
 }

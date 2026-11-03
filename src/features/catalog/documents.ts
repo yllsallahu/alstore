@@ -1,4 +1,5 @@
 import type catalogue from "@/messages/sq.json";
+import type { EverestSystem } from "./systems";
 
 /**
  * Verified EVEREST technical documents. Wording lives in Documents.items;
@@ -14,7 +15,39 @@ type FactKey = keyof typeof catalogue.Documents.labels;
 
 export type DocumentId = keyof Items;
 export type DocumentGroup = "aluminium" | "pvc" | "manufacturer";
-export type DocumentKind = "test-report" | "environmental-declaration" | "certification";
+/**
+ * Resource categories. Only the first four have documents. Catalogues, drawings,
+ * specifications and installation references are modelled but have none until
+ * EVEREST supplies them, so the hub renders no empty category.
+ */
+export const documentKinds = [
+  "test-report",
+  "thermal-calculation",
+  "environmental-declaration",
+  "certification",
+  "catalogue",
+  "drawing",
+  "specification",
+  "installation",
+] as const;
+export type DocumentKind = (typeof documentKinds)[number];
+export const documentLanguages = ["sq", "en"] as const;
+export type DocumentLanguage = (typeof documentLanguages)[number];
+export const documentFormats = ["pdf"] as const;
+export type DocumentFormat = (typeof documentFormats)[number];
+/**
+ * How the file itself names EVEREST: report applicant, EPD owner, certificate
+ * holder, certified manufacturer, or publisher (for EVEREST's own catalogues).
+ * Any value marks an official EVEREST document; null means it is not one.
+ */
+export const everestRoles = [
+  "publisher",
+  "applicant",
+  "epd-owner",
+  "holder",
+  "manufacturer",
+] as const;
+export type EverestRole = (typeof everestRoles)[number];
 export type DocumentLinkId = "file" | "registry" | "verification" | "technicalReport";
 export type { FactKey };
 
@@ -23,6 +56,11 @@ export type TechnicalDocument = {
   kind: DocumentKind;
   group: DocumentGroup;
   series: string | null;
+  /** Further series the document itself names (EPD product lists). Not test results. */
+  coveredSeries: readonly string[];
+  everestRole: EverestRole | null;
+  language: DocumentLanguage;
+  format: DocumentFormat;
   reportNumber: string;
   issuedOn: string | null;
   validUntil: string | null;
@@ -70,6 +108,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-70000-rp2147"),
     links: [{ id: "file", href: hosted("everest-70000-rp2147") }],
@@ -85,6 +127,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-71000-rp2146"),
     links: [{ id: "file", href: hosted("everest-71000-rp2146") }],
@@ -92,7 +138,7 @@ export const technicalDocuments = [
   }),
   defineDocument({
     id: "rp2790",
-    kind: "test-report",
+    kind: "thermal-calculation",
     group: "aluminium",
     series: "71 000",
     reportNumber: "1994-CPR-RP2790",
@@ -100,6 +146,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-71000-rp2790"),
     links: [{ id: "file", href: hosted("everest-71000-rp2790") }],
@@ -115,6 +165,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-91000-rp2157"),
     links: [{ id: "file", href: hosted("everest-91000-rp2157") }],
@@ -130,6 +184,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-92000-rp2144"),
     links: [{ id: "file", href: hosted("everest-92000-rp2144") }],
@@ -145,6 +203,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-92000-rp2145"),
     links: [{ id: "file", href: hosted("everest-92000-rp2145") }],
@@ -160,6 +222,10 @@ export const technicalDocuments = [
     validUntil: "2030-10-07",
     issuer: "International EPD System",
     offer: "documentation",
+    everestRole: "epd-owner",
+    coveredSeries: ["71 000", "92 000", "93 000", "CE 32 000", "E50", "E34"],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: epd26335File,
     links: [
@@ -178,6 +244,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: hosted("everest-pvc-85000-rp2176"),
     links: [{ id: "file", href: hosted("everest-pvc-85000-rp2176") }],
@@ -185,7 +255,7 @@ export const technicalDocuments = [
   }),
   defineDocument({
     id: "rp2549",
-    kind: "test-report",
+    kind: "thermal-calculation",
     group: "pvc",
     series: "76 000",
     reportNumber: "1994-CPR-RP2549",
@@ -193,6 +263,10 @@ export const technicalDocuments = [
     validUntil: null,
     issuer: "IRCCOS",
     offer: "documentation",
+    everestRole: "applicant",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: true,
     previewUrl: hosted("everest-pvc-76000-rp2549"),
     links: [{ id: "file", href: hosted("everest-pvc-76000-rp2549") }],
@@ -208,6 +282,10 @@ export const technicalDocuments = [
     validUntil: "2029-04-23",
     issuer: "Aluminium Stewardship Initiative",
     offer: "documentation",
+    everestRole: "holder",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: asiFile,
     links: [
@@ -229,6 +307,10 @@ export const technicalDocuments = [
     validUntil: "2030-10-07",
     issuer: "International EPD System",
     offer: "not-sold",
+    everestRole: "epd-owner",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: epd26336File,
     links: [
@@ -247,6 +329,10 @@ export const technicalDocuments = [
     validUntil: "2027-12-31",
     issuer: "Passive House Institute",
     offer: "not-sold",
+    everestRole: "manufacturer",
+    coveredSeries: [],
+    language: "en",
+    format: "pdf",
     pendingClassification: false,
     previewUrl: passiveHouseCertificate,
     links: [
@@ -289,8 +375,52 @@ export function groupBySeries(documents: readonly TechnicalDocument[]) {
   return groups;
 }
 
+/**
+ * Document series for each homepage system key. null: no document may be attached yet.
+ * 76 000 stays null: RP2549 calls it PVC while EVEREST lists it under Aluminium, and the
+ * owner has to confirm before they are linked (CONTENT_SOURCES.md §5).
+ */
+const seriesBySystem: Record<EverestSystem["key"], string | null> = {
+  s30000: null,
+  s60000: null,
+  s70000: "70 000",
+  s71000: "71 000",
+  s76000: null,
+  pvc: null,
+};
+
+/**
+ * Documents to list on a system page: reports for that series and declarations that name it.
+ * Manufacturer references are never returned. Link to one with `/documents#<id>`.
+ */
+export function documentsForSystem(key: EverestSystem["key"]) {
+  const series = seriesBySystem[key];
+  if (!series) return [];
+
+  const documents: readonly TechnicalDocument[] = technicalDocuments;
+  return documents.filter(
+    (document) =>
+      document.offer === "documentation" &&
+      document.group !== "manufacturer" &&
+      (document.series === series || document.coveredSeries.includes(series)),
+  );
+}
+
 export const kindMessageKey = {
   "test-report": "testReport",
+  "thermal-calculation": "thermalCalculation",
   "environmental-declaration": "environmentalDeclaration",
   certification: "certification",
-} as const;
+  catalogue: "catalogue",
+  drawing: "drawing",
+  specification: "specification",
+  installation: "installation",
+} as const satisfies Record<DocumentKind, string>;
+
+export const everestRoleMessageKey = {
+  publisher: "publisher",
+  applicant: "applicant",
+  "epd-owner": "epdOwner",
+  holder: "holder",
+  manufacturer: "manufacturer",
+} as const satisfies Record<EverestRole, string>;

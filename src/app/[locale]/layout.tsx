@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     applicationName: siteConfig.name,
     // Indexing is opt-in per deployment (SITE_INDEXABLE); see docs/SEO_RULES.md.
     robots: env.indexable ? { index: true, follow: true } : { index: false, follow: false },
+    ...(env.googleSiteVerification && { verification: { google: env.googleSiteVerification } }),
   };
 }
 
@@ -48,7 +49,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <NextIntlClientProvider
           messages={{
             LocaleSwitcher: messages.LocaleSwitcher,
-            ProductCategories: messages.ProductCategories,
             TruckScrollHero: messages.TruckScrollHero,
             Documents: messages.Documents,
             Error: messages.Error,

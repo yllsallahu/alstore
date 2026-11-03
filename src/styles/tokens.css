@@ -74,6 +74,7 @@
   --spacing-gutter: clamp(1.25rem, 0.75rem + 2.5vw, 3rem); /* page side padding */
   --spacing-section: clamp(4rem, 2.75rem + 6vw, 9rem); /* vertical rhythm between sections */
   --spacing-preview: 36rem; /* technical-document preview pane, lg+ */
+  --spacing-fold: calc(100svh - 5rem); /* one screen below the sticky header (h-20 from sm) */
   --container-site: 84rem; /* max content width */
   --container-measure: 42rem; /* max line length for running text */
 
@@ -85,6 +86,19 @@
 
   /* ---------- Motion ---------- */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* One-time home hero entrance (owner request): fade in and rise 0.75rem, staggered 80ms. */
+  --animate-rise: rise 700ms var(--ease-standard) both;
+  --animate-rise-2: rise 700ms var(--ease-standard) 80ms both;
+  --animate-rise-3: rise 700ms var(--ease-standard) 160ms both;
+  --animate-rise-4: rise 700ms var(--ease-standard) 240ms both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 0.75rem;
+    }
+  }
 }
 
 /* Font family is wired to the next/font CSS variable, so it must be `inline`. */

@@ -27,8 +27,11 @@
   "Footer": {
     "distributor": "AL STORE is a distributor of <everest>EVEREST</everest> products in Kosovo.",
     "manufacturerLabel": "Manufacturer",
+    "documentsLink": "Certificates and technical reports",
+    "knowledgeLink": "Knowledge centre",
     "contactHeading": "Contact",
     "addressHeading": "Address",
+    "mapLink": "Open in Google Maps",
     "phoneLabel": "Phone",
     "emailLabel": "Email",
     "country": "Kosovo",
@@ -36,23 +39,52 @@
   },
   "HomePage": {
     "metaTitle": "AL STORE — EVEREST aluminium and PVC systems in Kosovo",
-    "metaDescription": "AL STORE is a distributor of EVEREST aluminium and PVC systems in Kosovo. Contact us for product information.",
+    "metaDescription": "AL STORE is a distributor of EVEREST aluminium and PVC systems in Radivojc, Kosovo. Browse the systems and technical documents, or request a quotation.",
     "eyebrow": "<everest>EVEREST</everest> distributor in Kosovo",
     "title": "Aluminium and PVC systems by <everest>EVEREST</everest>",
+    "systemsAction": "View the systems",
+    "quoteAction": "Request a quotation",
+    "factsLabel": "AL STORE at a glance",
     "contactHeading": "Contact us",
+    "mapTitle": "Map of the AL STORE location on Google Maps",
     "callAction": "Call",
     "emailAction": "Send an email"
   },
-  "ProductCategories": {
-    "eyebrow": "EVEREST history",
-    "title": "From aluminium to PVC.",
-    "intro": "AL STORE is a distributor of EVEREST systems.",
+  "CompanyStory": {
+    "eyebrow": "Our story · 2018 – today",
+    "title": "From the manufacturer to the Kosovo market.",
+    "intro": "EVEREST manufactures the aluminium and PVC systems. Since 2018 AL STORE has distributed them in Kosovo to fabricators, installers and construction companies.",
+    "chainLabel": "Who does what",
+    "chain": {
+      "everest": {
+        "role": "Manufacturer",
+        "name": "EVEREST",
+        "text": "Manufactures the aluminium and PVC profiles and systems."
+      },
+      "alstore": {
+        "role": "Distributor",
+        "name": "AL STORE",
+        "text": "Supplies the Kosovo market and helps with system choice and quotations."
+      },
+      "customers": {
+        "role": "Customers",
+        "name": "Fabricators and installers",
+        "text": "Fabricate and install the windows and doors on site."
+      }
+    },
+    "today": "Today",
     "milestones": {
-      "founded": "EVEREST founded in construction",
-      "aluminiumMarket": "Entry into the aluminium market",
-      "profiles": "Manufacturing of extruded and painted aluminium profiles begins",
-      "upvc": "Expansion into uPVC production"
-    }
+      "distributor": "AL STORE begins distributing EVEREST systems in Kosovo.",
+      "upvc": "EVEREST enters the uPVC market with windows and doors.",
+      "tests": "The IRCCOS laboratory tests window samples of the 70 000 and 71 000 aluminium series for air, water and wind.",
+      "pvcTest": "IRCCOS tests a window sample of the PVC 85 000 series.",
+      "thermal": "Thermal calculation of one 71 000 profile node: Uf = 1.3 W/(m²K).",
+      "epd": "Environmental product declaration (EPD) for the representative 71 000 profile.",
+      "asi": "Everest Shpk is certified to the ASI Performance Standard.",
+      "today": "More than 8 years as a distributor of EVEREST systems in Kosovo."
+    },
+    "documentLink": "View document",
+    "footnote": "EVEREST events: everest.al and the verified technical documents. Each result applies only to the sample or node tested."
   },
   "Systems": {
     "eyebrow": "EVEREST systems",
@@ -96,14 +128,140 @@
         "description": "uPVC systems for windows and doors, with good thermal performance and durability. EVEREST entered the uPVC market in 2018.",
         "alt": "White two-casement uPVC window by EVEREST"
       }
+    },
+    "compareLink": "Compare systems"
+  },
+  "SystemSpecs": {
+    "rows": {
+      "use": "Use",
+      "opening": "Opening type",
+      "insulation": "Thermal insulation (per EVEREST)",
+      "specimen": "Tested sample (size, glazing)",
+      "air": "Air permeability",
+      "water": "Watertightness",
+      "wind": "Resistance to wind load",
+      "uf": "Uf of the calculated node",
+      "profileDepth": "Profile depth"
+    },
+    "values": {
+      "windowsDoors": "Windows and doors",
+      "tiltTurn": "Tilt and turn",
+      "nonInsulated": "Non-insulated",
+      "efficiency": "Designed for energy efficiency",
+      "maxInsulation": "Maximum thermal insulation",
+      "basicDepth90": "Basic depth 90 mm"
+    },
+    "sources": {
+      "everest": "EVEREST product list (everest.al)",
+      "everestShort": "everest.al"
+    },
+    "sourceLabel": "Source",
+    "notDocumented": "Not documented",
+    "sampleNote": "Test results apply to the sample or node tested, not to every window in the series."
+  },
+  "SystemPage": {
+    "breadcrumbLabel": "You are here",
+    "breadcrumbHome": "Home",
+    "breadcrumbSystems": "Systems",
+    "title": "EVEREST {name}",
+    "manufacturer": "Manufactured by EVEREST. AL STORE is a distributor in Kosovo.",
+    "imageCredit": "Image: EVEREST (everest.al)",
+    "quoteAction": "Request a quotation",
+    "compareAction": "Compare with another system",
+    "specsHeading": "Technical data",
+    "specsIntro": "Only values from verified documents or from EVEREST. Anything missing is marked as not documented.",
+    "documentsHeading": "Documents",
+    "documentsIntro": "Verified reports and declarations that name this series, published in full.",
+    "viewInResources": "View in technical resources",
+    "openPdf": "Open the PDF",
+    "relatedHeading": "Other systems",
+    "allSystems": "All systems",
+    "inquiryHeading": "Request a quotation: {name}",
+    "inquiryText": "Tell us about the project, quantities and timing. AL STORE will reply with information and a quotation.",
+    "callAction": "Call",
+    "emailAction": "Send an email",
+    "emailSubject": "Quotation request: EVEREST {name}",
+    "items": {
+      "s70000": {
+        "metaTitle": "EVEREST 70 000 aluminium tilt-and-turn system",
+        "metaDescription": "EVEREST 70 000 series for windows and doors in Kosovo: description, IRCCOS test report RP2147 results and quotation requests from AL STORE, distributor."
+      },
+      "s71000": {
+        "metaTitle": "EVEREST 71 000 thermally insulated aluminium system",
+        "metaDescription": "EVEREST 71 000 series in Kosovo: IRCCOS test results, a 1.3 W/(m²K) Uf for one calculated node, the EPD and quotation requests from AL STORE."
+      }
     }
   },
-  "Documents": {
-    "metaTitle": "Certificates and technical reports",
-    "metaDescription": "Named-sample EVEREST test reports, environmental declarations and the manufacturer's certification. Results do not cover an entire category.",
+  "SystemCompare": {
+    "metaTitle": "Compare EVEREST aluminium systems",
+    "metaDescription": "Compare two EVEREST aluminium systems side by side: use, opening type, insulation and verified test results. Missing data is clearly marked.",
+    "eyebrow": "System comparison",
+    "title": "Compare two aluminium systems.",
+    "intro": "Choose two EVEREST systems. Only data from verified documents and from EVEREST is shown; nothing is estimated.",
+    "firstLabel": "First system",
+    "secondLabel": "Second system",
+    "onlyDifferences": "Show differences only",
+    "tableCaption": "{first} compared with {second}",
+    "specHeader": "Specification",
+    "differs": "Differs",
+    "viewPage": "System page",
+    "noPage": "No dedicated page yet",
+    "sameSelection": "Choose two different systems to compare them.",
+    "legend": "“Differs” means the documented values are different. “Not documented” means there is no verified source.",
+    "noDifferences": "There are no documented differences between these two systems."
+  },
+  "TechnicalResources": {
+    "metaTitle": "Technical resources: EVEREST test reports and EPDs",
+    "metaDescription": "IRCCOS test reports, thermal calculations, environmental declarations and certifications for EVEREST aluminium and PVC systems, by series, with language and format.",
     "eyebrow": "Documentation",
-    "title": "Certificates and reports",
-    "intro": "Three kinds of manufacturer document are kept apart. Laboratory test reports give the classes of the sample that was tested. Environmental declarations list the profiles they cover. Certifications name the holder. EV HYBRID appears here only as a manufacturer reference: AL STORE does not sell it and does not accept quotation requests for it.",
+    "title": "Technical resources",
+    "intro": "EVEREST technical documentation for aluminium and PVC systems, arranged by series. Each document shows its category, system, language and file format, and who issued it. Manufacturer references such as EV HYBRID are kept apart: AL STORE does not sell them and does not accept quotation requests for them.",
+    "categoriesHeading": "Types of document",
+    "count": "{count, plural, one {# document} other {# documents}}",
+    "categories": {
+      "testReport": {
+        "title": "Laboratory test reports",
+        "description": "IRCCOS laboratory reports on one named window or door sample: air permeability, watertightness and resistance to wind load. The classes apply to the tested sample."
+      },
+      "thermalCalculation": {
+        "title": "Thermal calculations",
+        "description": "Calculations of frame thermal transmittance Uf to EN ISO 10077-2:2017 for specific frame nodes. The value is for the node calculated, not for a complete window."
+      },
+      "environmentalDeclaration": {
+        "title": "Environmental declarations (EPD)",
+        "description": "Environmental Product Declarations (EPD) to ISO 14025 and EN 15804, registered with the International EPD System. They describe environmental impact per 1 kg of profile, not window performance."
+      },
+      "certification": {
+        "title": "Certifications",
+        "description": "Certifications issued by independent bodies. Each names its own holder and scope. None is an AL STORE certificate."
+      },
+      "catalogue": {
+        "title": "Catalogues",
+        "description": "EVEREST manufacturer catalogues."
+      },
+      "drawing": {
+        "title": "Technical drawings",
+        "description": "Technical drawings of profiles and nodes."
+      },
+      "specification": {
+        "title": "Specifications",
+        "description": "System technical specifications."
+      },
+      "installation": {
+        "title": "Installation references",
+        "description": "Installation references."
+      }
+    },
+    "readingHeading": "How to read them",
+    "reading": {
+      "sample": "Laboratory results belong to the sample or node named in the report. They are not certificates of conformity and do not apply to a whole series or to the aluminium or PVC category.",
+      "complete": "IRCCOS reports are published complete and unaltered, as the laboratory permits. Environmental declarations and certifications open from the official sources that issued them.",
+      "official": "The “Official EVEREST document” label means the document itself names EVEREST as applicant, owner, holder or manufacturer. The issuer is shown separately."
+    },
+    "browseHeading": "Documents by system",
+    "browseIntro": "Choose a document to preview it here, or open it as a file."
+  },
+  "Documents": {
     "viewAction": "View the certificates and reports",
     "testedSamples": "Tested samples",
     "declarationsHeading": "Environmental declaration",
@@ -146,7 +304,12 @@
     "kinds": {
       "testReport": "Laboratory test report",
       "environmentalDeclaration": "Environmental declaration",
-      "certification": "Certification"
+      "certification": "Certification",
+      "thermalCalculation": "Thermal calculation",
+      "catalogue": "Catalogue",
+      "drawing": "Technical drawing",
+      "specification": "Specification",
+      "installation": "Installation reference"
     },
     "links": {
       "registry": "Registry",
@@ -239,7 +402,36 @@
     },
     "testedSampleHeading": "Tested-sample results: series {series}",
     "technicalDocsAction": "View technical documentation",
-    "pdfLink": "PDF"
+    "pdfLink": "PDF",
+    "groups": {
+      "aluminium": "Aluminium series",
+      "pvc": "PVC series",
+      "manufacturer": "Manufacturer references"
+    },
+    "manufacturerNote": "Documents about the manufacturer itself or about systems AL STORE does not sell. Listed for reference only.",
+    "categoryFilterLabel": "Filter by category",
+    "categoryAll": "All categories",
+    "coveredSeries": "Series named: {series}",
+    "notSoldTag": "Not sold by AL STORE",
+    "everestBadge": "Official EVEREST document",
+    "everestRoleLabel": "EVEREST on the document",
+    "everestRoles": {
+      "publisher": "Publisher",
+      "applicant": "Report applicant",
+      "epdOwner": "Declaration owner",
+      "holder": "Certificate holder",
+      "manufacturer": "Manufacturer of the certified system"
+    },
+    "languageLabel": "Language",
+    "formatLabel": "Format",
+    "languages": {
+      "sq": "Albanian",
+      "en": "English"
+    },
+    "formats": {
+      "pdf": "PDF"
+    },
+    "fileDescription": "{format}, {language}"
   },
   "NotFound": {
     "eyebrow": "Error 404",
@@ -266,5 +458,57 @@
       "supplyTrucks": "Supply trucks",
       "aluminiumTonnes": "Tonnes of aluminium supplied"
     }
+  },
+  "Projects": {
+    "metaTitle": "Projects with EVEREST systems",
+    "metaDescription": "Projects that use EVEREST systems distributed by AL STORE in Kosovo, with location, system used and photographs supplied by AL STORE.",
+    "eyebrow": "Projects",
+    "title": "Projects with EVEREST systems.",
+    "intro": "Projects that use EVEREST systems distributed by AL STORE. Each project is published with the client's written consent.",
+    "footnote": "Photographs supplied by AL STORE and published with the client's written consent. The systems are manufactured by EVEREST.",
+    "photoCredit": "Photographs: {credit}. Published with the client's written consent.",
+    "listLabel": "Project list",
+    "photosLabel": "Project photographs",
+    "backToGallery": "All projects",
+    "filters": {
+      "label": "Filter projects",
+      "system": "System",
+      "type": "Project type",
+      "all": "All",
+      "empty": "No project matches these filters."
+    },
+    "facts": {
+      "location": "Location",
+      "systems": "System",
+      "type": "Type",
+      "year": "Year"
+    },
+    "types": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "public": "Public",
+      "industrial": "Industrial"
+    }
+  },
+  "Knowledge": {
+    "metaTitle": "Knowledge centre: windows and aluminium profiles",
+    "metaDescription": "Technical articles for builders and designers in Kosovo: thermal breaks, window U-values and air, water and wind classes, with a source for every fact.",
+    "eyebrow": "Knowledge centre",
+    "title": "Technical knowledge for windows and doors",
+    "intro": "Articles for fabricators, installers, designers and developers in Kosovo. Every technical value comes from a standard, a laboratory report or an official source, listed at the end of the article.",
+    "method": "Laboratory results are quoted only for the tested sample or node, never for a whole series.",
+    "listLabel": "Articles",
+    "readArticle": "Read the article",
+    "breadcrumbLabel": "Breadcrumb",
+    "home": "Home",
+    "tocHeading": "In this article",
+    "reviewed": "Checked against its sources on {date}",
+    "sourcesHeading": "Sources",
+    "sourcesIntro": "Dates show when each source was read. Standards are cited from the official summaries of their scope; the IRCCOS reports are available in full in the technical documents.",
+    "accessed": "Read on {date}",
+    "relatedHeading": "Read next",
+    "documentsAction": "Technical documents",
+    "contactAction": "Contact us",
+    "allArticles": "All articles"
   }
 }

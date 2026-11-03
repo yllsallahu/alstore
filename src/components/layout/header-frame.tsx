@@ -8,8 +8,12 @@
 import { type ReactNode, useSyncExternalStore } from "react";
 import { usePathname } from "@/i18n/navigation";
 
-/** Tallest header bar (sm:h-20). The hero is min-h-dvh. */
-const HEADER_HEIGHT_PX = 80;
+/**
+ * Solid once less than this much of the hero (min-h-dvh) is left on screen. It must exceed
+ * the anchor offset (`scroll-padding-top: 6rem` = 96px in globals.css): an in-page jump
+ * leaves that much hero showing, and the hero copy must not run behind a transparent bar.
+ */
+const SOLID_BEFORE_HERO_END_PX = 112;
 
 function subscribe(onChange: () => void) {
   window.addEventListener("scroll", onChange, { passive: true });
@@ -20,7 +24,7 @@ function subscribe(onChange: () => void) {
   };
 }
 
-const isPastHero = () => window.scrollY > window.innerHeight - HEADER_HEIGHT_PX;
+const isPastHero = () => window.scrollY > window.innerHeight - SOLID_BEFORE_HERO_END_PX;
 
 export function HeaderFrame({ children }: { children: ReactNode }) {
   const isHome = usePathname() === "/";

@@ -4,6 +4,8 @@
 // page in the other language. It ships only the LocaleSwitcher messages.
 
 import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import type { ComponentProps } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { cx } from "@/lib/cx";
@@ -11,8 +13,15 @@ import { cx } from "@/lib/cx";
 export function LocaleSwitcher() {
   const t = useTranslations("LocaleSwitcher");
   const activeLocale = useLocale();
-  // When dynamic routes are added, pass { pathname, params: useParams() } instead.
   const pathname = usePathname();
+  const params = useParams();
+  // Dynamic routes (e.g. /systems/[slug]) need their params to build the other locale's URL.
+  // A 404 for an unknown slug renders through the [...rest] catch-all, so the template's
+  // params are missing there; link to the other locale's home instead of throwing.
+  const fillsTemplate = [...pathname.matchAll(/\[(?:\.\.\.)?(\w+)\]/g)].every(
+    ([, key]) => key !== undefined && key in params,
+  );
+  const href = (fillsTemplate ? { pathname, params } : "/") as ComponentProps<typeof Link>["href"];
 
   return (
     <nav aria-label={t("label")}>
@@ -22,7 +31,7 @@ export function LocaleSwitcher() {
           return (
             <li key={locale}>
               <Link
-                href={pathname}
+                href={href}
                 locale={locale}
                 hrefLang={locale}
                 lang={locale}

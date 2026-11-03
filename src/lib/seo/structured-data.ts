@@ -2,7 +2,10 @@ import type { Locale } from "next-intl";
 import { brandAssets } from "@/config/brand";
 import { env } from "@/config/env";
 import { siteConfig } from "@/config/site";
-import { absoluteUrl } from "./urls";
+import { routing } from "@/i18n/routing";
+import { type AppHref, absoluteUrl } from "./urls";
+
+const businessId = `${env.siteUrl}/#business`;
 
 type LocalBusinessInput = {
   locale: Locale;
@@ -23,7 +26,7 @@ export function localBusinessJsonLd({ locale, description, countryName }: LocalB
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${env.siteUrl}/#business`,
+    "@id": businessId,
     name,
     description,
     url: absoluteUrl(locale, "/"),
@@ -36,8 +39,42 @@ export function localBusinessJsonLd({ locale, description, countryName }: LocalB
       postalCode: address.postalCode,
       addressCountry: address.countryCode,
     },
+    hasMap: address.mapUrl,
     areaServed: { "@type": "Country", name: countryName },
     brand: { "@type": "Brand", name: manufacturer.name, url: manufacturer.url },
-    ...(logo && { logo: new URL(logo.src, `${env.siteUrl}/`).toString() }),
+    ...(logo && {
+      logo: new URL(logo.src, `${env.siteUrl}/`).toString(),
+      image: new URL(logo.src, `${env.siteUrl}/`).toString(),
+    }),
+  };
+}
+
+/**
+ * schema.org WebSite for the home page: the site name Google may show in
+ * results, its languages and a link to the business above as publisher.
+ */
+export function websiteJsonLd(locale: Locale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${env.siteUrl}/#website`,
+    name: siteConfig.name,
+    url: absoluteUrl(locale, "/"),
+    inLanguage: routing.locales,
+    publisher: { "@id": businessId },
+  };
+}
+
+/** schema.org BreadcrumbList for nested pages. Pass the trail from Home to the current page. */
+export function breadcrumbJsonLd(locale: Locale, trail: { name: string; href: AppHref }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(locale, item.href),
+    })),
   };
 }

@@ -7,7 +7,7 @@ import type { Locale } from "next-intl";
  * homepage anchor. Anchors are localized (/#produktet, /en#products).
  * Status of the targets:
  *   - contact: points at the existing contact block (#home-contact).
- *   - products: points at the product categories section (ProductCategories).
+ *   - products: points at the homepage company story (CompanyStory), its existing anchor.
  *   - systems: points at the EVEREST systems section (SystemsSection).
  *   - about: its homepage section is not built yet, so the link lands on the
  *     homepage until that section ships with the id below.

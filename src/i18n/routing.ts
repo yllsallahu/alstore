@@ -23,5 +23,43 @@ export const routing = defineRouting({
       sq: "/dokumentet",
       en: "/documents",
     },
+    // System pages exist only for systems with verified documents (src/features/catalog/
+    // system-specs.ts). The slug is the series number in both locales. The static
+    // compare route takes precedence over the slug.
+    "/systems/compare": {
+      sq: "/sistemet/krahaso",
+      en: "/systems/compare",
+    },
+    "/systems/[slug]": {
+      sq: "/sistemet/[slug]",
+      en: "/systems/[slug]",
+    },
+    // Return 404 until enough approved projects exist (src/features/projects/queries.ts).
+    "/projects": {
+      sq: "/projekte",
+      en: "/projects",
+    },
+    "/projects/[slug]": {
+      sq: "/projekte/[slug]",
+      en: "/projects/[slug]",
+    },
+    // Knowledge centre: one static key per article (src/features/knowledge/), so each
+    // locale keeps its own slug and the locale switcher needs no slug mapping.
+    "/knowledge": {
+      sq: "/njohuri",
+      en: "/knowledge",
+    },
+    "/knowledge/thermal-break": {
+      sq: "/njohuri/nderprerja-termike-ne-profilet-e-aluminit",
+      en: "/knowledge/thermal-break-aluminium-profiles",
+    },
+    "/knowledge/u-values": {
+      sq: "/njohuri/vlerat-u-te-dritareve-uf-ug-uw",
+      en: "/knowledge/window-u-values-uf-ug-uw",
+    },
+    "/knowledge/performance-classes": {
+      sq: "/njohuri/klasat-e-ajrit-ujit-dhe-eres-te-dritaret",
+      en: "/knowledge/window-air-water-wind-classes",
+    },
   },
 });

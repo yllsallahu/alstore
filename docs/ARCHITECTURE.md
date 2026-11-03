@@ -31,7 +31,11 @@ src/
     [locale]/
       layout.tsx             <html lang>, metadata defaults, header/footer, intl provider
       page.tsx               home (introduction, history, systems, contact)
-      documents/page.tsx     technical documents (reports, declarations, certifications)
+      documents/page.tsx     Technical Resources hub (documents by system, in-page categories)
+      projects/page.tsx      projects gallery (404 until enough approved projects exist)
+      projects/[slug]/       project detail page (404 unless the project qualifies)
+      knowledge/page.tsx     knowledge-centre index
+      knowledge/[article]/   knowledge-centre article (static params; unknown keys 404)
       not-found.tsx          localized 404
       error.tsx              localized error boundary (client)
       [...rest]/page.tsx     sends unknown localized paths to not-found
@@ -42,10 +46,28 @@ src/
     seo/                     JsonLd
   features/
     catalog/
-      components/          ProductCategories, SystemsSection, DocumentViewer
+      components/          SystemsSection, DocumentViewer, SystemDetail, SystemCompare
       documents.ts         verified technical-document register (lab PDFs in public/documents/)
       systems.ts           EVEREST systems shown on the homepage (sources in CONTENT_SOURCES §5)
+      system-specs.ts      spec model (document facts / EVEREST statements / not documented),
+                           which systems have a page, slugs
+      spec-copy.ts         resolves that model to localized text for pages and the comparison
+      structured-data.ts   Product JSON-LD for system pages
       queries.ts           server validation of that register
+    home/
+      components/          CompanyStory (2018 – today timeline), TruckScrollHero
+      company-story.ts     story milestones; EVEREST years read from documents.ts
+      truck-assets.ts      truck artwork slot for TruckScrollHero
+    projects/
+      components/          ProjectGallery, ProjectCard, ProjectFilters, ProjectDetail
+      schemas.ts           Zod project schema (localized text, systems, images, provenance)
+      projects.ts          approved-project register (empty: see CONTENT_SOURCES §7)
+      queries.ts           validation, publication thresholds, detail-page rule
+    knowledge/
+      articles/            one typed content module per article ({ sq, en } body + sources)
+      components/          ArticleBody, ArticleFigure (original SVG diagrams), breadcrumbs
+      schemas.ts           article model + Zod schema; links.ts internal link targets
+      queries.ts           validation (parity, ids, lengths); structured-data.ts Article JSON-LD
   config/
     site.ts                  verified business facts (single source of truth)
     brand.ts                 brand asset registry (header logo filled; inverse and OG still null)
@@ -87,17 +109,58 @@ Routes in `src/app/[locale]/…` stay thin: resolve the locale, call feature que
 feature components. Shared, domain-free UI goes in `src/components/ui/`. Don't create empty
 feature folders ahead of their phase.
 
+### Long-form content (knowledge centre)
+
+Short UI strings stay in the message catalogues. Articles are documents (headings, tables,
+formulas, figures, inline links, sources), so each one is a **typed content module** in
+`src/features/knowledge/articles/` holding `content: { sq, en }`. Albanian is written first and
+is the reference; both locales are required by the type and by the Zod schema, which also checks
+meta lengths and unique section ids at build time. No MDX or CMS dependency: a typed block list
+(`schemas.ts`) renders through one Server Component and maps 1:1 to a future CMS schema.
+
+- Inline links use typed targets (`InternalTarget`), resolved in `links.ts`. Links to a system
+  go through the `systemPages` map, which is empty until per-system routes ship; they fall back
+  to the homepage Systems anchor. Fill that map when the catalogue system pages land.
+- Each article lists its sources (URL or `/documents/*.pdf`, date read, what was used); they are
+  recorded in `CONTENT_SOURCES.md` §8. Lab results are attributed to the named sample or node.
+- To add an article: add its key to `articleKeys`, a pathname pair in `routing.ts`, a module in
+  `articles/`, and register it in `queries.ts`. The sitemap picks it up from `articleKeys`.
+
+### Projects gallery (built, switched off)
+
+`src/features/projects/` holds a reusable gallery with no data. Nothing is visible on the site:
+the register is empty, so `/projekte` ↔ `/en/projects` and every `/projekte/<slug>` return 404,
+the homepage has no projects section and the sitemap lists no project URL.
+
+How it switches on, in order:
+
+1. Approved projects are recorded in `CONTENT_SOURCES.md` §7 and added to `projects.ts`
+   (photos in `public/media/projects/<slug>/`). The build fails if a record breaks the schema.
+2. At 3 projects (`MIN_GALLERY_PROJECTS`) the gallery page renders. At 6, with two or more
+   distinct systems or types, the client filters appear (`MIN_FILTER_PROJECTS`). A project with
+   a `body` and 3+ photos gets a statically built detail page and a linked card.
+3. Same change: add `"/projects"` to `indexableRoutes` in `src/app/sitemap.ts`, append
+   `listDetailSlugs()` as `{ pathname: "/projects/[slug]", params: { slug } }` entries, and add a
+   navigation link (`src/config/navigation.ts`) and, if wanted, a homepage teaser.
+
+Images are local, owner-supplied files through `next/image` with recorded dimensions (no
+`remotePatterns` needed). Hover is an opacity change only (DESIGN_RULES §5).
+
 ## 3. Rendering model
 
 - **Server Components by default.** Pages are statically generated per locale
   (`generateStaticParams` in `[locale]/layout.tsx`, `setRequestLocale` via `resolveLocale`).
 - **Client Components (current, complete list):** `LocaleSwitcher` (needs the current
   pathname), `MobileNav` (menu open/close), `HeaderFrame` (transparent header over the home hero:
-  pathname + scroll position), `ProductCategories` (selected category image), `DocumentViewer`
-  (selected technical document), `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it).
+  pathname + scroll position), `Reveal` (IntersectionObserver
+  scroll-in reveal around server-rendered content; needs no namespace), `DocumentViewer`
+  (selected technical document), `SystemCompare` (two selected systems, differences filter,
+  shareable query string; text arrives resolved as props, so no namespace), `ProjectFilters` (gallery filter state; rendered only above the
+  filter threshold, takes translated labels as props so it needs no namespace),
+  `[locale]/error.tsx` and `global-error.tsx` (Next.js requires it).
   Each new one needs a comment justifying it.
 - `NextIntlClientProvider` receives **only** the namespaces client components use
-  (`LocaleSwitcher`, `ProductCategories`, `Documents`, `Error`). Add a namespace there when a new
+  (`LocaleSwitcher`, `TruckScrollHero`, `Documents`, `Error`). Add a namespace there when a new
   client component needs one.
 
 ## 4. Localization flow
@@ -116,8 +179,8 @@ feature folders ahead of their phase.
 
 **Adding a route:** add its key and both slugs to `routing.pathnames`, add messages to both
 catalogues, create `src/app/[locale]/<key>/page.tsx` with `generateMetadata` →
-`buildPageMetadata`, and list it in `sitemap.ts` if indexable. When the first dynamic route
-lands, update `LocaleSwitcher` to pass `{ pathname, params }`.
+`buildPageMetadata`, and list it in `sitemap.ts` if indexable. `LocaleSwitcher` passes
+`{ pathname, params }`, so dynamic routes (`/projects/[slug]`) switch language correctly.
 
 ## 5. Configuration and secrets
 

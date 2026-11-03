@@ -65,7 +65,8 @@ pages) and `3xl` for page titles elsewhere.
 - `Container` (`max-w-site` = 84rem, `px-gutter` = clamp 1.25–3rem) wraps every full-width band.
 - `py-section` (clamp 4–9rem) separates major sections. Smaller gaps use the default 0.25rem
   spacing scale. `h-preview` (36rem) is the technical-document preview pane from `lg` up;
-  below that the pane uses `h-96`.
+  below that the pane uses `h-96`. `min-h-fold` (`100svh` minus the 5rem sticky header) makes a
+  band fill exactly one screen under the header; the home company story uses it from `lg` up.
 - 12-column grid at `md`+. Single column below `md`. Design mobile-first at 360px width.
 - Touch targets ≥ 44px (`min-h-11`). Primary actions are 48px (`min-h-12`).
 - Breakpoints are Tailwind defaults (`sm` 40rem, `md` 48rem, `lg` 64rem, `xl` 80rem).
@@ -78,13 +79,17 @@ pages) and `3xl` for page titles elsewhere.
 - Motion: `duration-200 ease-standard`, colour and opacity only. Nothing moves on its own, with
   one owner-requested exception: the muted, looping home hero video (§8). It is hidden under
   `prefers-reduced-motion`, leaving its still poster. `prefers-reduced-motion` is honoured globally.
+- Hero entrance (owner request): the home hero copy fades in and rises 0.75rem once on load,
+  700ms `ease-standard`, staggered 80ms (`animate-rise`, `animate-rise-2` … `-4`; keyframes in
+  `tokens.css`). Every use pairs it with `motion-reduce:animate-none`. Don't reuse it elsewhere.
 
 ## 6. Component conventions
 
 - **Server Components by default.** A Client Component starts with `"use client"` and a comment
   saying why. Current Client Components: `LocaleSwitcher` (needs pathname), `MobileNav` (menu
-  state), `HeaderFrame` (pathname + scroll position), `ProductCategories` (selected category
-  image), `DocumentViewer` (selected technical document) and `error.tsx` / `global-error.tsx`
+  state), `HeaderFrame` (pathname + scroll position), `Reveal` (scroll-in
+  reveal of server-rendered content), `DocumentViewer` (selected technical document), `SystemCompare` (selected
+  systems) and `error.tsx` / `global-error.tsx`
   (Next.js requirement).
 - **Header over the hero:** on the home page `HeaderFrame` sets `data-overlay` on the header
   while the full-screen hero is behind it: transparent background, `on-graphite` text, and the
@@ -95,7 +100,9 @@ pages) and `3xl` for page titles elsewhere.
   `src/components/seo/`. Feature UI goes in `src/features/<feature>/components/` (from Phase 2).
 - **One style, many elements:** action styling is the `buttonClasses(variant)` function, used on
   `<button>`, `<a>` and the localized `<Link>`. Don't create `Button`/`ButtonLink` wrappers
-  unless a real behavioural need appears.
+  unless a real behavioural need appears. Variants: `primary` and `secondary` on paper;
+  `primaryInverse` (`on-graphite` fill, `ink` text) and `secondaryInverse` (`on-graphite-muted`
+  border) on graphite or the hero scrim.
 - **No class-merging library.** `cx()` only joins strings. Don't pass conflicting utilities.
   Expose a prop (e.g. `tone`) instead.
 - **No arbitrary values** (`text-[13px]`, `bg-[#…]`). If a value is needed twice, it becomes a
@@ -137,12 +144,18 @@ colours, update the colour tokens in `tokens.css` at the same time.
 - **EVEREST system renders** (homepage Systems section) load from `everest.al` via `next/image`
   `remotePatterns`. They sit on `paper-sunken` with `mix-blend-multiply`, so their white
   backgrounds take the panel tone. The section is a hairline grid, not shadowed cards.
+- **Explanatory diagrams** (knowledge centre, `ArticleFigure`): original inline SVG schematics
+  drawn with colour tokens (`fill-paper-sunken`, `stroke-ink`, `fill-accent`). They are labelled
+  "illustrative" in the caption, never imitate a manufacturer drawing, and carry meaning through
+  a numbered text legend (the SVG itself is `aria-hidden`).
 - Always use `next/image` with explicit dimensions and meaningful `alt` text in both languages.
   Purely decorative backgrounds (the hero video and its poster) use `alt=""` / `aria-hidden`.
 - **Home hero video:** `public/media/hero-video.mp4` (owner-supplied, 848×478, ~11 s) with
   `public/media/hero-video-poster.jpg` (its first frame) underneath. It plays muted, looped
-  and inline behind a `graphite/60` scrim so `on-graphite` text stays readable. Replace both files
-  together with a higher-resolution export when available.
+  and inline behind a graphite scrim so `on-graphite` text stays readable: a bottom-to-top
+  gradient (`graphite/90` → `/70` → `/60`) that deepens behind the copy and is never lighter than
+  `graphite/60`, which keeps the overlaid header legible. This functional scrim is the only
+  gradient allowed. Replace both files together with a higher-resolution export when available.
 
 ## 9. Accessibility baseline
 
